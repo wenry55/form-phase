@@ -1,0 +1,2395 @@
+2022-09-19 16:28:01,559:WARNING:No module named 'prophet'.
+'prophet' is a soft dependency and not included in the pycaret installation. Please run: `pip install prophet` to install.
+2022-09-19 16:29:08,896:WARNING:No module named 'prophet'.
+'prophet' is a soft dependency and not included in the pycaret installation. Please run: `pip install prophet` to install.
+2022-09-19 16:31:30,657:INFO:PyCaret TSForecastingExperiment
+2022-09-19 16:31:30,658:INFO:Logging name: ts-default-name
+2022-09-19 16:31:30,658:INFO:ML Usecase: MLUsecase.TIME_SERIES
+2022-09-19 16:31:30,658:INFO:version 3.0.0.rc3
+2022-09-19 16:31:30,658:INFO:Initializing setup()
+2022-09-19 16:31:30,658:INFO:self.USI: bac3
+2022-09-19 16:31:30,658:INFO:self.variable_keys: {'X_train_transformed', 'strictly_positive', 'y_transformed', 'enforce_pi', 'data', 'html_param', 'all_sp_values', 'pipeline', 'y_test_transformed', 'X_test', 'exp_id', 'approach_type', 'memory', 'gpu_param', 'y_test', '_gpu_n_jobs_param', 'enforce_exogenous', 'X_test_transformed', 'display_container', 'variable_keys', 'X_train', 'X_transformed', '_ml_usecase', 'seasonal_period', '_all_models', 'exp_name_log', 'n_jobs_param', 'y_train_transformed', 'y', '_all_metrics', 'model_engines', '_all_models_internal', 'USI', 'idx', 'fold_param', 'X', 'primary_sp_to_use', '_available_plots', 'fh', 'exogenous_present', 'seasonality_present', 'master_model_container', 'y_train', 'seed', 'logging_param', 'log_plots_param', 'index_type', 'fold_generator'}
+2022-09-19 16:31:30,658:INFO:Checking environment
+2022-09-19 16:31:30,658:INFO:python_version: 3.9.13
+2022-09-19 16:31:30,658:INFO:python_build: ('main', 'May 27 2022 16:56:21')
+2022-09-19 16:31:30,658:INFO:machine: x86_64
+2022-09-19 16:31:30,658:INFO:platform: Linux-5.4.0-42-generic-x86_64-with-glibc2.27
+2022-09-19 16:31:30,658:INFO:Memory: svmem(total=1082007138304, available=896483266560, percent=17.1, used=178234245120, free=235734630400, active=289193558016, inactive=517336580096, buffers=15538163712, cached=652500099072, shared=1815228416, slab=32737607680)
+2022-09-19 16:31:30,664:INFO:Physical Core: 128
+2022-09-19 16:31:30,664:INFO:Logical Core: 256
+2022-09-19 16:31:30,664:INFO:Checking libraries
+2022-09-19 16:31:30,664:INFO:System:
+2022-09-19 16:31:30,664:INFO:    python: 3.9.13 | packaged by conda-forge | (main, May 27 2022, 16:56:21)  [GCC 10.3.0]
+2022-09-19 16:31:30,664:INFO:executable: /raid/templates/anaconda3/envs/rapids-22.08/bin/python
+2022-09-19 16:31:30,664:INFO:   machine: Linux-5.4.0-42-generic-x86_64-with-glibc2.27
+2022-09-19 16:31:30,664:INFO:PyCaret required dependencies:
+2022-09-19 16:31:30,665:WARNING:/raid/templates/anaconda3/envs/rapids-22.08/lib/python3.9/site-packages/_distutils_hack/__init__.py:30: UserWarning: Setuptools is replacing distutils.
+  warnings.warn("Setuptools is replacing distutils.")
+
+2022-09-19 16:31:30,771:INFO:                 pip: 22.2.2
+2022-09-19 16:31:30,771:INFO:          setuptools: 60.10.0
+2022-09-19 16:31:30,771:INFO:             pycaret: 3.0.0.rc3
+2022-09-19 16:31:30,771:INFO:             IPython: 8.4.0
+2022-09-19 16:31:30,771:INFO:          ipywidgets: 8.0.1
+2022-09-19 16:31:30,771:INFO:                tqdm: 4.64.0
+2022-09-19 16:31:30,771:INFO:               numpy: 1.21.6
+2022-09-19 16:31:30,771:INFO:              pandas: 1.4.3
+2022-09-19 16:31:30,771:INFO:              jinja2: 3.1.2
+2022-09-19 16:31:30,771:INFO:               scipy: 1.8.1
+2022-09-19 16:31:30,771:INFO:              joblib: 1.1.0
+2022-09-19 16:31:30,771:INFO:             sklearn: 1.1.2
+2022-09-19 16:31:30,771:INFO:                pyod: Installed but version unavailable
+2022-09-19 16:31:30,771:INFO:            imblearn: 0.9.1
+2022-09-19 16:31:30,771:INFO:   category_encoders: 2.5.0
+2022-09-19 16:31:30,771:INFO:            lightgbm: 3.3.2
+2022-09-19 16:31:30,771:INFO:               numba: 0.55.2
+2022-09-19 16:31:30,771:INFO:            requests: 2.28.1
+2022-09-19 16:31:30,771:INFO:          matplotlib: 3.5.3
+2022-09-19 16:31:30,771:INFO:          scikitplot: 0.3.7
+2022-09-19 16:31:30,771:INFO:         yellowbrick: 1.5
+2022-09-19 16:31:30,772:INFO:              plotly: 5.10.0
+2022-09-19 16:31:30,772:INFO:             kaleido: 0.2.1
+2022-09-19 16:31:30,772:INFO:         statsmodels: 0.13.2
+2022-09-19 16:31:30,772:INFO:              sktime: 0.11.4
+2022-09-19 16:31:30,772:INFO:               tbats: Installed but version unavailable
+2022-09-19 16:31:30,772:INFO:            pmdarima: 2.0.0
+2022-09-19 16:31:30,772:INFO:              psutil: 5.9.1
+2022-09-19 16:31:30,772:INFO:None
+2022-09-19 16:32:32,257:INFO:PyCaret TSForecastingExperiment
+2022-09-19 16:32:32,258:INFO:Logging name: ts-default-name
+2022-09-19 16:32:32,258:INFO:ML Usecase: MLUsecase.TIME_SERIES
+2022-09-19 16:32:32,258:INFO:version 3.0.0.rc3
+2022-09-19 16:32:32,258:INFO:Initializing setup()
+2022-09-19 16:32:32,258:INFO:self.USI: 3819
+2022-09-19 16:32:32,258:INFO:self.variable_keys: {'X_train_transformed', 'strictly_positive', 'y_transformed', 'enforce_pi', 'data', 'html_param', 'all_sp_values', 'pipeline', 'y_test_transformed', 'X_test', 'exp_id', 'approach_type', 'memory', 'gpu_param', 'y_test', '_gpu_n_jobs_param', 'enforce_exogenous', 'X_test_transformed', 'display_container', 'variable_keys', 'X_train', 'X_transformed', '_ml_usecase', 'seasonal_period', '_all_models', 'exp_name_log', 'n_jobs_param', 'y_train_transformed', 'y', '_all_metrics', 'model_engines', '_all_models_internal', 'USI', 'idx', 'fold_param', 'X', 'primary_sp_to_use', '_available_plots', 'fh', 'exogenous_present', 'seasonality_present', 'master_model_container', 'y_train', 'seed', 'logging_param', 'log_plots_param', 'index_type', 'fold_generator'}
+2022-09-19 16:32:32,258:INFO:Checking environment
+2022-09-19 16:32:32,258:INFO:python_version: 3.9.13
+2022-09-19 16:32:32,258:INFO:python_build: ('main', 'May 27 2022 16:56:21')
+2022-09-19 16:32:32,258:INFO:machine: x86_64
+2022-09-19 16:32:32,258:INFO:platform: Linux-5.4.0-42-generic-x86_64-with-glibc2.27
+2022-09-19 16:32:32,258:INFO:Memory: svmem(total=1082007138304, available=896360923136, percent=17.2, used=178356580352, free=235851173888, active=289310269440, inactive=517106503680, buffers=15537786880, cached=652261597184, shared=1815228416, slab=32731660288)
+2022-09-19 16:32:32,264:INFO:Physical Core: 128
+2022-09-19 16:32:32,264:INFO:Logical Core: 256
+2022-09-19 16:32:32,264:INFO:Checking libraries
+2022-09-19 16:32:32,264:INFO:System:
+2022-09-19 16:32:32,264:INFO:    python: 3.9.13 | packaged by conda-forge | (main, May 27 2022, 16:56:21)  [GCC 10.3.0]
+2022-09-19 16:32:32,264:INFO:executable: /raid/templates/anaconda3/envs/rapids-22.08/bin/python
+2022-09-19 16:32:32,264:INFO:   machine: Linux-5.4.0-42-generic-x86_64-with-glibc2.27
+2022-09-19 16:32:32,264:INFO:PyCaret required dependencies:
+2022-09-19 16:32:32,264:INFO:                 pip: 22.2.2
+2022-09-19 16:32:32,264:INFO:          setuptools: 60.10.0
+2022-09-19 16:32:32,264:INFO:             pycaret: 3.0.0.rc3
+2022-09-19 16:32:32,264:INFO:             IPython: 8.4.0
+2022-09-19 16:32:32,264:INFO:          ipywidgets: 8.0.1
+2022-09-19 16:32:32,264:INFO:                tqdm: 4.64.0
+2022-09-19 16:32:32,264:INFO:               numpy: 1.21.6
+2022-09-19 16:32:32,264:INFO:              pandas: 1.4.3
+2022-09-19 16:32:32,264:INFO:              jinja2: 3.1.2
+2022-09-19 16:32:32,264:INFO:               scipy: 1.8.1
+2022-09-19 16:32:32,265:INFO:              joblib: 1.1.0
+2022-09-19 16:32:32,265:INFO:             sklearn: 1.1.2
+2022-09-19 16:32:32,265:INFO:                pyod: Installed but version unavailable
+2022-09-19 16:32:32,265:INFO:            imblearn: 0.9.1
+2022-09-19 16:32:32,265:INFO:   category_encoders: 2.5.0
+2022-09-19 16:32:32,265:INFO:            lightgbm: 3.3.2
+2022-09-19 16:32:32,265:INFO:               numba: 0.55.2
+2022-09-19 16:32:32,265:INFO:            requests: 2.28.1
+2022-09-19 16:32:32,265:INFO:          matplotlib: 3.5.3
+2022-09-19 16:32:32,265:INFO:          scikitplot: 0.3.7
+2022-09-19 16:32:32,265:INFO:         yellowbrick: 1.5
+2022-09-19 16:32:32,265:INFO:              plotly: 5.10.0
+2022-09-19 16:32:32,265:INFO:             kaleido: 0.2.1
+2022-09-19 16:32:32,265:INFO:         statsmodels: 0.13.2
+2022-09-19 16:32:32,265:INFO:              sktime: 0.11.4
+2022-09-19 16:32:32,265:INFO:               tbats: Installed but version unavailable
+2022-09-19 16:32:32,265:INFO:            pmdarima: 2.0.0
+2022-09-19 16:32:32,265:INFO:              psutil: 5.9.1
+2022-09-19 16:32:32,265:INFO:None
+2022-09-19 16:33:57,240:INFO:PyCaret TSForecastingExperiment
+2022-09-19 16:33:57,240:INFO:Logging name: ts-default-name
+2022-09-19 16:33:57,240:INFO:ML Usecase: MLUsecase.TIME_SERIES
+2022-09-19 16:33:57,240:INFO:version 3.0.0.rc3
+2022-09-19 16:33:57,240:INFO:Initializing setup()
+2022-09-19 16:33:57,240:INFO:self.USI: ab12
+2022-09-19 16:33:57,240:INFO:self.variable_keys: {'X_train_transformed', 'strictly_positive', 'y_transformed', 'enforce_pi', 'data', 'html_param', 'all_sp_values', 'pipeline', 'y_test_transformed', 'X_test', 'exp_id', 'approach_type', 'memory', 'gpu_param', 'y_test', '_gpu_n_jobs_param', 'enforce_exogenous', 'X_test_transformed', 'display_container', 'variable_keys', 'X_train', 'X_transformed', '_ml_usecase', 'seasonal_period', '_all_models', 'exp_name_log', 'n_jobs_param', 'y_train_transformed', 'y', '_all_metrics', 'model_engines', '_all_models_internal', 'USI', 'idx', 'fold_param', 'X', 'primary_sp_to_use', '_available_plots', 'fh', 'exogenous_present', 'seasonality_present', 'master_model_container', 'y_train', 'seed', 'logging_param', 'log_plots_param', 'index_type', 'fold_generator'}
+2022-09-19 16:33:57,240:INFO:Checking environment
+2022-09-19 16:33:57,240:INFO:python_version: 3.9.13
+2022-09-19 16:33:57,240:INFO:python_build: ('main', 'May 27 2022 16:56:21')
+2022-09-19 16:33:57,240:INFO:machine: x86_64
+2022-09-19 16:33:57,240:INFO:platform: Linux-5.4.0-42-generic-x86_64-with-glibc2.27
+2022-09-19 16:33:57,240:INFO:Memory: svmem(total=1082007138304, available=896358518784, percent=17.2, used=178358165504, free=235668533248, active=289318150144, inactive=517287313408, buffers=15537360896, cached=652443078656, shared=1815228416, slab=32736083968)
+2022-09-19 16:33:57,246:INFO:Physical Core: 128
+2022-09-19 16:33:57,246:INFO:Logical Core: 256
+2022-09-19 16:33:57,246:INFO:Checking libraries
+2022-09-19 16:33:57,246:INFO:System:
+2022-09-19 16:33:57,246:INFO:    python: 3.9.13 | packaged by conda-forge | (main, May 27 2022, 16:56:21)  [GCC 10.3.0]
+2022-09-19 16:33:57,246:INFO:executable: /raid/templates/anaconda3/envs/rapids-22.08/bin/python
+2022-09-19 16:33:57,246:INFO:   machine: Linux-5.4.0-42-generic-x86_64-with-glibc2.27
+2022-09-19 16:33:57,246:INFO:PyCaret required dependencies:
+2022-09-19 16:33:57,246:INFO:                 pip: 22.2.2
+2022-09-19 16:33:57,246:INFO:          setuptools: 60.10.0
+2022-09-19 16:33:57,246:INFO:             pycaret: 3.0.0.rc3
+2022-09-19 16:33:57,246:INFO:             IPython: 8.4.0
+2022-09-19 16:33:57,246:INFO:          ipywidgets: 8.0.1
+2022-09-19 16:33:57,246:INFO:                tqdm: 4.64.0
+2022-09-19 16:33:57,246:INFO:               numpy: 1.21.6
+2022-09-19 16:33:57,246:INFO:              pandas: 1.4.3
+2022-09-19 16:33:57,246:INFO:              jinja2: 3.1.2
+2022-09-19 16:33:57,246:INFO:               scipy: 1.8.1
+2022-09-19 16:33:57,246:INFO:              joblib: 1.1.0
+2022-09-19 16:33:57,246:INFO:             sklearn: 1.1.2
+2022-09-19 16:33:57,246:INFO:                pyod: Installed but version unavailable
+2022-09-19 16:33:57,246:INFO:            imblearn: 0.9.1
+2022-09-19 16:33:57,246:INFO:   category_encoders: 2.5.0
+2022-09-19 16:33:57,246:INFO:            lightgbm: 3.3.2
+2022-09-19 16:33:57,246:INFO:               numba: 0.55.2
+2022-09-19 16:33:57,246:INFO:            requests: 2.28.1
+2022-09-19 16:33:57,246:INFO:          matplotlib: 3.5.3
+2022-09-19 16:33:57,246:INFO:          scikitplot: 0.3.7
+2022-09-19 16:33:57,246:INFO:         yellowbrick: 1.5
+2022-09-19 16:33:57,246:INFO:              plotly: 5.10.0
+2022-09-19 16:33:57,246:INFO:             kaleido: 0.2.1
+2022-09-19 16:33:57,247:INFO:         statsmodels: 0.13.2
+2022-09-19 16:33:57,247:INFO:              sktime: 0.11.4
+2022-09-19 16:33:57,247:INFO:               tbats: Installed but version unavailable
+2022-09-19 16:33:57,247:INFO:            pmdarima: 2.0.0
+2022-09-19 16:33:57,247:INFO:              psutil: 5.9.1
+2022-09-19 16:33:57,247:INFO:None
+2022-09-19 16:36:22,875:INFO:PyCaret TSForecastingExperiment
+2022-09-19 16:36:22,875:INFO:Logging name: ts-default-name
+2022-09-19 16:36:22,875:INFO:ML Usecase: MLUsecase.TIME_SERIES
+2022-09-19 16:36:22,875:INFO:version 3.0.0.rc3
+2022-09-19 16:36:22,875:INFO:Initializing setup()
+2022-09-19 16:36:22,875:INFO:self.USI: c000
+2022-09-19 16:36:22,875:INFO:self.variable_keys: {'X_train_transformed', 'strictly_positive', 'y_transformed', 'enforce_pi', 'data', 'html_param', 'all_sp_values', 'pipeline', 'y_test_transformed', 'X_test', 'exp_id', 'approach_type', 'memory', 'gpu_param', 'y_test', '_gpu_n_jobs_param', 'enforce_exogenous', 'X_test_transformed', 'display_container', 'variable_keys', 'X_train', 'X_transformed', '_ml_usecase', 'seasonal_period', '_all_models', 'exp_name_log', 'n_jobs_param', 'y_train_transformed', 'y', '_all_metrics', 'model_engines', '_all_models_internal', 'USI', 'idx', 'fold_param', 'X', 'primary_sp_to_use', '_available_plots', 'fh', 'exogenous_present', 'seasonality_present', 'master_model_container', 'y_train', 'seed', 'logging_param', 'log_plots_param', 'index_type', 'fold_generator'}
+2022-09-19 16:36:22,875:INFO:Checking environment
+2022-09-19 16:36:22,875:INFO:python_version: 3.9.13
+2022-09-19 16:36:22,875:INFO:python_build: ('main', 'May 27 2022 16:56:21')
+2022-09-19 16:36:22,875:INFO:machine: x86_64
+2022-09-19 16:36:22,875:INFO:platform: Linux-5.4.0-42-generic-x86_64-with-glibc2.27
+2022-09-19 16:36:22,875:INFO:Memory: svmem(total=1082007138304, available=896386289664, percent=17.2, used=178330988544, free=235665444864, active=289267486720, inactive=517319159808, buffers=15535484928, cached=652475219968, shared=1815228416, slab=32740040704)
+2022-09-19 16:36:22,881:INFO:Physical Core: 128
+2022-09-19 16:36:22,881:INFO:Logical Core: 256
+2022-09-19 16:36:22,881:INFO:Checking libraries
+2022-09-19 16:36:22,881:INFO:System:
+2022-09-19 16:36:22,881:INFO:    python: 3.9.13 | packaged by conda-forge | (main, May 27 2022, 16:56:21)  [GCC 10.3.0]
+2022-09-19 16:36:22,881:INFO:executable: /raid/templates/anaconda3/envs/rapids-22.08/bin/python
+2022-09-19 16:36:22,881:INFO:   machine: Linux-5.4.0-42-generic-x86_64-with-glibc2.27
+2022-09-19 16:36:22,881:INFO:PyCaret required dependencies:
+2022-09-19 16:36:22,881:INFO:                 pip: 22.2.2
+2022-09-19 16:36:22,881:INFO:          setuptools: 60.10.0
+2022-09-19 16:36:22,881:INFO:             pycaret: 3.0.0.rc3
+2022-09-19 16:36:22,881:INFO:             IPython: 8.4.0
+2022-09-19 16:36:22,881:INFO:          ipywidgets: 8.0.1
+2022-09-19 16:36:22,881:INFO:                tqdm: 4.64.0
+2022-09-19 16:36:22,881:INFO:               numpy: 1.21.6
+2022-09-19 16:36:22,881:INFO:              pandas: 1.4.3
+2022-09-19 16:36:22,881:INFO:              jinja2: 3.1.2
+2022-09-19 16:36:22,881:INFO:               scipy: 1.8.1
+2022-09-19 16:36:22,881:INFO:              joblib: 1.1.0
+2022-09-19 16:36:22,881:INFO:             sklearn: 1.1.2
+2022-09-19 16:36:22,881:INFO:                pyod: Installed but version unavailable
+2022-09-19 16:36:22,881:INFO:            imblearn: 0.9.1
+2022-09-19 16:36:22,881:INFO:   category_encoders: 2.5.0
+2022-09-19 16:36:22,881:INFO:            lightgbm: 3.3.2
+2022-09-19 16:36:22,881:INFO:               numba: 0.55.2
+2022-09-19 16:36:22,881:INFO:            requests: 2.28.1
+2022-09-19 16:36:22,881:INFO:          matplotlib: 3.5.3
+2022-09-19 16:36:22,881:INFO:          scikitplot: 0.3.7
+2022-09-19 16:36:22,881:INFO:         yellowbrick: 1.5
+2022-09-19 16:36:22,881:INFO:              plotly: 5.10.0
+2022-09-19 16:36:22,881:INFO:             kaleido: 0.2.1
+2022-09-19 16:36:22,881:INFO:         statsmodels: 0.13.2
+2022-09-19 16:36:22,881:INFO:              sktime: 0.11.4
+2022-09-19 16:36:22,881:INFO:               tbats: Installed but version unavailable
+2022-09-19 16:36:22,881:INFO:            pmdarima: 2.0.0
+2022-09-19 16:36:22,881:INFO:              psutil: 5.9.1
+2022-09-19 16:36:22,881:INFO:None
+2022-09-19 16:46:05,200:INFO:PyCaret TSForecastingExperiment
+2022-09-19 16:46:05,201:INFO:Logging name: ts-default-name
+2022-09-19 16:46:05,201:INFO:ML Usecase: MLUsecase.TIME_SERIES
+2022-09-19 16:46:05,201:INFO:version 3.0.0.rc3
+2022-09-19 16:46:05,201:INFO:Initializing setup()
+2022-09-19 16:46:05,201:INFO:self.USI: d5f8
+2022-09-19 16:46:05,201:INFO:self.variable_keys: {'X_train_transformed', 'strictly_positive', 'y_transformed', 'enforce_pi', 'data', 'html_param', 'all_sp_values', 'pipeline', 'y_test_transformed', 'X_test', 'exp_id', 'approach_type', 'memory', 'gpu_param', 'y_test', '_gpu_n_jobs_param', 'enforce_exogenous', 'X_test_transformed', 'display_container', 'variable_keys', 'X_train', 'X_transformed', '_ml_usecase', 'seasonal_period', '_all_models', 'exp_name_log', 'n_jobs_param', 'y_train_transformed', 'y', '_all_metrics', 'model_engines', '_all_models_internal', 'USI', 'idx', 'fold_param', 'X', 'primary_sp_to_use', '_available_plots', 'fh', 'exogenous_present', 'seasonality_present', 'master_model_container', 'y_train', 'seed', 'logging_param', 'log_plots_param', 'index_type', 'fold_generator'}
+2022-09-19 16:46:05,201:INFO:Checking environment
+2022-09-19 16:46:05,201:INFO:python_version: 3.9.13
+2022-09-19 16:46:05,201:INFO:python_build: ('main', 'May 27 2022 16:56:21')
+2022-09-19 16:46:05,201:INFO:machine: x86_64
+2022-09-19 16:46:05,201:INFO:platform: Linux-5.4.0-42-generic-x86_64-with-glibc2.27
+2022-09-19 16:46:05,201:INFO:Memory: svmem(total=1082007138304, available=896143511552, percent=17.2, used=178573836288, free=234371141632, active=289427234816, inactive=518356090880, buffers=15528873984, cached=653533286400, shared=1815228416, slab=32772521984)
+2022-09-19 16:46:05,206:INFO:Physical Core: 128
+2022-09-19 16:46:05,206:INFO:Logical Core: 256
+2022-09-19 16:46:05,206:INFO:Checking libraries
+2022-09-19 16:46:05,206:INFO:System:
+2022-09-19 16:46:05,206:INFO:    python: 3.9.13 | packaged by conda-forge | (main, May 27 2022, 16:56:21)  [GCC 10.3.0]
+2022-09-19 16:46:05,206:INFO:executable: /raid/templates/anaconda3/envs/rapids-22.08/bin/python
+2022-09-19 16:46:05,207:INFO:   machine: Linux-5.4.0-42-generic-x86_64-with-glibc2.27
+2022-09-19 16:46:05,207:INFO:PyCaret required dependencies:
+2022-09-19 16:46:05,207:INFO:                 pip: 22.2.2
+2022-09-19 16:46:05,207:INFO:          setuptools: 60.10.0
+2022-09-19 16:46:05,207:INFO:             pycaret: 3.0.0.rc3
+2022-09-19 16:46:05,207:INFO:             IPython: 8.4.0
+2022-09-19 16:46:05,207:INFO:          ipywidgets: 8.0.1
+2022-09-19 16:46:05,207:INFO:                tqdm: 4.64.0
+2022-09-19 16:46:05,207:INFO:               numpy: 1.21.6
+2022-09-19 16:46:05,207:INFO:              pandas: 1.4.3
+2022-09-19 16:46:05,207:INFO:              jinja2: 3.1.2
+2022-09-19 16:46:05,207:INFO:               scipy: 1.8.1
+2022-09-19 16:46:05,207:INFO:              joblib: 1.1.0
+2022-09-19 16:46:05,207:INFO:             sklearn: 1.1.2
+2022-09-19 16:46:05,207:INFO:                pyod: Installed but version unavailable
+2022-09-19 16:46:05,207:INFO:            imblearn: 0.9.1
+2022-09-19 16:46:05,207:INFO:   category_encoders: 2.5.0
+2022-09-19 16:46:05,207:INFO:            lightgbm: 3.3.2
+2022-09-19 16:46:05,207:INFO:               numba: 0.55.2
+2022-09-19 16:46:05,207:INFO:            requests: 2.28.1
+2022-09-19 16:46:05,207:INFO:          matplotlib: 3.5.3
+2022-09-19 16:46:05,207:INFO:          scikitplot: 0.3.7
+2022-09-19 16:46:05,207:INFO:         yellowbrick: 1.5
+2022-09-19 16:46:05,207:INFO:              plotly: 5.10.0
+2022-09-19 16:46:05,207:INFO:             kaleido: 0.2.1
+2022-09-19 16:46:05,207:INFO:         statsmodels: 0.13.2
+2022-09-19 16:46:05,207:INFO:              sktime: 0.11.4
+2022-09-19 16:46:05,207:INFO:               tbats: Installed but version unavailable
+2022-09-19 16:46:05,207:INFO:            pmdarima: 2.0.0
+2022-09-19 16:46:05,207:INFO:              psutil: 5.9.1
+2022-09-19 16:46:05,207:INFO:None
+2022-09-19 16:56:17,467:INFO:Soft dependency imported: cuml: 22.08.00
+2022-09-19 16:56:17,468:INFO:Soft dependency imported: cuml: 22.08.00
+2022-09-19 16:56:17,468:INFO:Soft dependency imported: cuml: 22.08.00
+2022-09-19 16:56:17,468:INFO:Soft dependency imported: cuml: 22.08.00
+2022-09-19 16:56:17,470:INFO:PyCaret RegressionExperiment
+2022-09-19 16:56:17,470:INFO:Logging name: reg-default-name
+2022-09-19 16:56:17,471:INFO:ML Usecase: MLUsecase.REGRESSION
+2022-09-19 16:56:17,471:INFO:version 3.0.0.rc3
+2022-09-19 16:56:17,471:INFO:Initializing setup()
+2022-09-19 16:56:17,471:INFO:self.USI: fedc
+2022-09-19 16:56:17,471:INFO:self.variable_keys: {'transform_target_method_param', 'fold_shuffle_param', 'data', 'fold_groups_param', 'html_param', 'pipeline', 'X_test', 'exp_id', 'transform_target_param', 'memory', 'gpu_param', 'y_test', '_gpu_n_jobs_param', 'display_container', 'variable_keys', 'X_train', 'target_param', '_ml_usecase', '_all_models', 'exp_name_log', 'n_jobs_param', 'y', '_all_metrics', '_all_models_internal', 'USI', 'idx', 'X', '_available_plots', 'master_model_container', 'y_train', 'seed', 'logging_param', 'log_plots_param', 'fold_generator'}
+2022-09-19 16:56:17,471:INFO:Checking environment
+2022-09-19 16:56:17,471:INFO:python_version: 3.9.13
+2022-09-19 16:56:17,471:INFO:python_build: ('main', 'May 27 2022 16:56:21')
+2022-09-19 16:56:17,471:INFO:machine: x86_64
+2022-09-19 16:56:17,471:INFO:platform: Linux-5.4.0-42-generic-x86_64-with-glibc2.27
+2022-09-19 16:56:17,471:INFO:Memory: svmem(total=1082007138304, available=895899459584, percent=17.2, used=178809384960, free=230654464000, active=289538129920, inactive=521743106048, buffers=15525154816, cached=657018134528, shared=1823617024, slab=32868478976)
+2022-09-19 16:56:17,476:INFO:Physical Core: 128
+2022-09-19 16:56:17,476:INFO:Logical Core: 256
+2022-09-19 16:56:17,476:INFO:Checking libraries
+2022-09-19 16:56:17,476:INFO:System:
+2022-09-19 16:56:17,476:INFO:    python: 3.9.13 | packaged by conda-forge | (main, May 27 2022, 16:56:21)  [GCC 10.3.0]
+2022-09-19 16:56:17,476:INFO:executable: /raid/templates/anaconda3/envs/rapids-22.08/bin/python
+2022-09-19 16:56:17,476:INFO:   machine: Linux-5.4.0-42-generic-x86_64-with-glibc2.27
+2022-09-19 16:56:17,477:INFO:PyCaret required dependencies:
+2022-09-19 16:56:17,477:INFO:                 pip: 22.2.2
+2022-09-19 16:56:17,477:INFO:          setuptools: 60.10.0
+2022-09-19 16:56:17,477:INFO:             pycaret: 3.0.0.rc3
+2022-09-19 16:56:17,477:INFO:             IPython: 8.4.0
+2022-09-19 16:56:17,477:INFO:          ipywidgets: 8.0.1
+2022-09-19 16:56:17,477:INFO:                tqdm: 4.64.0
+2022-09-19 16:56:17,477:INFO:               numpy: 1.21.6
+2022-09-19 16:56:17,477:INFO:              pandas: 1.4.3
+2022-09-19 16:56:17,477:INFO:              jinja2: 3.1.2
+2022-09-19 16:56:17,477:INFO:               scipy: 1.8.1
+2022-09-19 16:56:17,477:INFO:              joblib: 1.1.0
+2022-09-19 16:56:17,477:INFO:             sklearn: 1.1.2
+2022-09-19 16:56:17,477:INFO:                pyod: Installed but version unavailable
+2022-09-19 16:56:17,477:INFO:            imblearn: 0.9.1
+2022-09-19 16:56:17,477:INFO:   category_encoders: 2.5.0
+2022-09-19 16:56:17,477:INFO:            lightgbm: 3.3.2
+2022-09-19 16:56:17,477:INFO:               numba: 0.55.2
+2022-09-19 16:56:17,477:INFO:            requests: 2.28.1
+2022-09-19 16:56:17,477:INFO:          matplotlib: 3.5.3
+2022-09-19 16:56:17,477:INFO:          scikitplot: 0.3.7
+2022-09-19 16:56:17,477:INFO:         yellowbrick: 1.5
+2022-09-19 16:56:17,477:INFO:              plotly: 5.10.0
+2022-09-19 16:56:17,477:INFO:             kaleido: 0.2.1
+2022-09-19 16:56:17,477:INFO:         statsmodels: 0.13.2
+2022-09-19 16:56:17,477:INFO:              sktime: 0.11.4
+2022-09-19 16:56:17,477:INFO:               tbats: Installed but version unavailable
+2022-09-19 16:56:17,477:INFO:            pmdarima: 2.0.0
+2022-09-19 16:56:17,477:INFO:              psutil: 5.9.1
+2022-09-19 16:56:17,477:INFO:None
+2022-09-19 16:56:17,477:INFO:Set up data.
+2022-09-19 16:56:17,490:INFO:Set up train/test split.
+2022-09-19 16:56:17,498:INFO:Set up folding strategy.
+2022-09-19 16:56:17,498:INFO:Assigning column types.
+2022-09-19 16:56:17,501:INFO:Engine successfully changes for model 'lr' to 'sklearn'.
+2022-09-19 16:56:17,501:INFO:Engine for model 'lasso' has not been set explicitly, hence returning None.
+2022-09-19 16:56:17,506:INFO:Engine for model 'ridge' has not been set explicitly, hence returning None.
+2022-09-19 16:56:17,510:INFO:Engine for model 'en' has not been set explicitly, hence returning None.
+2022-09-19 16:56:17,570:INFO:Engine for model 'svm' has not been set explicitly, hence returning None.
+2022-09-19 16:56:17,616:INFO:Engine for model 'knn' has not been set explicitly, hence returning None.
+2022-09-19 16:56:17,632:INFO:Soft dependency imported: xgboost: 1.6.1
+2022-09-19 16:56:17,635:WARNING:No module named 'catboost'.
+'catboost' is a soft dependency and not included in the pycaret installation. Please run: `pip install catboost` to install.
+Alternately, you can install this by running `pip install pycaret[models]`
+2022-09-19 16:56:17,636:INFO:Engine for model 'lasso' has not been set explicitly, hence returning None.
+2022-09-19 16:56:17,641:INFO:Engine for model 'ridge' has not been set explicitly, hence returning None.
+2022-09-19 16:56:17,646:INFO:Engine for model 'en' has not been set explicitly, hence returning None.
+2022-09-19 16:56:17,705:INFO:Engine for model 'svm' has not been set explicitly, hence returning None.
+2022-09-19 16:56:17,752:INFO:Engine for model 'knn' has not been set explicitly, hence returning None.
+2022-09-19 16:56:17,752:INFO:Soft dependency imported: xgboost: 1.6.1
+2022-09-19 16:56:17,755:WARNING:No module named 'catboost'.
+'catboost' is a soft dependency and not included in the pycaret installation. Please run: `pip install catboost` to install.
+Alternately, you can install this by running `pip install pycaret[models]`
+2022-09-19 16:56:17,755:INFO:Engine successfully changes for model 'lasso' to 'sklearn'.
+2022-09-19 16:56:17,760:INFO:Engine for model 'ridge' has not been set explicitly, hence returning None.
+2022-09-19 16:56:17,765:INFO:Engine for model 'en' has not been set explicitly, hence returning None.
+2022-09-19 16:56:17,824:INFO:Engine for model 'svm' has not been set explicitly, hence returning None.
+2022-09-19 16:56:17,871:INFO:Engine for model 'knn' has not been set explicitly, hence returning None.
+2022-09-19 16:56:17,871:INFO:Soft dependency imported: xgboost: 1.6.1
+2022-09-19 16:56:17,874:WARNING:No module named 'catboost'.
+'catboost' is a soft dependency and not included in the pycaret installation. Please run: `pip install catboost` to install.
+Alternately, you can install this by running `pip install pycaret[models]`
+2022-09-19 16:56:17,879:INFO:Engine for model 'ridge' has not been set explicitly, hence returning None.
+2022-09-19 16:56:17,884:INFO:Engine for model 'en' has not been set explicitly, hence returning None.
+2022-09-19 16:56:17,943:INFO:Engine for model 'svm' has not been set explicitly, hence returning None.
+2022-09-19 16:56:17,989:INFO:Engine for model 'knn' has not been set explicitly, hence returning None.
+2022-09-19 16:56:17,989:INFO:Soft dependency imported: xgboost: 1.6.1
+2022-09-19 16:56:17,992:WARNING:No module named 'catboost'.
+'catboost' is a soft dependency and not included in the pycaret installation. Please run: `pip install catboost` to install.
+Alternately, you can install this by running `pip install pycaret[models]`
+2022-09-19 16:56:17,992:INFO:Engine successfully changes for model 'ridge' to 'sklearn'.
+2022-09-19 16:56:18,002:INFO:Engine for model 'en' has not been set explicitly, hence returning None.
+2022-09-19 16:56:18,061:INFO:Engine for model 'svm' has not been set explicitly, hence returning None.
+2022-09-19 16:56:18,107:INFO:Engine for model 'knn' has not been set explicitly, hence returning None.
+2022-09-19 16:56:18,108:INFO:Soft dependency imported: xgboost: 1.6.1
+2022-09-19 16:56:18,110:WARNING:No module named 'catboost'.
+'catboost' is a soft dependency and not included in the pycaret installation. Please run: `pip install catboost` to install.
+Alternately, you can install this by running `pip install pycaret[models]`
+2022-09-19 16:56:18,120:INFO:Engine for model 'en' has not been set explicitly, hence returning None.
+2022-09-19 16:56:18,179:INFO:Engine for model 'svm' has not been set explicitly, hence returning None.
+2022-09-19 16:56:18,226:INFO:Engine for model 'knn' has not been set explicitly, hence returning None.
+2022-09-19 16:56:18,226:INFO:Soft dependency imported: xgboost: 1.6.1
+2022-09-19 16:56:18,229:WARNING:No module named 'catboost'.
+'catboost' is a soft dependency and not included in the pycaret installation. Please run: `pip install catboost` to install.
+Alternately, you can install this by running `pip install pycaret[models]`
+2022-09-19 16:56:18,229:INFO:Engine successfully changes for model 'en' to 'sklearn'.
+2022-09-19 16:56:18,298:INFO:Engine for model 'svm' has not been set explicitly, hence returning None.
+2022-09-19 16:56:18,344:INFO:Engine for model 'knn' has not been set explicitly, hence returning None.
+2022-09-19 16:56:18,344:INFO:Soft dependency imported: xgboost: 1.6.1
+2022-09-19 16:56:18,347:WARNING:No module named 'catboost'.
+'catboost' is a soft dependency and not included in the pycaret installation. Please run: `pip install catboost` to install.
+Alternately, you can install this by running `pip install pycaret[models]`
+2022-09-19 16:56:18,416:INFO:Engine for model 'svm' has not been set explicitly, hence returning None.
+2022-09-19 16:56:18,463:INFO:Engine for model 'knn' has not been set explicitly, hence returning None.
+2022-09-19 16:56:18,463:INFO:Soft dependency imported: xgboost: 1.6.1
+2022-09-19 16:56:18,466:WARNING:No module named 'catboost'.
+'catboost' is a soft dependency and not included in the pycaret installation. Please run: `pip install catboost` to install.
+Alternately, you can install this by running `pip install pycaret[models]`
+2022-09-19 16:56:18,466:INFO:Engine successfully changes for model 'knn' to 'sklearn'.
+2022-09-19 16:56:18,535:INFO:Engine for model 'svm' has not been set explicitly, hence returning None.
+2022-09-19 16:56:18,582:INFO:Soft dependency imported: xgboost: 1.6.1
+2022-09-19 16:56:18,585:WARNING:No module named 'catboost'.
+'catboost' is a soft dependency and not included in the pycaret installation. Please run: `pip install catboost` to install.
+Alternately, you can install this by running `pip install pycaret[models]`
+2022-09-19 16:56:18,654:INFO:Engine for model 'svm' has not been set explicitly, hence returning None.
+2022-09-19 16:56:18,703:INFO:Soft dependency imported: xgboost: 1.6.1
+2022-09-19 16:56:18,706:WARNING:No module named 'catboost'.
+'catboost' is a soft dependency and not included in the pycaret installation. Please run: `pip install catboost` to install.
+Alternately, you can install this by running `pip install pycaret[models]`
+2022-09-19 16:56:18,706:INFO:Engine successfully changes for model 'svm' to 'sklearn'.
+2022-09-19 16:56:18,822:INFO:Soft dependency imported: xgboost: 1.6.1
+2022-09-19 16:56:18,824:WARNING:No module named 'catboost'.
+'catboost' is a soft dependency and not included in the pycaret installation. Please run: `pip install catboost` to install.
+Alternately, you can install this by running `pip install pycaret[models]`
+2022-09-19 16:56:18,940:INFO:Soft dependency imported: xgboost: 1.6.1
+2022-09-19 16:56:18,942:WARNING:No module named 'catboost'.
+'catboost' is a soft dependency and not included in the pycaret installation. Please run: `pip install catboost` to install.
+Alternately, you can install this by running `pip install pycaret[models]`
+2022-09-19 16:56:18,943:INFO:Preparing preprocessing pipeline...
+2022-09-19 16:56:18,944:INFO:Set up simple imputation.
+2022-09-19 16:56:18,945:INFO:Set up encoding of categorical features.
+2022-09-19 16:56:18,945:INFO:Set up variance threshold.
+2022-09-19 16:56:19,416:INFO:Finished creating preprocessing pipeline.
+2022-09-19 16:56:19,423:INFO:Pipeline: Pipeline(memory=Memory(location=/tmp/joblib),
+         steps=[('numerical_imputer',
+                 TransformerWrapper(include=['vol_x', 'curr', 'q_val', 'pv',
+                                             'q_diff'],
+                                    transformer=SimpleImputer())),
+                ('categorical_imputer',
+                 TransformerWrapper(include=['ds'],
+                                    transformer=SimpleImputer(fill_value='constant',
+                                                              strategy='constant'))),
+                ('rest_encoding',
+                 TransformerWrapper(include=['ds'],
+                                    transformer=LeaveOneOutEncoder(cols=['ds'],
+                                                                   handle_missing='return_nan',
+                                                                   random_state=8441))),
+                ('low_variance',
+                 TransformerWrapper(exclude=[],
+                                    transformer=VarianceThreshold(threshold=0)))])
+2022-09-19 16:56:19,423:INFO:Creating final display dataframe.
+2022-09-19 16:56:21,095:INFO:Setup display_container:                  Description             Value
+0                 Session id              8441
+1                     Target             vol_y
+2                Target type        Regression
+3                 Data shape        (17485, 6)
+4           Train data shape        (12239, 6)
+5            Test data shape         (5246, 6)
+6           Numeric features                 5
+7       Categorical features                 1
+8                 Preprocess              True
+9            Imputation type            simple
+10        Numeric imputation              mean
+11    Categorical imputation          constant
+12  Maximum one-hot encoding                 5
+13           Encoding method              None
+14    Low variance threshold                 0
+15            Fold Generator   TimeSeriesSplit
+16               Fold Number                 3
+17                  CPU Jobs                -1
+18                   Use GPU             False
+19            Log Experiment             False
+20           Experiment Name  reg-default-name
+21                       USI              fedc
+2022-09-19 16:56:21,214:INFO:Soft dependency imported: xgboost: 1.6.1
+2022-09-19 16:56:21,217:WARNING:No module named 'catboost'.
+'catboost' is a soft dependency and not included in the pycaret installation. Please run: `pip install catboost` to install.
+Alternately, you can install this by running `pip install pycaret[models]`
+2022-09-19 16:56:21,330:INFO:Soft dependency imported: xgboost: 1.6.1
+2022-09-19 16:56:21,332:WARNING:No module named 'catboost'.
+'catboost' is a soft dependency and not included in the pycaret installation. Please run: `pip install catboost` to install.
+Alternately, you can install this by running `pip install pycaret[models]`
+2022-09-19 16:56:21,338:INFO:setup() successfully completed in 3.87s...............
+2022-09-19 16:56:53,203:INFO:Initializing compare_models()
+2022-09-19 16:56:53,204:INFO:compare_models(self=<pycaret.regression.oop.RegressionExperiment object at 0x7fb9a41de820>, include=None, fold=None, round=4, cross_validation=True, sort=R2, n_select=1, budget_time=None, turbo=True, errors=ignore, fit_kwargs=None, groups=None, experiment_custom_tags=None, probability_threshold=None, verbose=True, parallel=None, caller_params={'self': <pycaret.regression.oop.RegressionExperiment object at 0x7fb9a41de820>, 'include': None, 'exclude': None, 'fold': None, 'round': 4, 'cross_validation': True, 'sort': 'R2', 'n_select': 1, 'budget_time': None, 'turbo': True, 'errors': 'ignore', 'fit_kwargs': None, 'groups': None, 'experiment_custom_tags': None, 'engines': None, 'verbose': True, 'parallel': None, '__class__': <class 'pycaret.regression.oop.RegressionExperiment'>}, exclude=None)
+2022-09-19 16:56:53,204:INFO:Checking exceptions
+2022-09-19 16:56:53,206:INFO:Preparing display monitor
+2022-09-19 16:56:53,232:INFO:Initializing Linear Regression
+2022-09-19 16:56:53,232:INFO:Total runtime is 2.570947011311849e-06 minutes
+2022-09-19 16:56:53,234:INFO:SubProcess create_model() called ==================================
+2022-09-19 16:56:53,234:INFO:Initializing create_model()
+2022-09-19 16:56:53,234:INFO:create_model(self=<pycaret.regression.oop.RegressionExperiment object at 0x7fb9a41de820>, estimator=lr, fold=TimeSeriesSplit(gap=0, max_train_size=None, n_splits=3, test_size=None), round=4, cross_validation=True, predict=True, fit_kwargs={}, groups=None, refit=False, probability_threshold=None, experiment_custom_tags=None, verbose=False, system=False, add_to_model_list=True, metrics=None, display=<pycaret.internal.display.display.CommonDisplay object at 0x7fb9a50199d0>, model_only=True, return_train_score=False, kwargs={})
+2022-09-19 16:56:53,235:INFO:Checking exceptions
+2022-09-19 16:56:53,236:INFO:Importing libraries
+2022-09-19 16:56:53,236:INFO:Copying training dataset
+2022-09-19 16:56:53,239:INFO:Defining folds
+2022-09-19 16:56:53,239:INFO:Declaring metric variables
+2022-09-19 16:56:53,241:INFO:Importing untrained model
+2022-09-19 16:56:53,243:INFO:Linear Regression Imported successfully
+2022-09-19 16:56:53,247:INFO:Starting cross validation
+2022-09-19 16:56:53,725:INFO:Cross validating with TimeSeriesSplit(gap=0, max_train_size=None, n_splits=3, test_size=None), n_jobs=-1
+2022-09-19 16:57:01,679:WARNING:/raid/templates/anaconda3/envs/rapids-22.08/lib/python3.9/site-packages/sklearn/utils/metaestimators.py:201: FutureWarning: if_delegate_has_method was deprecated in version 1.1 and will be removed in version 1.3. Use available_if instead.
+  warnings.warn(
+
+2022-09-19 16:57:01,713:WARNING:/raid/templates/anaconda3/envs/rapids-22.08/lib/python3.9/site-packages/sklearn/utils/metaestimators.py:201: FutureWarning: if_delegate_has_method was deprecated in version 1.1 and will be removed in version 1.3. Use available_if instead.
+  warnings.warn(
+
+2022-09-19 16:57:01,769:WARNING:/raid/templates/anaconda3/envs/rapids-22.08/lib/python3.9/site-packages/sklearn/utils/metaestimators.py:201: FutureWarning: if_delegate_has_method was deprecated in version 1.1 and will be removed in version 1.3. Use available_if instead.
+  warnings.warn(
+
+2022-09-19 16:57:02,140:INFO:Calculating mean and std
+2022-09-19 16:57:02,141:INFO:Creating metrics dataframe
+2022-09-19 16:57:02,145:INFO:Uploading results into container
+2022-09-19 16:57:02,145:INFO:Uploading model into container now
+2022-09-19 16:57:02,146:INFO:master_model_container: 1
+2022-09-19 16:57:02,146:INFO:display_container: 2
+2022-09-19 16:57:02,146:INFO:LinearRegression(n_jobs=-1)
+2022-09-19 16:57:02,146:INFO:create_model() successfully completed......................................
+2022-09-19 16:57:02,642:INFO:SubProcess create_model() end ==================================
+2022-09-19 16:57:02,642:INFO:Creating metrics dataframe
+2022-09-19 16:57:02,649:INFO:Initializing Lasso Regression
+2022-09-19 16:57:02,649:INFO:Total runtime is 0.15695406993230185 minutes
+2022-09-19 16:57:02,651:INFO:SubProcess create_model() called ==================================
+2022-09-19 16:57:02,652:INFO:Initializing create_model()
+2022-09-19 16:57:02,652:INFO:create_model(self=<pycaret.regression.oop.RegressionExperiment object at 0x7fb9a41de820>, estimator=lasso, fold=TimeSeriesSplit(gap=0, max_train_size=None, n_splits=3, test_size=None), round=4, cross_validation=True, predict=True, fit_kwargs={}, groups=None, refit=False, probability_threshold=None, experiment_custom_tags=None, verbose=False, system=False, add_to_model_list=True, metrics=None, display=<pycaret.internal.display.display.CommonDisplay object at 0x7fb9a50199d0>, model_only=True, return_train_score=False, kwargs={})
+2022-09-19 16:57:02,652:INFO:Checking exceptions
+2022-09-19 16:57:02,653:INFO:Importing libraries
+2022-09-19 16:57:02,653:INFO:Copying training dataset
+2022-09-19 16:57:02,657:INFO:Defining folds
+2022-09-19 16:57:02,657:INFO:Declaring metric variables
+2022-09-19 16:57:02,659:INFO:Importing untrained model
+2022-09-19 16:57:02,661:INFO:Lasso Regression Imported successfully
+2022-09-19 16:57:02,666:INFO:Starting cross validation
+2022-09-19 16:57:02,667:INFO:Cross validating with TimeSeriesSplit(gap=0, max_train_size=None, n_splits=3, test_size=None), n_jobs=-1
+2022-09-19 16:57:03,723:WARNING:/raid/templates/anaconda3/envs/rapids-22.08/lib/python3.9/site-packages/sklearn/utils/metaestimators.py:201: FutureWarning: if_delegate_has_method was deprecated in version 1.1 and will be removed in version 1.3. Use available_if instead.
+  warnings.warn(
+
+2022-09-19 16:57:03,734:WARNING:/raid/templates/anaconda3/envs/rapids-22.08/lib/python3.9/site-packages/sklearn/utils/metaestimators.py:201: FutureWarning: if_delegate_has_method was deprecated in version 1.1 and will be removed in version 1.3. Use available_if instead.
+  warnings.warn(
+
+2022-09-19 16:57:03,764:WARNING:/raid/templates/anaconda3/envs/rapids-22.08/lib/python3.9/site-packages/sklearn/utils/metaestimators.py:201: FutureWarning: if_delegate_has_method was deprecated in version 1.1 and will be removed in version 1.3. Use available_if instead.
+  warnings.warn(
+
+2022-09-19 16:57:03,940:INFO:Calculating mean and std
+2022-09-19 16:57:03,941:INFO:Creating metrics dataframe
+2022-09-19 16:57:03,944:INFO:Uploading results into container
+2022-09-19 16:57:03,944:INFO:Uploading model into container now
+2022-09-19 16:57:03,945:INFO:master_model_container: 2
+2022-09-19 16:57:03,945:INFO:display_container: 2
+2022-09-19 16:57:03,945:INFO:Lasso(random_state=8441)
+2022-09-19 16:57:03,945:INFO:create_model() successfully completed......................................
+2022-09-19 16:57:04,417:INFO:SubProcess create_model() end ==================================
+2022-09-19 16:57:04,418:INFO:Creating metrics dataframe
+2022-09-19 16:57:04,425:INFO:Initializing Ridge Regression
+2022-09-19 16:57:04,425:INFO:Total runtime is 0.18655490080515544 minutes
+2022-09-19 16:57:04,428:INFO:SubProcess create_model() called ==================================
+2022-09-19 16:57:04,428:INFO:Initializing create_model()
+2022-09-19 16:57:04,428:INFO:create_model(self=<pycaret.regression.oop.RegressionExperiment object at 0x7fb9a41de820>, estimator=ridge, fold=TimeSeriesSplit(gap=0, max_train_size=None, n_splits=3, test_size=None), round=4, cross_validation=True, predict=True, fit_kwargs={}, groups=None, refit=False, probability_threshold=None, experiment_custom_tags=None, verbose=False, system=False, add_to_model_list=True, metrics=None, display=<pycaret.internal.display.display.CommonDisplay object at 0x7fb9a50199d0>, model_only=True, return_train_score=False, kwargs={})
+2022-09-19 16:57:04,428:INFO:Checking exceptions
+2022-09-19 16:57:04,430:INFO:Importing libraries
+2022-09-19 16:57:04,430:INFO:Copying training dataset
+2022-09-19 16:57:04,433:INFO:Defining folds
+2022-09-19 16:57:04,433:INFO:Declaring metric variables
+2022-09-19 16:57:04,436:INFO:Importing untrained model
+2022-09-19 16:57:04,438:INFO:Ridge Regression Imported successfully
+2022-09-19 16:57:04,442:INFO:Starting cross validation
+2022-09-19 16:57:04,442:INFO:Cross validating with TimeSeriesSplit(gap=0, max_train_size=None, n_splits=3, test_size=None), n_jobs=-1
+2022-09-19 16:57:05,503:WARNING:/raid/templates/anaconda3/envs/rapids-22.08/lib/python3.9/site-packages/sklearn/utils/metaestimators.py:201: FutureWarning: if_delegate_has_method was deprecated in version 1.1 and will be removed in version 1.3. Use available_if instead.
+  warnings.warn(
+
+2022-09-19 16:57:05,534:WARNING:/raid/templates/anaconda3/envs/rapids-22.08/lib/python3.9/site-packages/sklearn/utils/metaestimators.py:201: FutureWarning: if_delegate_has_method was deprecated in version 1.1 and will be removed in version 1.3. Use available_if instead.
+  warnings.warn(
+
+2022-09-19 16:57:05,542:WARNING:/raid/templates/anaconda3/envs/rapids-22.08/lib/python3.9/site-packages/sklearn/utils/metaestimators.py:201: FutureWarning: if_delegate_has_method was deprecated in version 1.1 and will be removed in version 1.3. Use available_if instead.
+  warnings.warn(
+
+2022-09-19 16:57:05,648:INFO:Calculating mean and std
+2022-09-19 16:57:05,650:INFO:Creating metrics dataframe
+2022-09-19 16:57:05,653:INFO:Uploading results into container
+2022-09-19 16:57:05,653:INFO:Uploading model into container now
+2022-09-19 16:57:05,654:INFO:master_model_container: 3
+2022-09-19 16:57:05,654:INFO:display_container: 2
+2022-09-19 16:57:05,654:INFO:Ridge(random_state=8441)
+2022-09-19 16:57:05,654:INFO:create_model() successfully completed......................................
+2022-09-19 16:57:06,128:INFO:SubProcess create_model() end ==================================
+2022-09-19 16:57:06,128:INFO:Creating metrics dataframe
+2022-09-19 16:57:06,136:INFO:Initializing Elastic Net
+2022-09-19 16:57:06,136:INFO:Total runtime is 0.21506295204162598 minutes
+2022-09-19 16:57:06,138:INFO:SubProcess create_model() called ==================================
+2022-09-19 16:57:06,138:INFO:Initializing create_model()
+2022-09-19 16:57:06,138:INFO:create_model(self=<pycaret.regression.oop.RegressionExperiment object at 0x7fb9a41de820>, estimator=en, fold=TimeSeriesSplit(gap=0, max_train_size=None, n_splits=3, test_size=None), round=4, cross_validation=True, predict=True, fit_kwargs={}, groups=None, refit=False, probability_threshold=None, experiment_custom_tags=None, verbose=False, system=False, add_to_model_list=True, metrics=None, display=<pycaret.internal.display.display.CommonDisplay object at 0x7fb9a50199d0>, model_only=True, return_train_score=False, kwargs={})
+2022-09-19 16:57:06,138:INFO:Checking exceptions
+2022-09-19 16:57:06,140:INFO:Importing libraries
+2022-09-19 16:57:06,140:INFO:Copying training dataset
+2022-09-19 16:57:06,143:INFO:Defining folds
+2022-09-19 16:57:06,143:INFO:Declaring metric variables
+2022-09-19 16:57:06,145:INFO:Importing untrained model
+2022-09-19 16:57:06,147:INFO:Elastic Net Imported successfully
+2022-09-19 16:57:06,151:INFO:Starting cross validation
+2022-09-19 16:57:06,152:INFO:Cross validating with TimeSeriesSplit(gap=0, max_train_size=None, n_splits=3, test_size=None), n_jobs=-1
+2022-09-19 16:57:07,204:WARNING:/raid/templates/anaconda3/envs/rapids-22.08/lib/python3.9/site-packages/sklearn/utils/metaestimators.py:201: FutureWarning: if_delegate_has_method was deprecated in version 1.1 and will be removed in version 1.3. Use available_if instead.
+  warnings.warn(
+
+2022-09-19 16:57:07,220:WARNING:/raid/templates/anaconda3/envs/rapids-22.08/lib/python3.9/site-packages/sklearn/utils/metaestimators.py:201: FutureWarning: if_delegate_has_method was deprecated in version 1.1 and will be removed in version 1.3. Use available_if instead.
+  warnings.warn(
+
+2022-09-19 16:57:07,230:WARNING:/raid/templates/anaconda3/envs/rapids-22.08/lib/python3.9/site-packages/sklearn/utils/metaestimators.py:201: FutureWarning: if_delegate_has_method was deprecated in version 1.1 and will be removed in version 1.3. Use available_if instead.
+  warnings.warn(
+
+2022-09-19 16:57:07,335:INFO:Calculating mean and std
+2022-09-19 16:57:07,336:INFO:Creating metrics dataframe
+2022-09-19 16:57:07,339:INFO:Uploading results into container
+2022-09-19 16:57:07,340:INFO:Uploading model into container now
+2022-09-19 16:57:07,340:INFO:master_model_container: 4
+2022-09-19 16:57:07,340:INFO:display_container: 2
+2022-09-19 16:57:07,340:INFO:ElasticNet(random_state=8441)
+2022-09-19 16:57:07,340:INFO:create_model() successfully completed......................................
+2022-09-19 16:57:07,811:INFO:SubProcess create_model() end ==================================
+2022-09-19 16:57:07,811:INFO:Creating metrics dataframe
+2022-09-19 16:57:07,818:INFO:Initializing Least Angle Regression
+2022-09-19 16:57:07,818:INFO:Total runtime is 0.2431068499883016 minutes
+2022-09-19 16:57:07,820:INFO:SubProcess create_model() called ==================================
+2022-09-19 16:57:07,821:INFO:Initializing create_model()
+2022-09-19 16:57:07,821:INFO:create_model(self=<pycaret.regression.oop.RegressionExperiment object at 0x7fb9a41de820>, estimator=lar, fold=TimeSeriesSplit(gap=0, max_train_size=None, n_splits=3, test_size=None), round=4, cross_validation=True, predict=True, fit_kwargs={}, groups=None, refit=False, probability_threshold=None, experiment_custom_tags=None, verbose=False, system=False, add_to_model_list=True, metrics=None, display=<pycaret.internal.display.display.CommonDisplay object at 0x7fb9a50199d0>, model_only=True, return_train_score=False, kwargs={})
+2022-09-19 16:57:07,821:INFO:Checking exceptions
+2022-09-19 16:57:07,822:INFO:Importing libraries
+2022-09-19 16:57:07,822:INFO:Copying training dataset
+2022-09-19 16:57:07,826:INFO:Defining folds
+2022-09-19 16:57:07,826:INFO:Declaring metric variables
+2022-09-19 16:57:07,828:INFO:Importing untrained model
+2022-09-19 16:57:07,830:INFO:Least Angle Regression Imported successfully
+2022-09-19 16:57:07,834:INFO:Starting cross validation
+2022-09-19 16:57:07,835:INFO:Cross validating with TimeSeriesSplit(gap=0, max_train_size=None, n_splits=3, test_size=None), n_jobs=-1
+2022-09-19 16:57:08,896:WARNING:/raid/templates/anaconda3/envs/rapids-22.08/lib/python3.9/site-packages/sklearn/linear_model/_base.py:133: FutureWarning: The default of 'normalize' will be set to False in version 1.2 and deprecated in version 1.4.
+If you wish to scale the data, use Pipeline with a StandardScaler in a preprocessing stage. To reproduce the previous behavior:
+
+from sklearn.pipeline import make_pipeline
+
+model = make_pipeline(StandardScaler(with_mean=False), Lars())
+
+If you wish to pass a sample_weight parameter, you need to pass it as a fit parameter to each step of the pipeline as follows:
+
+kwargs = {s[0] + '__sample_weight': sample_weight for s in model.steps}
+model.fit(X, y, **kwargs)
+
+
+  warnings.warn(
+
+2022-09-19 16:57:08,897:WARNING:/raid/templates/anaconda3/envs/rapids-22.08/lib/python3.9/site-packages/sklearn/utils/metaestimators.py:201: FutureWarning: if_delegate_has_method was deprecated in version 1.1 and will be removed in version 1.3. Use available_if instead.
+  warnings.warn(
+
+2022-09-19 16:57:08,898:WARNING:/raid/templates/anaconda3/envs/rapids-22.08/lib/python3.9/site-packages/sklearn/linear_model/_base.py:133: FutureWarning: The default of 'normalize' will be set to False in version 1.2 and deprecated in version 1.4.
+If you wish to scale the data, use Pipeline with a StandardScaler in a preprocessing stage. To reproduce the previous behavior:
+
+from sklearn.pipeline import make_pipeline
+
+model = make_pipeline(StandardScaler(with_mean=False), Lars())
+
+If you wish to pass a sample_weight parameter, you need to pass it as a fit parameter to each step of the pipeline as follows:
+
+kwargs = {s[0] + '__sample_weight': sample_weight for s in model.steps}
+model.fit(X, y, **kwargs)
+
+
+  warnings.warn(
+
+2022-09-19 16:57:08,899:WARNING:/raid/templates/anaconda3/envs/rapids-22.08/lib/python3.9/site-packages/sklearn/utils/metaestimators.py:201: FutureWarning: if_delegate_has_method was deprecated in version 1.1 and will be removed in version 1.3. Use available_if instead.
+  warnings.warn(
+
+2022-09-19 16:57:08,923:WARNING:/raid/templates/anaconda3/envs/rapids-22.08/lib/python3.9/site-packages/sklearn/linear_model/_base.py:133: FutureWarning: The default of 'normalize' will be set to False in version 1.2 and deprecated in version 1.4.
+If you wish to scale the data, use Pipeline with a StandardScaler in a preprocessing stage. To reproduce the previous behavior:
+
+from sklearn.pipeline import make_pipeline
+
+model = make_pipeline(StandardScaler(with_mean=False), Lars())
+
+If you wish to pass a sample_weight parameter, you need to pass it as a fit parameter to each step of the pipeline as follows:
+
+kwargs = {s[0] + '__sample_weight': sample_weight for s in model.steps}
+model.fit(X, y, **kwargs)
+
+
+  warnings.warn(
+
+2022-09-19 16:57:08,925:WARNING:/raid/templates/anaconda3/envs/rapids-22.08/lib/python3.9/site-packages/sklearn/utils/metaestimators.py:201: FutureWarning: if_delegate_has_method was deprecated in version 1.1 and will be removed in version 1.3. Use available_if instead.
+  warnings.warn(
+
+2022-09-19 16:57:09,032:INFO:Calculating mean and std
+2022-09-19 16:57:09,034:INFO:Creating metrics dataframe
+2022-09-19 16:57:09,037:INFO:Uploading results into container
+2022-09-19 16:57:09,037:INFO:Uploading model into container now
+2022-09-19 16:57:09,038:INFO:master_model_container: 5
+2022-09-19 16:57:09,038:INFO:display_container: 2
+2022-09-19 16:57:09,038:INFO:Lars(random_state=8441)
+2022-09-19 16:57:09,038:INFO:create_model() successfully completed......................................
+2022-09-19 16:57:09,514:INFO:SubProcess create_model() end ==================================
+2022-09-19 16:57:09,514:INFO:Creating metrics dataframe
+2022-09-19 16:57:09,522:INFO:Initializing Lasso Least Angle Regression
+2022-09-19 16:57:09,522:INFO:Total runtime is 0.27149751981099446 minutes
+2022-09-19 16:57:09,524:INFO:SubProcess create_model() called ==================================
+2022-09-19 16:57:09,524:INFO:Initializing create_model()
+2022-09-19 16:57:09,524:INFO:create_model(self=<pycaret.regression.oop.RegressionExperiment object at 0x7fb9a41de820>, estimator=llar, fold=TimeSeriesSplit(gap=0, max_train_size=None, n_splits=3, test_size=None), round=4, cross_validation=True, predict=True, fit_kwargs={}, groups=None, refit=False, probability_threshold=None, experiment_custom_tags=None, verbose=False, system=False, add_to_model_list=True, metrics=None, display=<pycaret.internal.display.display.CommonDisplay object at 0x7fb9a50199d0>, model_only=True, return_train_score=False, kwargs={})
+2022-09-19 16:57:09,524:INFO:Checking exceptions
+2022-09-19 16:57:09,526:INFO:Importing libraries
+2022-09-19 16:57:09,526:INFO:Copying training dataset
+2022-09-19 16:57:09,529:INFO:Defining folds
+2022-09-19 16:57:09,529:INFO:Declaring metric variables
+2022-09-19 16:57:09,532:INFO:Importing untrained model
+2022-09-19 16:57:09,534:INFO:Lasso Least Angle Regression Imported successfully
+2022-09-19 16:57:09,538:INFO:Starting cross validation
+2022-09-19 16:57:09,538:INFO:Cross validating with TimeSeriesSplit(gap=0, max_train_size=None, n_splits=3, test_size=None), n_jobs=-1
+2022-09-19 16:57:10,590:WARNING:/raid/templates/anaconda3/envs/rapids-22.08/lib/python3.9/site-packages/sklearn/linear_model/_base.py:133: FutureWarning: The default of 'normalize' will be set to False in version 1.2 and deprecated in version 1.4.
+If you wish to scale the data, use Pipeline with a StandardScaler in a preprocessing stage. To reproduce the previous behavior:
+
+from sklearn.pipeline import make_pipeline
+
+model = make_pipeline(StandardScaler(with_mean=False), LassoLars())
+
+If you wish to pass a sample_weight parameter, you need to pass it as a fit parameter to each step of the pipeline as follows:
+
+kwargs = {s[0] + '__sample_weight': sample_weight for s in model.steps}
+model.fit(X, y, **kwargs)
+
+Set parameter alpha to: original_alpha * np.sqrt(n_samples). 
+  warnings.warn(
+
+2022-09-19 16:57:10,591:WARNING:/raid/templates/anaconda3/envs/rapids-22.08/lib/python3.9/site-packages/sklearn/utils/metaestimators.py:201: FutureWarning: if_delegate_has_method was deprecated in version 1.1 and will be removed in version 1.3. Use available_if instead.
+  warnings.warn(
+
+2022-09-19 16:57:10,597:WARNING:/raid/templates/anaconda3/envs/rapids-22.08/lib/python3.9/site-packages/sklearn/linear_model/_base.py:133: FutureWarning: The default of 'normalize' will be set to False in version 1.2 and deprecated in version 1.4.
+If you wish to scale the data, use Pipeline with a StandardScaler in a preprocessing stage. To reproduce the previous behavior:
+
+from sklearn.pipeline import make_pipeline
+
+model = make_pipeline(StandardScaler(with_mean=False), LassoLars())
+
+If you wish to pass a sample_weight parameter, you need to pass it as a fit parameter to each step of the pipeline as follows:
+
+kwargs = {s[0] + '__sample_weight': sample_weight for s in model.steps}
+model.fit(X, y, **kwargs)
+
+Set parameter alpha to: original_alpha * np.sqrt(n_samples). 
+  warnings.warn(
+
+2022-09-19 16:57:10,598:WARNING:/raid/templates/anaconda3/envs/rapids-22.08/lib/python3.9/site-packages/sklearn/utils/metaestimators.py:201: FutureWarning: if_delegate_has_method was deprecated in version 1.1 and will be removed in version 1.3. Use available_if instead.
+  warnings.warn(
+
+2022-09-19 16:57:10,608:WARNING:/raid/templates/anaconda3/envs/rapids-22.08/lib/python3.9/site-packages/sklearn/linear_model/_base.py:133: FutureWarning: The default of 'normalize' will be set to False in version 1.2 and deprecated in version 1.4.
+If you wish to scale the data, use Pipeline with a StandardScaler in a preprocessing stage. To reproduce the previous behavior:
+
+from sklearn.pipeline import make_pipeline
+
+model = make_pipeline(StandardScaler(with_mean=False), LassoLars())
+
+If you wish to pass a sample_weight parameter, you need to pass it as a fit parameter to each step of the pipeline as follows:
+
+kwargs = {s[0] + '__sample_weight': sample_weight for s in model.steps}
+model.fit(X, y, **kwargs)
+
+Set parameter alpha to: original_alpha * np.sqrt(n_samples). 
+  warnings.warn(
+
+2022-09-19 16:57:10,609:WARNING:/raid/templates/anaconda3/envs/rapids-22.08/lib/python3.9/site-packages/sklearn/utils/metaestimators.py:201: FutureWarning: if_delegate_has_method was deprecated in version 1.1 and will be removed in version 1.3. Use available_if instead.
+  warnings.warn(
+
+2022-09-19 16:57:10,704:INFO:Calculating mean and std
+2022-09-19 16:57:10,706:INFO:Creating metrics dataframe
+2022-09-19 16:57:10,708:INFO:Uploading results into container
+2022-09-19 16:57:10,709:INFO:Uploading model into container now
+2022-09-19 16:57:10,709:INFO:master_model_container: 6
+2022-09-19 16:57:10,709:INFO:display_container: 2
+2022-09-19 16:57:10,710:INFO:LassoLars(random_state=8441)
+2022-09-19 16:57:10,710:INFO:create_model() successfully completed......................................
+2022-09-19 16:57:11,138:INFO:SubProcess create_model() end ==================================
+2022-09-19 16:57:11,138:INFO:Creating metrics dataframe
+2022-09-19 16:57:11,146:INFO:Initializing Orthogonal Matching Pursuit
+2022-09-19 16:57:11,146:INFO:Total runtime is 0.29856684207916256 minutes
+2022-09-19 16:57:11,148:INFO:SubProcess create_model() called ==================================
+2022-09-19 16:57:11,148:INFO:Initializing create_model()
+2022-09-19 16:57:11,148:INFO:create_model(self=<pycaret.regression.oop.RegressionExperiment object at 0x7fb9a41de820>, estimator=omp, fold=TimeSeriesSplit(gap=0, max_train_size=None, n_splits=3, test_size=None), round=4, cross_validation=True, predict=True, fit_kwargs={}, groups=None, refit=False, probability_threshold=None, experiment_custom_tags=None, verbose=False, system=False, add_to_model_list=True, metrics=None, display=<pycaret.internal.display.display.CommonDisplay object at 0x7fb9a50199d0>, model_only=True, return_train_score=False, kwargs={})
+2022-09-19 16:57:11,148:INFO:Checking exceptions
+2022-09-19 16:57:11,150:INFO:Importing libraries
+2022-09-19 16:57:11,150:INFO:Copying training dataset
+2022-09-19 16:57:11,153:INFO:Defining folds
+2022-09-19 16:57:11,153:INFO:Declaring metric variables
+2022-09-19 16:57:11,155:INFO:Importing untrained model
+2022-09-19 16:57:11,157:INFO:Orthogonal Matching Pursuit Imported successfully
+2022-09-19 16:57:11,161:INFO:Starting cross validation
+2022-09-19 16:57:11,162:INFO:Cross validating with TimeSeriesSplit(gap=0, max_train_size=None, n_splits=3, test_size=None), n_jobs=-1
+2022-09-19 16:57:12,212:WARNING:/raid/templates/anaconda3/envs/rapids-22.08/lib/python3.9/site-packages/sklearn/linear_model/_base.py:133: FutureWarning: The default of 'normalize' will be set to False in version 1.2 and deprecated in version 1.4.
+If you wish to scale the data, use Pipeline with a StandardScaler in a preprocessing stage. To reproduce the previous behavior:
+
+from sklearn.pipeline import make_pipeline
+
+model = make_pipeline(StandardScaler(with_mean=False), OrthogonalMatchingPursuit())
+
+If you wish to pass a sample_weight parameter, you need to pass it as a fit parameter to each step of the pipeline as follows:
+
+kwargs = {s[0] + '__sample_weight': sample_weight for s in model.steps}
+model.fit(X, y, **kwargs)
+
+
+  warnings.warn(
+
+2022-09-19 16:57:12,214:WARNING:/raid/templates/anaconda3/envs/rapids-22.08/lib/python3.9/site-packages/sklearn/utils/metaestimators.py:201: FutureWarning: if_delegate_has_method was deprecated in version 1.1 and will be removed in version 1.3. Use available_if instead.
+  warnings.warn(
+
+2022-09-19 16:57:12,216:WARNING:/raid/templates/anaconda3/envs/rapids-22.08/lib/python3.9/site-packages/sklearn/linear_model/_base.py:133: FutureWarning: The default of 'normalize' will be set to False in version 1.2 and deprecated in version 1.4.
+If you wish to scale the data, use Pipeline with a StandardScaler in a preprocessing stage. To reproduce the previous behavior:
+
+from sklearn.pipeline import make_pipeline
+
+model = make_pipeline(StandardScaler(with_mean=False), OrthogonalMatchingPursuit())
+
+If you wish to pass a sample_weight parameter, you need to pass it as a fit parameter to each step of the pipeline as follows:
+
+kwargs = {s[0] + '__sample_weight': sample_weight for s in model.steps}
+model.fit(X, y, **kwargs)
+
+
+  warnings.warn(
+
+2022-09-19 16:57:12,218:WARNING:/raid/templates/anaconda3/envs/rapids-22.08/lib/python3.9/site-packages/sklearn/utils/metaestimators.py:201: FutureWarning: if_delegate_has_method was deprecated in version 1.1 and will be removed in version 1.3. Use available_if instead.
+  warnings.warn(
+
+2022-09-19 16:57:12,241:WARNING:/raid/templates/anaconda3/envs/rapids-22.08/lib/python3.9/site-packages/sklearn/linear_model/_base.py:133: FutureWarning: The default of 'normalize' will be set to False in version 1.2 and deprecated in version 1.4.
+If you wish to scale the data, use Pipeline with a StandardScaler in a preprocessing stage. To reproduce the previous behavior:
+
+from sklearn.pipeline import make_pipeline
+
+model = make_pipeline(StandardScaler(with_mean=False), OrthogonalMatchingPursuit())
+
+If you wish to pass a sample_weight parameter, you need to pass it as a fit parameter to each step of the pipeline as follows:
+
+kwargs = {s[0] + '__sample_weight': sample_weight for s in model.steps}
+model.fit(X, y, **kwargs)
+
+
+  warnings.warn(
+
+2022-09-19 16:57:12,243:WARNING:/raid/templates/anaconda3/envs/rapids-22.08/lib/python3.9/site-packages/sklearn/utils/metaestimators.py:201: FutureWarning: if_delegate_has_method was deprecated in version 1.1 and will be removed in version 1.3. Use available_if instead.
+  warnings.warn(
+
+2022-09-19 16:57:12,341:INFO:Calculating mean and std
+2022-09-19 16:57:12,343:INFO:Creating metrics dataframe
+2022-09-19 16:57:12,346:INFO:Uploading results into container
+2022-09-19 16:57:12,346:INFO:Uploading model into container now
+2022-09-19 16:57:12,347:INFO:master_model_container: 7
+2022-09-19 16:57:12,347:INFO:display_container: 2
+2022-09-19 16:57:12,347:INFO:OrthogonalMatchingPursuit()
+2022-09-19 16:57:12,347:INFO:create_model() successfully completed......................................
+2022-09-19 16:57:12,748:INFO:SubProcess create_model() end ==================================
+2022-09-19 16:57:12,748:INFO:Creating metrics dataframe
+2022-09-19 16:57:12,756:INFO:Initializing Bayesian Ridge
+2022-09-19 16:57:12,756:INFO:Total runtime is 0.3254022677739461 minutes
+2022-09-19 16:57:12,758:INFO:SubProcess create_model() called ==================================
+2022-09-19 16:57:12,758:INFO:Initializing create_model()
+2022-09-19 16:57:12,758:INFO:create_model(self=<pycaret.regression.oop.RegressionExperiment object at 0x7fb9a41de820>, estimator=br, fold=TimeSeriesSplit(gap=0, max_train_size=None, n_splits=3, test_size=None), round=4, cross_validation=True, predict=True, fit_kwargs={}, groups=None, refit=False, probability_threshold=None, experiment_custom_tags=None, verbose=False, system=False, add_to_model_list=True, metrics=None, display=<pycaret.internal.display.display.CommonDisplay object at 0x7fb9a50199d0>, model_only=True, return_train_score=False, kwargs={})
+2022-09-19 16:57:12,759:INFO:Checking exceptions
+2022-09-19 16:57:12,760:INFO:Importing libraries
+2022-09-19 16:57:12,760:INFO:Copying training dataset
+2022-09-19 16:57:12,763:INFO:Defining folds
+2022-09-19 16:57:12,763:INFO:Declaring metric variables
+2022-09-19 16:57:12,766:INFO:Importing untrained model
+2022-09-19 16:57:12,768:INFO:Bayesian Ridge Imported successfully
+2022-09-19 16:57:12,772:INFO:Starting cross validation
+2022-09-19 16:57:12,772:INFO:Cross validating with TimeSeriesSplit(gap=0, max_train_size=None, n_splits=3, test_size=None), n_jobs=-1
+2022-09-19 16:57:13,832:WARNING:/raid/templates/anaconda3/envs/rapids-22.08/lib/python3.9/site-packages/sklearn/utils/metaestimators.py:201: FutureWarning: if_delegate_has_method was deprecated in version 1.1 and will be removed in version 1.3. Use available_if instead.
+  warnings.warn(
+
+2022-09-19 16:57:13,838:WARNING:/raid/templates/anaconda3/envs/rapids-22.08/lib/python3.9/site-packages/sklearn/utils/metaestimators.py:201: FutureWarning: if_delegate_has_method was deprecated in version 1.1 and will be removed in version 1.3. Use available_if instead.
+  warnings.warn(
+
+2022-09-19 16:57:13,843:WARNING:/raid/templates/anaconda3/envs/rapids-22.08/lib/python3.9/site-packages/sklearn/utils/metaestimators.py:201: FutureWarning: if_delegate_has_method was deprecated in version 1.1 and will be removed in version 1.3. Use available_if instead.
+  warnings.warn(
+
+2022-09-19 16:57:13,949:INFO:Calculating mean and std
+2022-09-19 16:57:13,951:INFO:Creating metrics dataframe
+2022-09-19 16:57:13,953:INFO:Uploading results into container
+2022-09-19 16:57:13,954:INFO:Uploading model into container now
+2022-09-19 16:57:13,954:INFO:master_model_container: 8
+2022-09-19 16:57:13,954:INFO:display_container: 2
+2022-09-19 16:57:13,954:INFO:BayesianRidge()
+2022-09-19 16:57:13,954:INFO:create_model() successfully completed......................................
+2022-09-19 16:57:14,359:INFO:SubProcess create_model() end ==================================
+2022-09-19 16:57:14,360:INFO:Creating metrics dataframe
+2022-09-19 16:57:14,368:INFO:Initializing Passive Aggressive Regressor
+2022-09-19 16:57:14,368:INFO:Total runtime is 0.3522641579310099 minutes
+2022-09-19 16:57:14,370:INFO:SubProcess create_model() called ==================================
+2022-09-19 16:57:14,370:INFO:Initializing create_model()
+2022-09-19 16:57:14,370:INFO:create_model(self=<pycaret.regression.oop.RegressionExperiment object at 0x7fb9a41de820>, estimator=par, fold=TimeSeriesSplit(gap=0, max_train_size=None, n_splits=3, test_size=None), round=4, cross_validation=True, predict=True, fit_kwargs={}, groups=None, refit=False, probability_threshold=None, experiment_custom_tags=None, verbose=False, system=False, add_to_model_list=True, metrics=None, display=<pycaret.internal.display.display.CommonDisplay object at 0x7fb9a50199d0>, model_only=True, return_train_score=False, kwargs={})
+2022-09-19 16:57:14,370:INFO:Checking exceptions
+2022-09-19 16:57:14,372:INFO:Importing libraries
+2022-09-19 16:57:14,372:INFO:Copying training dataset
+2022-09-19 16:57:14,375:INFO:Defining folds
+2022-09-19 16:57:14,375:INFO:Declaring metric variables
+2022-09-19 16:57:14,377:INFO:Importing untrained model
+2022-09-19 16:57:14,379:INFO:Passive Aggressive Regressor Imported successfully
+2022-09-19 16:57:14,383:INFO:Starting cross validation
+2022-09-19 16:57:14,384:INFO:Cross validating with TimeSeriesSplit(gap=0, max_train_size=None, n_splits=3, test_size=None), n_jobs=-1
+2022-09-19 16:57:15,444:WARNING:/raid/templates/anaconda3/envs/rapids-22.08/lib/python3.9/site-packages/sklearn/utils/metaestimators.py:201: FutureWarning: if_delegate_has_method was deprecated in version 1.1 and will be removed in version 1.3. Use available_if instead.
+  warnings.warn(
+
+2022-09-19 16:57:15,482:WARNING:/raid/templates/anaconda3/envs/rapids-22.08/lib/python3.9/site-packages/sklearn/utils/metaestimators.py:201: FutureWarning: if_delegate_has_method was deprecated in version 1.1 and will be removed in version 1.3. Use available_if instead.
+  warnings.warn(
+
+2022-09-19 16:57:15,588:WARNING:/raid/templates/anaconda3/envs/rapids-22.08/lib/python3.9/site-packages/sklearn/utils/metaestimators.py:201: FutureWarning: if_delegate_has_method was deprecated in version 1.1 and will be removed in version 1.3. Use available_if instead.
+  warnings.warn(
+
+2022-09-19 16:57:15,693:INFO:Calculating mean and std
+2022-09-19 16:57:15,694:INFO:Creating metrics dataframe
+2022-09-19 16:57:15,697:INFO:Uploading results into container
+2022-09-19 16:57:15,697:INFO:Uploading model into container now
+2022-09-19 16:57:15,697:INFO:master_model_container: 9
+2022-09-19 16:57:15,697:INFO:display_container: 2
+2022-09-19 16:57:15,698:INFO:PassiveAggressiveRegressor(random_state=8441)
+2022-09-19 16:57:15,698:INFO:create_model() successfully completed......................................
+2022-09-19 16:57:16,098:INFO:SubProcess create_model() end ==================================
+2022-09-19 16:57:16,098:INFO:Creating metrics dataframe
+2022-09-19 16:57:16,106:INFO:Initializing Huber Regressor
+2022-09-19 16:57:16,106:INFO:Total runtime is 0.38123628695805867 minutes
+2022-09-19 16:57:16,108:INFO:SubProcess create_model() called ==================================
+2022-09-19 16:57:16,108:INFO:Initializing create_model()
+2022-09-19 16:57:16,109:INFO:create_model(self=<pycaret.regression.oop.RegressionExperiment object at 0x7fb9a41de820>, estimator=huber, fold=TimeSeriesSplit(gap=0, max_train_size=None, n_splits=3, test_size=None), round=4, cross_validation=True, predict=True, fit_kwargs={}, groups=None, refit=False, probability_threshold=None, experiment_custom_tags=None, verbose=False, system=False, add_to_model_list=True, metrics=None, display=<pycaret.internal.display.display.CommonDisplay object at 0x7fb9a50199d0>, model_only=True, return_train_score=False, kwargs={})
+2022-09-19 16:57:16,109:INFO:Checking exceptions
+2022-09-19 16:57:16,110:INFO:Importing libraries
+2022-09-19 16:57:16,110:INFO:Copying training dataset
+2022-09-19 16:57:16,113:INFO:Defining folds
+2022-09-19 16:57:16,113:INFO:Declaring metric variables
+2022-09-19 16:57:16,116:INFO:Importing untrained model
+2022-09-19 16:57:16,118:INFO:Huber Regressor Imported successfully
+2022-09-19 16:57:16,122:INFO:Starting cross validation
+2022-09-19 16:57:16,123:INFO:Cross validating with TimeSeriesSplit(gap=0, max_train_size=None, n_splits=3, test_size=None), n_jobs=-1
+2022-09-19 16:57:17,235:WARNING:/raid/templates/anaconda3/envs/rapids-22.08/lib/python3.9/site-packages/sklearn/linear_model/_huber.py:335: ConvergenceWarning: lbfgs failed to converge (status=1):
+STOP: TOTAL NO. of ITERATIONS REACHED LIMIT.
+
+Increase the number of iterations (max_iter) or scale the data as shown in:
+    https://scikit-learn.org/stable/modules/preprocessing.html
+  self.n_iter_ = _check_optimize_result("lbfgs", opt_res, self.max_iter)
+
+2022-09-19 16:57:17,235:WARNING:/raid/templates/anaconda3/envs/rapids-22.08/lib/python3.9/site-packages/sklearn/utils/metaestimators.py:201: FutureWarning: if_delegate_has_method was deprecated in version 1.1 and will be removed in version 1.3. Use available_if instead.
+  warnings.warn(
+
+2022-09-19 16:57:17,271:WARNING:/raid/templates/anaconda3/envs/rapids-22.08/lib/python3.9/site-packages/sklearn/linear_model/_huber.py:335: ConvergenceWarning: lbfgs failed to converge (status=1):
+STOP: TOTAL NO. of ITERATIONS REACHED LIMIT.
+
+Increase the number of iterations (max_iter) or scale the data as shown in:
+    https://scikit-learn.org/stable/modules/preprocessing.html
+  self.n_iter_ = _check_optimize_result("lbfgs", opt_res, self.max_iter)
+
+2022-09-19 16:57:17,271:WARNING:/raid/templates/anaconda3/envs/rapids-22.08/lib/python3.9/site-packages/sklearn/utils/metaestimators.py:201: FutureWarning: if_delegate_has_method was deprecated in version 1.1 and will be removed in version 1.3. Use available_if instead.
+  warnings.warn(
+
+2022-09-19 16:57:17,288:WARNING:/raid/templates/anaconda3/envs/rapids-22.08/lib/python3.9/site-packages/sklearn/utils/metaestimators.py:201: FutureWarning: if_delegate_has_method was deprecated in version 1.1 and will be removed in version 1.3. Use available_if instead.
+  warnings.warn(
+
+2022-09-19 16:57:17,396:INFO:Calculating mean and std
+2022-09-19 16:57:17,397:INFO:Creating metrics dataframe
+2022-09-19 16:57:17,400:INFO:Uploading results into container
+2022-09-19 16:57:17,401:INFO:Uploading model into container now
+2022-09-19 16:57:17,401:INFO:master_model_container: 10
+2022-09-19 16:57:17,401:INFO:display_container: 2
+2022-09-19 16:57:17,401:INFO:HuberRegressor()
+2022-09-19 16:57:17,401:INFO:create_model() successfully completed......................................
+2022-09-19 16:57:17,807:INFO:SubProcess create_model() end ==================================
+2022-09-19 16:57:17,807:INFO:Creating metrics dataframe
+2022-09-19 16:57:17,816:INFO:Initializing K Neighbors Regressor
+2022-09-19 16:57:17,816:INFO:Total runtime is 0.40973509550094606 minutes
+2022-09-19 16:57:17,818:INFO:SubProcess create_model() called ==================================
+2022-09-19 16:57:17,818:INFO:Initializing create_model()
+2022-09-19 16:57:17,818:INFO:create_model(self=<pycaret.regression.oop.RegressionExperiment object at 0x7fb9a41de820>, estimator=knn, fold=TimeSeriesSplit(gap=0, max_train_size=None, n_splits=3, test_size=None), round=4, cross_validation=True, predict=True, fit_kwargs={}, groups=None, refit=False, probability_threshold=None, experiment_custom_tags=None, verbose=False, system=False, add_to_model_list=True, metrics=None, display=<pycaret.internal.display.display.CommonDisplay object at 0x7fb9a50199d0>, model_only=True, return_train_score=False, kwargs={})
+2022-09-19 16:57:17,818:INFO:Checking exceptions
+2022-09-19 16:57:17,820:INFO:Importing libraries
+2022-09-19 16:57:17,820:INFO:Copying training dataset
+2022-09-19 16:57:17,823:INFO:Defining folds
+2022-09-19 16:57:17,823:INFO:Declaring metric variables
+2022-09-19 16:57:17,826:INFO:Importing untrained model
+2022-09-19 16:57:17,828:INFO:K Neighbors Regressor Imported successfully
+2022-09-19 16:57:17,832:INFO:Starting cross validation
+2022-09-19 16:57:17,832:INFO:Cross validating with TimeSeriesSplit(gap=0, max_train_size=None, n_splits=3, test_size=None), n_jobs=-1
+2022-09-19 16:57:18,904:WARNING:/raid/templates/anaconda3/envs/rapids-22.08/lib/python3.9/site-packages/sklearn/utils/metaestimators.py:201: FutureWarning: if_delegate_has_method was deprecated in version 1.1 and will be removed in version 1.3. Use available_if instead.
+  warnings.warn(
+
+2022-09-19 16:57:18,904:WARNING:/raid/templates/anaconda3/envs/rapids-22.08/lib/python3.9/site-packages/sklearn/utils/metaestimators.py:201: FutureWarning: if_delegate_has_method was deprecated in version 1.1 and will be removed in version 1.3. Use available_if instead.
+  warnings.warn(
+
+2022-09-19 16:57:18,919:WARNING:/raid/templates/anaconda3/envs/rapids-22.08/lib/python3.9/site-packages/sklearn/utils/metaestimators.py:201: FutureWarning: if_delegate_has_method was deprecated in version 1.1 and will be removed in version 1.3. Use available_if instead.
+  warnings.warn(
+
+2022-09-19 16:57:19,096:INFO:Calculating mean and std
+2022-09-19 16:57:19,098:INFO:Creating metrics dataframe
+2022-09-19 16:57:19,101:INFO:Uploading results into container
+2022-09-19 16:57:19,101:INFO:Uploading model into container now
+2022-09-19 16:57:19,101:INFO:master_model_container: 11
+2022-09-19 16:57:19,101:INFO:display_container: 2
+2022-09-19 16:57:19,102:INFO:KNeighborsRegressor(n_jobs=-1)
+2022-09-19 16:57:19,102:INFO:create_model() successfully completed......................................
+2022-09-19 16:57:19,504:INFO:SubProcess create_model() end ==================================
+2022-09-19 16:57:19,504:INFO:Creating metrics dataframe
+2022-09-19 16:57:19,513:INFO:Initializing Decision Tree Regressor
+2022-09-19 16:57:19,513:INFO:Total runtime is 0.4380118409792582 minutes
+2022-09-19 16:57:19,515:INFO:SubProcess create_model() called ==================================
+2022-09-19 16:57:19,515:INFO:Initializing create_model()
+2022-09-19 16:57:19,515:INFO:create_model(self=<pycaret.regression.oop.RegressionExperiment object at 0x7fb9a41de820>, estimator=dt, fold=TimeSeriesSplit(gap=0, max_train_size=None, n_splits=3, test_size=None), round=4, cross_validation=True, predict=True, fit_kwargs={}, groups=None, refit=False, probability_threshold=None, experiment_custom_tags=None, verbose=False, system=False, add_to_model_list=True, metrics=None, display=<pycaret.internal.display.display.CommonDisplay object at 0x7fb9a50199d0>, model_only=True, return_train_score=False, kwargs={})
+2022-09-19 16:57:19,515:INFO:Checking exceptions
+2022-09-19 16:57:19,517:INFO:Importing libraries
+2022-09-19 16:57:19,517:INFO:Copying training dataset
+2022-09-19 16:57:19,520:INFO:Defining folds
+2022-09-19 16:57:19,520:INFO:Declaring metric variables
+2022-09-19 16:57:19,522:INFO:Importing untrained model
+2022-09-19 16:57:19,524:INFO:Decision Tree Regressor Imported successfully
+2022-09-19 16:57:19,528:INFO:Starting cross validation
+2022-09-19 16:57:19,529:INFO:Cross validating with TimeSeriesSplit(gap=0, max_train_size=None, n_splits=3, test_size=None), n_jobs=-1
+2022-09-19 16:57:20,610:WARNING:/raid/templates/anaconda3/envs/rapids-22.08/lib/python3.9/site-packages/sklearn/utils/metaestimators.py:201: FutureWarning: if_delegate_has_method was deprecated in version 1.1 and will be removed in version 1.3. Use available_if instead.
+  warnings.warn(
+
+2022-09-19 16:57:20,612:WARNING:/raid/templates/anaconda3/envs/rapids-22.08/lib/python3.9/site-packages/sklearn/utils/metaestimators.py:201: FutureWarning: if_delegate_has_method was deprecated in version 1.1 and will be removed in version 1.3. Use available_if instead.
+  warnings.warn(
+
+2022-09-19 16:57:20,640:WARNING:/raid/templates/anaconda3/envs/rapids-22.08/lib/python3.9/site-packages/sklearn/utils/metaestimators.py:201: FutureWarning: if_delegate_has_method was deprecated in version 1.1 and will be removed in version 1.3. Use available_if instead.
+  warnings.warn(
+
+2022-09-19 16:57:20,754:INFO:Calculating mean and std
+2022-09-19 16:57:20,756:INFO:Creating metrics dataframe
+2022-09-19 16:57:20,759:INFO:Uploading results into container
+2022-09-19 16:57:20,759:INFO:Uploading model into container now
+2022-09-19 16:57:20,760:INFO:master_model_container: 12
+2022-09-19 16:57:20,760:INFO:display_container: 2
+2022-09-19 16:57:20,760:INFO:DecisionTreeRegressor(random_state=8441)
+2022-09-19 16:57:20,760:INFO:create_model() successfully completed......................................
+2022-09-19 16:57:21,161:INFO:SubProcess create_model() end ==================================
+2022-09-19 16:57:21,161:INFO:Creating metrics dataframe
+2022-09-19 16:57:21,170:INFO:Initializing Random Forest Regressor
+2022-09-19 16:57:21,170:INFO:Total runtime is 0.46564077138900756 minutes
+2022-09-19 16:57:21,172:INFO:SubProcess create_model() called ==================================
+2022-09-19 16:57:21,173:INFO:Initializing create_model()
+2022-09-19 16:57:21,173:INFO:create_model(self=<pycaret.regression.oop.RegressionExperiment object at 0x7fb9a41de820>, estimator=rf, fold=TimeSeriesSplit(gap=0, max_train_size=None, n_splits=3, test_size=None), round=4, cross_validation=True, predict=True, fit_kwargs={}, groups=None, refit=False, probability_threshold=None, experiment_custom_tags=None, verbose=False, system=False, add_to_model_list=True, metrics=None, display=<pycaret.internal.display.display.CommonDisplay object at 0x7fb9a50199d0>, model_only=True, return_train_score=False, kwargs={})
+2022-09-19 16:57:21,173:INFO:Checking exceptions
+2022-09-19 16:57:21,174:INFO:Importing libraries
+2022-09-19 16:57:21,174:INFO:Copying training dataset
+2022-09-19 16:57:21,178:INFO:Defining folds
+2022-09-19 16:57:21,178:INFO:Declaring metric variables
+2022-09-19 16:57:21,180:INFO:Importing untrained model
+2022-09-19 16:57:21,182:INFO:Random Forest Regressor Imported successfully
+2022-09-19 16:57:21,186:INFO:Starting cross validation
+2022-09-19 16:57:21,187:INFO:Cross validating with TimeSeriesSplit(gap=0, max_train_size=None, n_splits=3, test_size=None), n_jobs=-1
+2022-09-19 16:57:22,436:WARNING:/raid/templates/anaconda3/envs/rapids-22.08/lib/python3.9/site-packages/sklearn/utils/metaestimators.py:201: FutureWarning: if_delegate_has_method was deprecated in version 1.1 and will be removed in version 1.3. Use available_if instead.
+  warnings.warn(
+
+2022-09-19 16:57:22,460:WARNING:/raid/templates/anaconda3/envs/rapids-22.08/lib/python3.9/site-packages/sklearn/utils/metaestimators.py:201: FutureWarning: if_delegate_has_method was deprecated in version 1.1 and will be removed in version 1.3. Use available_if instead.
+  warnings.warn(
+
+2022-09-19 16:57:22,468:WARNING:/raid/templates/anaconda3/envs/rapids-22.08/lib/python3.9/site-packages/sklearn/utils/metaestimators.py:201: FutureWarning: if_delegate_has_method was deprecated in version 1.1 and will be removed in version 1.3. Use available_if instead.
+  warnings.warn(
+
+2022-09-19 16:57:22,624:INFO:Calculating mean and std
+2022-09-19 16:57:22,626:INFO:Creating metrics dataframe
+2022-09-19 16:57:22,629:INFO:Uploading results into container
+2022-09-19 16:57:22,629:INFO:Uploading model into container now
+2022-09-19 16:57:22,630:INFO:master_model_container: 13
+2022-09-19 16:57:22,630:INFO:display_container: 2
+2022-09-19 16:57:22,630:INFO:RandomForestRegressor(n_jobs=-1, random_state=8441)
+2022-09-19 16:57:22,630:INFO:create_model() successfully completed......................................
+2022-09-19 16:57:23,042:INFO:SubProcess create_model() end ==================================
+2022-09-19 16:57:23,042:INFO:Creating metrics dataframe
+2022-09-19 16:57:23,051:INFO:Initializing Extra Trees Regressor
+2022-09-19 16:57:23,051:INFO:Total runtime is 0.4969911972681681 minutes
+2022-09-19 16:57:23,054:INFO:SubProcess create_model() called ==================================
+2022-09-19 16:57:23,054:INFO:Initializing create_model()
+2022-09-19 16:57:23,054:INFO:create_model(self=<pycaret.regression.oop.RegressionExperiment object at 0x7fb9a41de820>, estimator=et, fold=TimeSeriesSplit(gap=0, max_train_size=None, n_splits=3, test_size=None), round=4, cross_validation=True, predict=True, fit_kwargs={}, groups=None, refit=False, probability_threshold=None, experiment_custom_tags=None, verbose=False, system=False, add_to_model_list=True, metrics=None, display=<pycaret.internal.display.display.CommonDisplay object at 0x7fb9a50199d0>, model_only=True, return_train_score=False, kwargs={})
+2022-09-19 16:57:23,054:INFO:Checking exceptions
+2022-09-19 16:57:23,055:INFO:Importing libraries
+2022-09-19 16:57:23,056:INFO:Copying training dataset
+2022-09-19 16:57:23,059:INFO:Defining folds
+2022-09-19 16:57:23,059:INFO:Declaring metric variables
+2022-09-19 16:57:23,061:INFO:Importing untrained model
+2022-09-19 16:57:23,063:INFO:Extra Trees Regressor Imported successfully
+2022-09-19 16:57:23,067:INFO:Starting cross validation
+2022-09-19 16:57:23,068:INFO:Cross validating with TimeSeriesSplit(gap=0, max_train_size=None, n_splits=3, test_size=None), n_jobs=-1
+2022-09-19 16:57:24,273:WARNING:/raid/templates/anaconda3/envs/rapids-22.08/lib/python3.9/site-packages/sklearn/utils/metaestimators.py:201: FutureWarning: if_delegate_has_method was deprecated in version 1.1 and will be removed in version 1.3. Use available_if instead.
+  warnings.warn(
+
+2022-09-19 16:57:24,276:WARNING:/raid/templates/anaconda3/envs/rapids-22.08/lib/python3.9/site-packages/sklearn/utils/metaestimators.py:201: FutureWarning: if_delegate_has_method was deprecated in version 1.1 and will be removed in version 1.3. Use available_if instead.
+  warnings.warn(
+
+2022-09-19 16:57:24,296:WARNING:/raid/templates/anaconda3/envs/rapids-22.08/lib/python3.9/site-packages/sklearn/utils/metaestimators.py:201: FutureWarning: if_delegate_has_method was deprecated in version 1.1 and will be removed in version 1.3. Use available_if instead.
+  warnings.warn(
+
+2022-09-19 16:57:24,444:INFO:Calculating mean and std
+2022-09-19 16:57:24,445:INFO:Creating metrics dataframe
+2022-09-19 16:57:24,448:INFO:Uploading results into container
+2022-09-19 16:57:24,449:INFO:Uploading model into container now
+2022-09-19 16:57:24,449:INFO:master_model_container: 14
+2022-09-19 16:57:24,449:INFO:display_container: 2
+2022-09-19 16:57:24,449:INFO:ExtraTreesRegressor(n_jobs=-1, random_state=8441)
+2022-09-19 16:57:24,449:INFO:create_model() successfully completed......................................
+2022-09-19 16:57:24,853:INFO:SubProcess create_model() end ==================================
+2022-09-19 16:57:24,853:INFO:Creating metrics dataframe
+2022-09-19 16:57:24,862:INFO:Initializing AdaBoost Regressor
+2022-09-19 16:57:24,862:INFO:Total runtime is 0.5271726409594217 minutes
+2022-09-19 16:57:24,864:INFO:SubProcess create_model() called ==================================
+2022-09-19 16:57:24,865:INFO:Initializing create_model()
+2022-09-19 16:57:24,865:INFO:create_model(self=<pycaret.regression.oop.RegressionExperiment object at 0x7fb9a41de820>, estimator=ada, fold=TimeSeriesSplit(gap=0, max_train_size=None, n_splits=3, test_size=None), round=4, cross_validation=True, predict=True, fit_kwargs={}, groups=None, refit=False, probability_threshold=None, experiment_custom_tags=None, verbose=False, system=False, add_to_model_list=True, metrics=None, display=<pycaret.internal.display.display.CommonDisplay object at 0x7fb9a50199d0>, model_only=True, return_train_score=False, kwargs={})
+2022-09-19 16:57:24,865:INFO:Checking exceptions
+2022-09-19 16:57:24,866:INFO:Importing libraries
+2022-09-19 16:57:24,866:INFO:Copying training dataset
+2022-09-19 16:57:24,869:INFO:Defining folds
+2022-09-19 16:57:24,869:INFO:Declaring metric variables
+2022-09-19 16:57:24,872:INFO:Importing untrained model
+2022-09-19 16:57:24,874:INFO:AdaBoost Regressor Imported successfully
+2022-09-19 16:57:24,878:INFO:Starting cross validation
+2022-09-19 16:57:24,878:INFO:Cross validating with TimeSeriesSplit(gap=0, max_train_size=None, n_splits=3, test_size=None), n_jobs=-1
+2022-09-19 16:57:26,013:WARNING:/raid/templates/anaconda3/envs/rapids-22.08/lib/python3.9/site-packages/sklearn/utils/metaestimators.py:201: FutureWarning: if_delegate_has_method was deprecated in version 1.1 and will be removed in version 1.3. Use available_if instead.
+  warnings.warn(
+
+2022-09-19 16:57:26,073:WARNING:/raid/templates/anaconda3/envs/rapids-22.08/lib/python3.9/site-packages/sklearn/utils/metaestimators.py:201: FutureWarning: if_delegate_has_method was deprecated in version 1.1 and will be removed in version 1.3. Use available_if instead.
+  warnings.warn(
+
+2022-09-19 16:57:26,125:WARNING:/raid/templates/anaconda3/envs/rapids-22.08/lib/python3.9/site-packages/sklearn/utils/metaestimators.py:201: FutureWarning: if_delegate_has_method was deprecated in version 1.1 and will be removed in version 1.3. Use available_if instead.
+  warnings.warn(
+
+2022-09-19 16:57:26,229:INFO:Calculating mean and std
+2022-09-19 16:57:26,231:INFO:Creating metrics dataframe
+2022-09-19 16:57:26,234:INFO:Uploading results into container
+2022-09-19 16:57:26,234:INFO:Uploading model into container now
+2022-09-19 16:57:26,235:INFO:master_model_container: 15
+2022-09-19 16:57:26,235:INFO:display_container: 2
+2022-09-19 16:57:26,235:INFO:AdaBoostRegressor(random_state=8441)
+2022-09-19 16:57:26,235:INFO:create_model() successfully completed......................................
+2022-09-19 16:57:26,635:INFO:SubProcess create_model() end ==================================
+2022-09-19 16:57:26,635:INFO:Creating metrics dataframe
+2022-09-19 16:57:26,644:INFO:Initializing Gradient Boosting Regressor
+2022-09-19 16:57:26,645:INFO:Total runtime is 0.5568775653839111 minutes
+2022-09-19 16:57:26,647:INFO:SubProcess create_model() called ==================================
+2022-09-19 16:57:26,647:INFO:Initializing create_model()
+2022-09-19 16:57:26,647:INFO:create_model(self=<pycaret.regression.oop.RegressionExperiment object at 0x7fb9a41de820>, estimator=gbr, fold=TimeSeriesSplit(gap=0, max_train_size=None, n_splits=3, test_size=None), round=4, cross_validation=True, predict=True, fit_kwargs={}, groups=None, refit=False, probability_threshold=None, experiment_custom_tags=None, verbose=False, system=False, add_to_model_list=True, metrics=None, display=<pycaret.internal.display.display.CommonDisplay object at 0x7fb9a50199d0>, model_only=True, return_train_score=False, kwargs={})
+2022-09-19 16:57:26,647:INFO:Checking exceptions
+2022-09-19 16:57:26,648:INFO:Importing libraries
+2022-09-19 16:57:26,649:INFO:Copying training dataset
+2022-09-19 16:57:26,652:INFO:Defining folds
+2022-09-19 16:57:26,652:INFO:Declaring metric variables
+2022-09-19 16:57:26,654:INFO:Importing untrained model
+2022-09-19 16:57:26,656:INFO:Gradient Boosting Regressor Imported successfully
+2022-09-19 16:57:26,660:INFO:Starting cross validation
+2022-09-19 16:57:26,661:INFO:Cross validating with TimeSeriesSplit(gap=0, max_train_size=None, n_splits=3, test_size=None), n_jobs=-1
+2022-09-19 16:57:27,980:WARNING:/raid/templates/anaconda3/envs/rapids-22.08/lib/python3.9/site-packages/sklearn/utils/metaestimators.py:201: FutureWarning: if_delegate_has_method was deprecated in version 1.1 and will be removed in version 1.3. Use available_if instead.
+  warnings.warn(
+
+2022-09-19 16:57:28,279:WARNING:/raid/templates/anaconda3/envs/rapids-22.08/lib/python3.9/site-packages/sklearn/utils/metaestimators.py:201: FutureWarning: if_delegate_has_method was deprecated in version 1.1 and will be removed in version 1.3. Use available_if instead.
+  warnings.warn(
+
+2022-09-19 16:57:28,473:WARNING:/raid/templates/anaconda3/envs/rapids-22.08/lib/python3.9/site-packages/sklearn/utils/metaestimators.py:201: FutureWarning: if_delegate_has_method was deprecated in version 1.1 and will be removed in version 1.3. Use available_if instead.
+  warnings.warn(
+
+2022-09-19 16:57:28,586:INFO:Calculating mean and std
+2022-09-19 16:57:28,587:INFO:Creating metrics dataframe
+2022-09-19 16:57:28,590:INFO:Uploading results into container
+2022-09-19 16:57:28,590:INFO:Uploading model into container now
+2022-09-19 16:57:28,591:INFO:master_model_container: 16
+2022-09-19 16:57:28,591:INFO:display_container: 2
+2022-09-19 16:57:28,591:INFO:GradientBoostingRegressor(random_state=8441)
+2022-09-19 16:57:28,591:INFO:create_model() successfully completed......................................
+2022-09-19 16:57:28,999:INFO:SubProcess create_model() end ==================================
+2022-09-19 16:57:28,999:INFO:Creating metrics dataframe
+2022-09-19 16:57:29,008:INFO:Initializing Extreme Gradient Boosting
+2022-09-19 16:57:29,009:INFO:Total runtime is 0.5962772806485493 minutes
+2022-09-19 16:57:29,011:INFO:SubProcess create_model() called ==================================
+2022-09-19 16:57:29,011:INFO:Initializing create_model()
+2022-09-19 16:57:29,011:INFO:create_model(self=<pycaret.regression.oop.RegressionExperiment object at 0x7fb9a41de820>, estimator=xgboost, fold=TimeSeriesSplit(gap=0, max_train_size=None, n_splits=3, test_size=None), round=4, cross_validation=True, predict=True, fit_kwargs={}, groups=None, refit=False, probability_threshold=None, experiment_custom_tags=None, verbose=False, system=False, add_to_model_list=True, metrics=None, display=<pycaret.internal.display.display.CommonDisplay object at 0x7fb9a50199d0>, model_only=True, return_train_score=False, kwargs={})
+2022-09-19 16:57:29,011:INFO:Checking exceptions
+2022-09-19 16:57:29,013:INFO:Importing libraries
+2022-09-19 16:57:29,013:INFO:Copying training dataset
+2022-09-19 16:57:29,016:INFO:Defining folds
+2022-09-19 16:57:29,016:INFO:Declaring metric variables
+2022-09-19 16:57:29,018:INFO:Importing untrained model
+2022-09-19 16:57:29,021:INFO:Extreme Gradient Boosting Imported successfully
+2022-09-19 16:57:29,025:INFO:Starting cross validation
+2022-09-19 16:57:29,025:INFO:Cross validating with TimeSeriesSplit(gap=0, max_train_size=None, n_splits=3, test_size=None), n_jobs=-1
+2022-09-19 16:57:34,763:WARNING:/raid/templates/anaconda3/envs/rapids-22.08/lib/python3.9/site-packages/sklearn/utils/metaestimators.py:201: FutureWarning: if_delegate_has_method was deprecated in version 1.1 and will be removed in version 1.3. Use available_if instead.
+  warnings.warn(
+
+2022-09-19 16:57:34,858:WARNING:/raid/templates/anaconda3/envs/rapids-22.08/lib/python3.9/site-packages/sklearn/utils/metaestimators.py:201: FutureWarning: if_delegate_has_method was deprecated in version 1.1 and will be removed in version 1.3. Use available_if instead.
+  warnings.warn(
+
+2022-09-19 16:57:35,029:WARNING:/raid/templates/anaconda3/envs/rapids-22.08/lib/python3.9/site-packages/sklearn/utils/metaestimators.py:201: FutureWarning: if_delegate_has_method was deprecated in version 1.1 and will be removed in version 1.3. Use available_if instead.
+  warnings.warn(
+
+2022-09-19 16:57:35,149:INFO:Calculating mean and std
+2022-09-19 16:57:35,150:INFO:Creating metrics dataframe
+2022-09-19 16:57:35,153:INFO:Uploading results into container
+2022-09-19 16:57:35,154:INFO:Uploading model into container now
+2022-09-19 16:57:35,154:INFO:master_model_container: 17
+2022-09-19 16:57:35,154:INFO:display_container: 2
+2022-09-19 16:57:35,154:INFO:XGBRegressor(base_score=None, booster='gbtree', callbacks=None,
+             colsample_bylevel=None, colsample_bynode=None,
+             colsample_bytree=None, early_stopping_rounds=None,
+             enable_categorical=False, eval_metric=None, gamma=None,
+             gpu_id=None, grow_policy=None, importance_type=None,
+             interaction_constraints=None, learning_rate=None, max_bin=None,
+             max_cat_to_onehot=None, max_delta_step=None, max_depth=None,
+             max_leaves=None, min_child_weight=None, missing=nan,
+             monotone_constraints=None, n_estimators=100, n_jobs=-1,
+             num_parallel_tree=None, predictor=None, random_state=8441,
+             reg_alpha=None, reg_lambda=None, ...)
+2022-09-19 16:57:35,155:INFO:create_model() successfully completed......................................
+2022-09-19 16:57:35,555:INFO:SubProcess create_model() end ==================================
+2022-09-19 16:57:35,555:INFO:Creating metrics dataframe
+2022-09-19 16:57:35,564:INFO:Initializing Light Gradient Boosting Machine
+2022-09-19 16:57:35,564:INFO:Total runtime is 0.705542242527008 minutes
+2022-09-19 16:57:35,567:INFO:SubProcess create_model() called ==================================
+2022-09-19 16:57:35,567:INFO:Initializing create_model()
+2022-09-19 16:57:35,567:INFO:create_model(self=<pycaret.regression.oop.RegressionExperiment object at 0x7fb9a41de820>, estimator=lightgbm, fold=TimeSeriesSplit(gap=0, max_train_size=None, n_splits=3, test_size=None), round=4, cross_validation=True, predict=True, fit_kwargs={}, groups=None, refit=False, probability_threshold=None, experiment_custom_tags=None, verbose=False, system=False, add_to_model_list=True, metrics=None, display=<pycaret.internal.display.display.CommonDisplay object at 0x7fb9a50199d0>, model_only=True, return_train_score=False, kwargs={})
+2022-09-19 16:57:35,567:INFO:Checking exceptions
+2022-09-19 16:57:35,568:INFO:Importing libraries
+2022-09-19 16:57:35,568:INFO:Copying training dataset
+2022-09-19 16:57:35,572:INFO:Defining folds
+2022-09-19 16:57:35,572:INFO:Declaring metric variables
+2022-09-19 16:57:35,574:INFO:Importing untrained model
+2022-09-19 16:57:35,576:INFO:Light Gradient Boosting Machine Imported successfully
+2022-09-19 16:57:35,580:INFO:Starting cross validation
+2022-09-19 16:57:35,581:INFO:Cross validating with TimeSeriesSplit(gap=0, max_train_size=None, n_splits=3, test_size=None), n_jobs=-1
+2022-09-19 16:57:37,149:WARNING:/raid/templates/anaconda3/envs/rapids-22.08/lib/python3.9/site-packages/sklearn/utils/metaestimators.py:201: FutureWarning: if_delegate_has_method was deprecated in version 1.1 and will be removed in version 1.3. Use available_if instead.
+  warnings.warn(
+
+2022-09-19 16:57:37,222:WARNING:/raid/templates/anaconda3/envs/rapids-22.08/lib/python3.9/site-packages/sklearn/utils/metaestimators.py:201: FutureWarning: if_delegate_has_method was deprecated in version 1.1 and will be removed in version 1.3. Use available_if instead.
+  warnings.warn(
+
+2022-09-19 16:57:37,300:WARNING:/raid/templates/anaconda3/envs/rapids-22.08/lib/python3.9/site-packages/sklearn/utils/metaestimators.py:201: FutureWarning: if_delegate_has_method was deprecated in version 1.1 and will be removed in version 1.3. Use available_if instead.
+  warnings.warn(
+
+2022-09-19 16:57:37,422:INFO:Calculating mean and std
+2022-09-19 16:57:37,423:INFO:Creating metrics dataframe
+2022-09-19 16:57:37,426:INFO:Uploading results into container
+2022-09-19 16:57:37,426:INFO:Uploading model into container now
+2022-09-19 16:57:37,427:INFO:master_model_container: 18
+2022-09-19 16:57:37,427:INFO:display_container: 2
+2022-09-19 16:57:37,427:INFO:LGBMRegressor(random_state=8441)
+2022-09-19 16:57:37,427:INFO:create_model() successfully completed......................................
+2022-09-19 16:57:37,859:INFO:SubProcess create_model() end ==================================
+2022-09-19 16:57:37,860:INFO:Creating metrics dataframe
+2022-09-19 16:57:37,869:INFO:Initializing Dummy Regressor
+2022-09-19 16:57:37,869:INFO:Total runtime is 0.7439597765604655 minutes
+2022-09-19 16:57:37,872:INFO:SubProcess create_model() called ==================================
+2022-09-19 16:57:37,872:INFO:Initializing create_model()
+2022-09-19 16:57:37,872:INFO:create_model(self=<pycaret.regression.oop.RegressionExperiment object at 0x7fb9a41de820>, estimator=dummy, fold=TimeSeriesSplit(gap=0, max_train_size=None, n_splits=3, test_size=None), round=4, cross_validation=True, predict=True, fit_kwargs={}, groups=None, refit=False, probability_threshold=None, experiment_custom_tags=None, verbose=False, system=False, add_to_model_list=True, metrics=None, display=<pycaret.internal.display.display.CommonDisplay object at 0x7fb9a50199d0>, model_only=True, return_train_score=False, kwargs={})
+2022-09-19 16:57:37,872:INFO:Checking exceptions
+2022-09-19 16:57:37,873:INFO:Importing libraries
+2022-09-19 16:57:37,873:INFO:Copying training dataset
+2022-09-19 16:57:37,877:INFO:Defining folds
+2022-09-19 16:57:37,877:INFO:Declaring metric variables
+2022-09-19 16:57:37,879:INFO:Importing untrained model
+2022-09-19 16:57:37,881:INFO:Dummy Regressor Imported successfully
+2022-09-19 16:57:37,885:INFO:Starting cross validation
+2022-09-19 16:57:37,886:INFO:Cross validating with TimeSeriesSplit(gap=0, max_train_size=None, n_splits=3, test_size=None), n_jobs=-1
+2022-09-19 16:57:38,969:WARNING:/raid/templates/anaconda3/envs/rapids-22.08/lib/python3.9/site-packages/sklearn/utils/metaestimators.py:201: FutureWarning: if_delegate_has_method was deprecated in version 1.1 and will be removed in version 1.3. Use available_if instead.
+  warnings.warn(
+
+2022-09-19 16:57:38,977:WARNING:/raid/templates/anaconda3/envs/rapids-22.08/lib/python3.9/site-packages/sklearn/utils/metaestimators.py:201: FutureWarning: if_delegate_has_method was deprecated in version 1.1 and will be removed in version 1.3. Use available_if instead.
+  warnings.warn(
+
+2022-09-19 16:57:38,978:WARNING:/raid/templates/anaconda3/envs/rapids-22.08/lib/python3.9/site-packages/sklearn/utils/metaestimators.py:201: FutureWarning: if_delegate_has_method was deprecated in version 1.1 and will be removed in version 1.3. Use available_if instead.
+  warnings.warn(
+
+2022-09-19 16:57:39,082:INFO:Calculating mean and std
+2022-09-19 16:57:39,083:INFO:Creating metrics dataframe
+2022-09-19 16:57:39,086:INFO:Uploading results into container
+2022-09-19 16:57:39,087:INFO:Uploading model into container now
+2022-09-19 16:57:39,087:INFO:master_model_container: 19
+2022-09-19 16:57:39,087:INFO:display_container: 2
+2022-09-19 16:57:39,087:INFO:DummyRegressor()
+2022-09-19 16:57:39,087:INFO:create_model() successfully completed......................................
+2022-09-19 16:57:39,502:INFO:SubProcess create_model() end ==================================
+2022-09-19 16:57:39,502:INFO:Creating metrics dataframe
+2022-09-19 16:57:39,519:INFO:Initializing create_model()
+2022-09-19 16:57:39,519:INFO:create_model(self=<pycaret.regression.oop.RegressionExperiment object at 0x7fb9a41de820>, estimator=LinearRegression(n_jobs=-1), fold=TimeSeriesSplit(gap=0, max_train_size=None, n_splits=3, test_size=None), round=4, cross_validation=False, predict=False, fit_kwargs={}, groups=None, refit=True, probability_threshold=None, experiment_custom_tags=None, verbose=False, system=False, add_to_model_list=True, metrics=None, display=None, model_only=True, return_train_score=False, kwargs={})
+2022-09-19 16:57:39,519:INFO:Checking exceptions
+2022-09-19 16:57:39,521:INFO:Importing libraries
+2022-09-19 16:57:39,521:INFO:Copying training dataset
+2022-09-19 16:57:39,524:INFO:Defining folds
+2022-09-19 16:57:39,524:INFO:Declaring metric variables
+2022-09-19 16:57:39,524:INFO:Importing untrained model
+2022-09-19 16:57:39,524:INFO:Declaring custom model
+2022-09-19 16:57:39,524:INFO:Linear Regression Imported successfully
+2022-09-19 16:57:39,525:INFO:Cross validation set to False
+2022-09-19 16:57:39,525:INFO:Fitting Model
+2022-09-19 16:57:39,995:INFO:LinearRegression(n_jobs=-1)
+2022-09-19 16:57:39,995:INFO:create_model() successfully completed......................................
+2022-09-19 16:57:40,449:INFO:master_model_container: 19
+2022-09-19 16:57:40,449:INFO:display_container: 2
+2022-09-19 16:57:40,449:INFO:LinearRegression(n_jobs=-1)
+2022-09-19 16:57:40,449:INFO:compare_models() successfully completed......................................
+2022-09-19 17:02:10,662:INFO:Initializing predict_model()
+2022-09-19 17:02:10,663:INFO:predict_model(self=<pycaret.regression.oop.RegressionExperiment object at 0x7fb9a41de820>, estimator=LinearRegression(n_jobs=-1), probability_threshold=None, encoded_labels=False, raw_score=False, drift_report=False, round=4, verbose=True, ml_usecase=None, preprocess=True, replace_labels_in_column=<function _SupervisedExperiment.predict_model.<locals>.replace_labels_in_column at 0x7fb4f0d21e50>)
+2022-09-19 17:02:10,663:INFO:Checking exceptions
+2022-09-19 17:02:10,663:INFO:Preloading libraries
+2022-09-19 17:02:55,435:INFO:Initializing predict_model()
+2022-09-19 17:02:55,436:INFO:predict_model(self=<pycaret.regression.oop.RegressionExperiment object at 0x7fb9a41de820>, estimator=LinearRegression(n_jobs=-1), probability_threshold=None, encoded_labels=False, raw_score=False, drift_report=False, round=4, verbose=True, ml_usecase=None, preprocess=True, replace_labels_in_column=<function _SupervisedExperiment.predict_model.<locals>.replace_labels_in_column at 0x7fb4f0b3e040>)
+2022-09-19 17:02:55,436:INFO:Checking exceptions
+2022-09-19 17:02:55,436:INFO:Preloading libraries
+2022-09-19 17:02:55,438:INFO:Set up data.
+2022-09-19 17:03:24,372:INFO:Initializing predict_model()
+2022-09-19 17:03:24,372:INFO:predict_model(self=<pycaret.regression.oop.RegressionExperiment object at 0x7fb9a41de820>, estimator=LinearRegression(n_jobs=-1), probability_threshold=None, encoded_labels=False, raw_score=False, drift_report=False, round=4, verbose=True, ml_usecase=None, preprocess=True, replace_labels_in_column=<function _SupervisedExperiment.predict_model.<locals>.replace_labels_in_column at 0x7fb4eca3dc10>)
+2022-09-19 17:03:24,372:INFO:Checking exceptions
+2022-09-19 17:03:24,372:INFO:Preloading libraries
+2022-09-19 17:03:24,375:INFO:Set up data.
+2022-09-19 17:04:58,149:INFO:PyCaret RegressionExperiment
+2022-09-19 17:04:58,149:INFO:Logging name: reg-default-name
+2022-09-19 17:04:58,149:INFO:ML Usecase: MLUsecase.REGRESSION
+2022-09-19 17:04:58,149:INFO:version 3.0.0.rc3
+2022-09-19 17:04:58,149:INFO:Initializing setup()
+2022-09-19 17:04:58,149:INFO:self.USI: f7c2
+2022-09-19 17:04:58,149:INFO:self.variable_keys: {'transform_target_method_param', 'fold_shuffle_param', 'data', 'fold_groups_param', 'html_param', 'pipeline', 'X_test', 'exp_id', 'transform_target_param', 'memory', 'gpu_param', 'y_test', '_gpu_n_jobs_param', 'display_container', 'variable_keys', 'X_train', 'target_param', '_ml_usecase', '_all_models', 'exp_name_log', 'n_jobs_param', 'y', '_all_metrics', '_all_models_internal', 'USI', 'idx', 'X', '_available_plots', 'master_model_container', 'y_train', 'seed', 'logging_param', 'log_plots_param', 'fold_generator'}
+2022-09-19 17:04:58,149:INFO:Checking environment
+2022-09-19 17:04:58,149:INFO:python_version: 3.9.13
+2022-09-19 17:04:58,149:INFO:python_build: ('main', 'May 27 2022 16:56:21')
+2022-09-19 17:04:58,149:INFO:machine: x86_64
+2022-09-19 17:04:58,149:INFO:platform: Linux-5.4.0-42-generic-x86_64-with-glibc2.27
+2022-09-19 17:04:58,149:INFO:Memory: svmem(total=1082007138304, available=895714676736, percent=17.2, used=178993872896, free=239891898368, active=289528049664, inactive=512800362496, buffers=15507697664, cached=647613669376, shared=1823645696, slab=32632598528)
+2022-09-19 17:04:58,158:INFO:Physical Core: 128
+2022-09-19 17:04:58,158:INFO:Logical Core: 256
+2022-09-19 17:04:58,158:INFO:Checking libraries
+2022-09-19 17:04:58,158:INFO:System:
+2022-09-19 17:04:58,158:INFO:    python: 3.9.13 | packaged by conda-forge | (main, May 27 2022, 16:56:21)  [GCC 10.3.0]
+2022-09-19 17:04:58,158:INFO:executable: /raid/templates/anaconda3/envs/rapids-22.08/bin/python
+2022-09-19 17:04:58,158:INFO:   machine: Linux-5.4.0-42-generic-x86_64-with-glibc2.27
+2022-09-19 17:04:58,158:INFO:PyCaret required dependencies:
+2022-09-19 17:04:58,158:INFO:                 pip: 22.2.2
+2022-09-19 17:04:58,158:INFO:          setuptools: 60.10.0
+2022-09-19 17:04:58,158:INFO:             pycaret: 3.0.0.rc3
+2022-09-19 17:04:58,158:INFO:             IPython: 8.4.0
+2022-09-19 17:04:58,158:INFO:          ipywidgets: 8.0.1
+2022-09-19 17:04:58,158:INFO:                tqdm: 4.64.0
+2022-09-19 17:04:58,159:INFO:               numpy: 1.21.6
+2022-09-19 17:04:58,159:INFO:              pandas: 1.4.3
+2022-09-19 17:04:58,159:INFO:              jinja2: 3.1.2
+2022-09-19 17:04:58,159:INFO:               scipy: 1.8.1
+2022-09-19 17:04:58,159:INFO:              joblib: 1.1.0
+2022-09-19 17:04:58,159:INFO:             sklearn: 1.1.2
+2022-09-19 17:04:58,159:INFO:                pyod: Installed but version unavailable
+2022-09-19 17:04:58,159:INFO:            imblearn: 0.9.1
+2022-09-19 17:04:58,159:INFO:   category_encoders: 2.5.0
+2022-09-19 17:04:58,159:INFO:            lightgbm: 3.3.2
+2022-09-19 17:04:58,159:INFO:               numba: 0.55.2
+2022-09-19 17:04:58,159:INFO:            requests: 2.28.1
+2022-09-19 17:04:58,159:INFO:          matplotlib: 3.5.3
+2022-09-19 17:04:58,159:INFO:          scikitplot: 0.3.7
+2022-09-19 17:04:58,159:INFO:         yellowbrick: 1.5
+2022-09-19 17:04:58,159:INFO:              plotly: 5.10.0
+2022-09-19 17:04:58,159:INFO:             kaleido: 0.2.1
+2022-09-19 17:04:58,159:INFO:         statsmodels: 0.13.2
+2022-09-19 17:04:58,159:INFO:              sktime: 0.11.4
+2022-09-19 17:04:58,159:INFO:               tbats: Installed but version unavailable
+2022-09-19 17:04:58,159:INFO:            pmdarima: 2.0.0
+2022-09-19 17:04:58,159:INFO:              psutil: 5.9.1
+2022-09-19 17:04:58,159:INFO:None
+2022-09-19 17:04:58,159:INFO:Set up data.
+2022-09-19 17:04:58,173:INFO:Set up train/test split.
+2022-09-19 17:04:58,180:INFO:Set up folding strategy.
+2022-09-19 17:04:58,180:INFO:Assigning column types.
+2022-09-19 17:04:58,183:INFO:Engine successfully changes for model 'lr' to 'sklearn'.
+2022-09-19 17:04:58,183:INFO:Engine for model 'lasso' has not been set explicitly, hence returning None.
+2022-09-19 17:04:58,188:INFO:Engine for model 'ridge' has not been set explicitly, hence returning None.
+2022-09-19 17:04:58,192:INFO:Engine for model 'en' has not been set explicitly, hence returning None.
+2022-09-19 17:04:58,253:INFO:Engine for model 'svm' has not been set explicitly, hence returning None.
+2022-09-19 17:04:58,299:INFO:Engine for model 'knn' has not been set explicitly, hence returning None.
+2022-09-19 17:04:58,300:INFO:Soft dependency imported: xgboost: 1.6.1
+2022-09-19 17:04:58,303:WARNING:No module named 'catboost'.
+'catboost' is a soft dependency and not included in the pycaret installation. Please run: `pip install catboost` to install.
+Alternately, you can install this by running `pip install pycaret[models]`
+2022-09-19 17:04:58,303:INFO:Engine for model 'lasso' has not been set explicitly, hence returning None.
+2022-09-19 17:04:58,308:INFO:Engine for model 'ridge' has not been set explicitly, hence returning None.
+2022-09-19 17:04:58,312:INFO:Engine for model 'en' has not been set explicitly, hence returning None.
+2022-09-19 17:04:58,371:INFO:Engine for model 'svm' has not been set explicitly, hence returning None.
+2022-09-19 17:04:58,415:INFO:Engine for model 'knn' has not been set explicitly, hence returning None.
+2022-09-19 17:04:58,416:INFO:Soft dependency imported: xgboost: 1.6.1
+2022-09-19 17:04:58,419:WARNING:No module named 'catboost'.
+'catboost' is a soft dependency and not included in the pycaret installation. Please run: `pip install catboost` to install.
+Alternately, you can install this by running `pip install pycaret[models]`
+2022-09-19 17:04:58,419:INFO:Engine successfully changes for model 'lasso' to 'sklearn'.
+2022-09-19 17:04:58,424:INFO:Engine for model 'ridge' has not been set explicitly, hence returning None.
+2022-09-19 17:04:58,428:INFO:Engine for model 'en' has not been set explicitly, hence returning None.
+2022-09-19 17:04:58,487:INFO:Engine for model 'svm' has not been set explicitly, hence returning None.
+2022-09-19 17:04:58,532:INFO:Engine for model 'knn' has not been set explicitly, hence returning None.
+2022-09-19 17:04:58,532:INFO:Soft dependency imported: xgboost: 1.6.1
+2022-09-19 17:04:58,535:WARNING:No module named 'catboost'.
+'catboost' is a soft dependency and not included in the pycaret installation. Please run: `pip install catboost` to install.
+Alternately, you can install this by running `pip install pycaret[models]`
+2022-09-19 17:04:58,540:INFO:Engine for model 'ridge' has not been set explicitly, hence returning None.
+2022-09-19 17:04:58,545:INFO:Engine for model 'en' has not been set explicitly, hence returning None.
+2022-09-19 17:04:58,603:INFO:Engine for model 'svm' has not been set explicitly, hence returning None.
+2022-09-19 17:04:58,649:INFO:Engine for model 'knn' has not been set explicitly, hence returning None.
+2022-09-19 17:04:58,649:INFO:Soft dependency imported: xgboost: 1.6.1
+2022-09-19 17:04:58,652:WARNING:No module named 'catboost'.
+'catboost' is a soft dependency and not included in the pycaret installation. Please run: `pip install catboost` to install.
+Alternately, you can install this by running `pip install pycaret[models]`
+2022-09-19 17:04:58,652:INFO:Engine successfully changes for model 'ridge' to 'sklearn'.
+2022-09-19 17:04:58,662:INFO:Engine for model 'en' has not been set explicitly, hence returning None.
+2022-09-19 17:04:58,720:INFO:Engine for model 'svm' has not been set explicitly, hence returning None.
+2022-09-19 17:04:58,765:INFO:Engine for model 'knn' has not been set explicitly, hence returning None.
+2022-09-19 17:04:58,765:INFO:Soft dependency imported: xgboost: 1.6.1
+2022-09-19 17:04:58,768:WARNING:No module named 'catboost'.
+'catboost' is a soft dependency and not included in the pycaret installation. Please run: `pip install catboost` to install.
+Alternately, you can install this by running `pip install pycaret[models]`
+2022-09-19 17:04:58,778:INFO:Engine for model 'en' has not been set explicitly, hence returning None.
+2022-09-19 17:04:58,836:INFO:Engine for model 'svm' has not been set explicitly, hence returning None.
+2022-09-19 17:04:58,882:INFO:Engine for model 'knn' has not been set explicitly, hence returning None.
+2022-09-19 17:04:58,882:INFO:Soft dependency imported: xgboost: 1.6.1
+2022-09-19 17:04:58,885:WARNING:No module named 'catboost'.
+'catboost' is a soft dependency and not included in the pycaret installation. Please run: `pip install catboost` to install.
+Alternately, you can install this by running `pip install pycaret[models]`
+2022-09-19 17:04:58,885:INFO:Engine successfully changes for model 'en' to 'sklearn'.
+2022-09-19 17:04:58,953:INFO:Engine for model 'svm' has not been set explicitly, hence returning None.
+2022-09-19 17:04:58,999:INFO:Engine for model 'knn' has not been set explicitly, hence returning None.
+2022-09-19 17:04:58,999:INFO:Soft dependency imported: xgboost: 1.6.1
+2022-09-19 17:04:59,002:WARNING:No module named 'catboost'.
+'catboost' is a soft dependency and not included in the pycaret installation. Please run: `pip install catboost` to install.
+Alternately, you can install this by running `pip install pycaret[models]`
+2022-09-19 17:04:59,070:INFO:Engine for model 'svm' has not been set explicitly, hence returning None.
+2022-09-19 17:04:59,115:INFO:Engine for model 'knn' has not been set explicitly, hence returning None.
+2022-09-19 17:04:59,116:INFO:Soft dependency imported: xgboost: 1.6.1
+2022-09-19 17:04:59,119:WARNING:No module named 'catboost'.
+'catboost' is a soft dependency and not included in the pycaret installation. Please run: `pip install catboost` to install.
+Alternately, you can install this by running `pip install pycaret[models]`
+2022-09-19 17:04:59,119:INFO:Engine successfully changes for model 'knn' to 'sklearn'.
+2022-09-19 17:04:59,190:INFO:Engine for model 'svm' has not been set explicitly, hence returning None.
+2022-09-19 17:04:59,235:INFO:Soft dependency imported: xgboost: 1.6.1
+2022-09-19 17:04:59,238:WARNING:No module named 'catboost'.
+'catboost' is a soft dependency and not included in the pycaret installation. Please run: `pip install catboost` to install.
+Alternately, you can install this by running `pip install pycaret[models]`
+2022-09-19 17:04:59,306:INFO:Engine for model 'svm' has not been set explicitly, hence returning None.
+2022-09-19 17:04:59,352:INFO:Soft dependency imported: xgboost: 1.6.1
+2022-09-19 17:04:59,355:WARNING:No module named 'catboost'.
+'catboost' is a soft dependency and not included in the pycaret installation. Please run: `pip install catboost` to install.
+Alternately, you can install this by running `pip install pycaret[models]`
+2022-09-19 17:04:59,355:INFO:Engine successfully changes for model 'svm' to 'sklearn'.
+2022-09-19 17:04:59,469:INFO:Soft dependency imported: xgboost: 1.6.1
+2022-09-19 17:04:59,472:WARNING:No module named 'catboost'.
+'catboost' is a soft dependency and not included in the pycaret installation. Please run: `pip install catboost` to install.
+Alternately, you can install this by running `pip install pycaret[models]`
+2022-09-19 17:04:59,585:INFO:Soft dependency imported: xgboost: 1.6.1
+2022-09-19 17:04:59,588:WARNING:No module named 'catboost'.
+'catboost' is a soft dependency and not included in the pycaret installation. Please run: `pip install catboost` to install.
+Alternately, you can install this by running `pip install pycaret[models]`
+2022-09-19 17:04:59,589:INFO:Preparing preprocessing pipeline...
+2022-09-19 17:04:59,589:INFO:Set up simple imputation.
+2022-09-19 17:04:59,590:INFO:Set up encoding of categorical features.
+2022-09-19 17:04:59,590:INFO:Set up variance threshold.
+2022-09-19 17:05:00,053:INFO:Finished creating preprocessing pipeline.
+2022-09-19 17:05:00,060:INFO:Pipeline: Pipeline(memory=Memory(location=/tmp/joblib),
+         steps=[('numerical_imputer',
+                 TransformerWrapper(include=['vol_x', 'curr', 'q_val', 'pv',
+                                             'q_diff'],
+                                    transformer=SimpleImputer())),
+                ('categorical_imputer',
+                 TransformerWrapper(include=['ds'],
+                                    transformer=SimpleImputer(fill_value='constant',
+                                                              strategy='constant'))),
+                ('rest_encoding',
+                 TransformerWrapper(include=['ds'],
+                                    transformer=LeaveOneOutEncoder(cols=['ds'],
+                                                                   handle_missing='return_nan',
+                                                                   random_state=905))),
+                ('low_variance',
+                 TransformerWrapper(exclude=[],
+                                    transformer=VarianceThreshold(threshold=0)))])
+2022-09-19 17:05:00,060:INFO:Creating final display dataframe.
+2022-09-19 17:05:01,728:INFO:Setup display_container:                  Description             Value
+0                 Session id               905
+1                     Target             vol_y
+2                Target type        Regression
+3                 Data shape        (17485, 6)
+4           Train data shape        (12239, 6)
+5            Test data shape         (5246, 6)
+6           Numeric features                 5
+7       Categorical features                 1
+8                 Preprocess              True
+9            Imputation type            simple
+10        Numeric imputation              mean
+11    Categorical imputation          constant
+12  Maximum one-hot encoding                 5
+13           Encoding method              None
+14    Low variance threshold                 0
+15            Fold Generator   TimeSeriesSplit
+16               Fold Number                 3
+17                  CPU Jobs                -1
+18                   Use GPU             False
+19            Log Experiment             False
+20           Experiment Name  reg-default-name
+21                       USI              f7c2
+2022-09-19 17:05:01,846:INFO:Soft dependency imported: xgboost: 1.6.1
+2022-09-19 17:05:01,849:WARNING:No module named 'catboost'.
+'catboost' is a soft dependency and not included in the pycaret installation. Please run: `pip install catboost` to install.
+Alternately, you can install this by running `pip install pycaret[models]`
+2022-09-19 17:05:01,964:INFO:Soft dependency imported: xgboost: 1.6.1
+2022-09-19 17:05:01,966:WARNING:No module named 'catboost'.
+'catboost' is a soft dependency and not included in the pycaret installation. Please run: `pip install catboost` to install.
+Alternately, you can install this by running `pip install pycaret[models]`
+2022-09-19 17:05:01,972:INFO:setup() successfully completed in 3.82s...............
+2022-09-19 17:05:04,787:INFO:Initializing compare_models()
+2022-09-19 17:05:04,787:INFO:compare_models(self=<pycaret.regression.oop.RegressionExperiment object at 0x7fbaa53650d0>, include=None, fold=None, round=4, cross_validation=True, sort=R2, n_select=1, budget_time=None, turbo=True, errors=ignore, fit_kwargs=None, groups=None, experiment_custom_tags=None, probability_threshold=None, verbose=True, parallel=None, caller_params={'self': <pycaret.regression.oop.RegressionExperiment object at 0x7fbaa53650d0>, 'include': None, 'exclude': None, 'fold': None, 'round': 4, 'cross_validation': True, 'sort': 'R2', 'n_select': 1, 'budget_time': None, 'turbo': True, 'errors': 'ignore', 'fit_kwargs': None, 'groups': None, 'experiment_custom_tags': None, 'engines': None, 'verbose': True, 'parallel': None, '__class__': <class 'pycaret.regression.oop.RegressionExperiment'>}, exclude=None)
+2022-09-19 17:05:04,787:INFO:Checking exceptions
+2022-09-19 17:05:04,789:INFO:Preparing display monitor
+2022-09-19 17:05:04,813:INFO:Initializing Linear Regression
+2022-09-19 17:05:04,813:INFO:Total runtime is 1.6411145528157553e-06 minutes
+2022-09-19 17:05:04,815:INFO:SubProcess create_model() called ==================================
+2022-09-19 17:05:04,815:INFO:Initializing create_model()
+2022-09-19 17:05:04,815:INFO:create_model(self=<pycaret.regression.oop.RegressionExperiment object at 0x7fbaa53650d0>, estimator=lr, fold=TimeSeriesSplit(gap=0, max_train_size=None, n_splits=3, test_size=None), round=4, cross_validation=True, predict=True, fit_kwargs={}, groups=None, refit=False, probability_threshold=None, experiment_custom_tags=None, verbose=False, system=False, add_to_model_list=True, metrics=None, display=<pycaret.internal.display.display.CommonDisplay object at 0x7fb9a6d99880>, model_only=True, return_train_score=False, kwargs={})
+2022-09-19 17:05:04,815:INFO:Checking exceptions
+2022-09-19 17:05:04,816:INFO:Importing libraries
+2022-09-19 17:05:04,816:INFO:Copying training dataset
+2022-09-19 17:05:04,819:INFO:Defining folds
+2022-09-19 17:05:04,819:INFO:Declaring metric variables
+2022-09-19 17:05:04,821:INFO:Importing untrained model
+2022-09-19 17:05:04,823:INFO:Linear Regression Imported successfully
+2022-09-19 17:05:04,827:INFO:Starting cross validation
+2022-09-19 17:05:04,828:INFO:Cross validating with TimeSeriesSplit(gap=0, max_train_size=None, n_splits=3, test_size=None), n_jobs=-1
+2022-09-19 17:05:06,526:WARNING:/raid/templates/anaconda3/envs/rapids-22.08/lib/python3.9/site-packages/sklearn/utils/metaestimators.py:201: FutureWarning: if_delegate_has_method was deprecated in version 1.1 and will be removed in version 1.3. Use available_if instead.
+  warnings.warn(
+
+2022-09-19 17:05:11,498:WARNING:/raid/templates/anaconda3/envs/rapids-22.08/lib/python3.9/site-packages/sklearn/utils/metaestimators.py:201: FutureWarning: if_delegate_has_method was deprecated in version 1.1 and will be removed in version 1.3. Use available_if instead.
+  warnings.warn(
+
+2022-09-19 17:05:11,532:WARNING:/raid/templates/anaconda3/envs/rapids-22.08/lib/python3.9/site-packages/sklearn/utils/metaestimators.py:201: FutureWarning: if_delegate_has_method was deprecated in version 1.1 and will be removed in version 1.3. Use available_if instead.
+  warnings.warn(
+
+2022-09-19 17:05:11,912:INFO:Calculating mean and std
+2022-09-19 17:05:11,914:INFO:Creating metrics dataframe
+2022-09-19 17:05:11,917:INFO:Uploading results into container
+2022-09-19 17:05:11,918:INFO:Uploading model into container now
+2022-09-19 17:05:11,918:INFO:master_model_container: 1
+2022-09-19 17:05:11,918:INFO:display_container: 2
+2022-09-19 17:05:11,918:INFO:LinearRegression(n_jobs=-1)
+2022-09-19 17:05:11,918:INFO:create_model() successfully completed......................................
+2022-09-19 17:05:12,413:INFO:SubProcess create_model() end ==================================
+2022-09-19 17:05:12,413:INFO:Creating metrics dataframe
+2022-09-19 17:05:12,420:INFO:Initializing Lasso Regression
+2022-09-19 17:05:12,420:INFO:Total runtime is 0.12679454485575356 minutes
+2022-09-19 17:05:12,422:INFO:SubProcess create_model() called ==================================
+2022-09-19 17:05:12,423:INFO:Initializing create_model()
+2022-09-19 17:05:12,423:INFO:create_model(self=<pycaret.regression.oop.RegressionExperiment object at 0x7fbaa53650d0>, estimator=lasso, fold=TimeSeriesSplit(gap=0, max_train_size=None, n_splits=3, test_size=None), round=4, cross_validation=True, predict=True, fit_kwargs={}, groups=None, refit=False, probability_threshold=None, experiment_custom_tags=None, verbose=False, system=False, add_to_model_list=True, metrics=None, display=<pycaret.internal.display.display.CommonDisplay object at 0x7fb9a6d99880>, model_only=True, return_train_score=False, kwargs={})
+2022-09-19 17:05:12,423:INFO:Checking exceptions
+2022-09-19 17:05:12,425:INFO:Importing libraries
+2022-09-19 17:05:12,425:INFO:Copying training dataset
+2022-09-19 17:05:12,428:INFO:Defining folds
+2022-09-19 17:05:12,428:INFO:Declaring metric variables
+2022-09-19 17:05:12,430:INFO:Importing untrained model
+2022-09-19 17:05:12,433:INFO:Lasso Regression Imported successfully
+2022-09-19 17:05:12,437:INFO:Starting cross validation
+2022-09-19 17:05:12,438:INFO:Cross validating with TimeSeriesSplit(gap=0, max_train_size=None, n_splits=3, test_size=None), n_jobs=-1
+2022-09-19 17:05:13,497:WARNING:/raid/templates/anaconda3/envs/rapids-22.08/lib/python3.9/site-packages/sklearn/utils/metaestimators.py:201: FutureWarning: if_delegate_has_method was deprecated in version 1.1 and will be removed in version 1.3. Use available_if instead.
+  warnings.warn(
+
+2022-09-19 17:05:13,506:WARNING:/raid/templates/anaconda3/envs/rapids-22.08/lib/python3.9/site-packages/sklearn/utils/metaestimators.py:201: FutureWarning: if_delegate_has_method was deprecated in version 1.1 and will be removed in version 1.3. Use available_if instead.
+  warnings.warn(
+
+2022-09-19 17:05:13,507:WARNING:/raid/templates/anaconda3/envs/rapids-22.08/lib/python3.9/site-packages/sklearn/utils/metaestimators.py:201: FutureWarning: if_delegate_has_method was deprecated in version 1.1 and will be removed in version 1.3. Use available_if instead.
+  warnings.warn(
+
+2022-09-19 17:05:13,679:INFO:Calculating mean and std
+2022-09-19 17:05:13,681:INFO:Creating metrics dataframe
+2022-09-19 17:05:13,684:INFO:Uploading results into container
+2022-09-19 17:05:13,684:INFO:Uploading model into container now
+2022-09-19 17:05:13,685:INFO:master_model_container: 2
+2022-09-19 17:05:13,685:INFO:display_container: 2
+2022-09-19 17:05:13,685:INFO:Lasso(random_state=905)
+2022-09-19 17:05:13,685:INFO:create_model() successfully completed......................................
+2022-09-19 17:05:14,128:INFO:SubProcess create_model() end ==================================
+2022-09-19 17:05:14,128:INFO:Creating metrics dataframe
+2022-09-19 17:05:14,135:INFO:Initializing Ridge Regression
+2022-09-19 17:05:14,135:INFO:Total runtime is 0.15537827412287392 minutes
+2022-09-19 17:05:14,137:INFO:SubProcess create_model() called ==================================
+2022-09-19 17:05:14,138:INFO:Initializing create_model()
+2022-09-19 17:05:14,138:INFO:create_model(self=<pycaret.regression.oop.RegressionExperiment object at 0x7fbaa53650d0>, estimator=ridge, fold=TimeSeriesSplit(gap=0, max_train_size=None, n_splits=3, test_size=None), round=4, cross_validation=True, predict=True, fit_kwargs={}, groups=None, refit=False, probability_threshold=None, experiment_custom_tags=None, verbose=False, system=False, add_to_model_list=True, metrics=None, display=<pycaret.internal.display.display.CommonDisplay object at 0x7fb9a6d99880>, model_only=True, return_train_score=False, kwargs={})
+2022-09-19 17:05:14,138:INFO:Checking exceptions
+2022-09-19 17:05:14,139:INFO:Importing libraries
+2022-09-19 17:05:14,139:INFO:Copying training dataset
+2022-09-19 17:05:14,143:INFO:Defining folds
+2022-09-19 17:05:14,143:INFO:Declaring metric variables
+2022-09-19 17:05:14,145:INFO:Importing untrained model
+2022-09-19 17:05:14,147:INFO:Ridge Regression Imported successfully
+2022-09-19 17:05:14,152:INFO:Starting cross validation
+2022-09-19 17:05:14,152:INFO:Cross validating with TimeSeriesSplit(gap=0, max_train_size=None, n_splits=3, test_size=None), n_jobs=-1
+2022-09-19 17:05:15,204:WARNING:/raid/templates/anaconda3/envs/rapids-22.08/lib/python3.9/site-packages/sklearn/utils/metaestimators.py:201: FutureWarning: if_delegate_has_method was deprecated in version 1.1 and will be removed in version 1.3. Use available_if instead.
+  warnings.warn(
+
+2022-09-19 17:05:15,214:WARNING:/raid/templates/anaconda3/envs/rapids-22.08/lib/python3.9/site-packages/sklearn/utils/metaestimators.py:201: FutureWarning: if_delegate_has_method was deprecated in version 1.1 and will be removed in version 1.3. Use available_if instead.
+  warnings.warn(
+
+2022-09-19 17:05:15,217:WARNING:/raid/templates/anaconda3/envs/rapids-22.08/lib/python3.9/site-packages/sklearn/utils/metaestimators.py:201: FutureWarning: if_delegate_has_method was deprecated in version 1.1 and will be removed in version 1.3. Use available_if instead.
+  warnings.warn(
+
+2022-09-19 17:05:15,319:INFO:Calculating mean and std
+2022-09-19 17:05:15,320:INFO:Creating metrics dataframe
+2022-09-19 17:05:15,323:INFO:Uploading results into container
+2022-09-19 17:05:15,324:INFO:Uploading model into container now
+2022-09-19 17:05:15,324:INFO:master_model_container: 3
+2022-09-19 17:05:15,324:INFO:display_container: 2
+2022-09-19 17:05:15,324:INFO:Ridge(random_state=905)
+2022-09-19 17:05:15,324:INFO:create_model() successfully completed......................................
+2022-09-19 17:05:15,768:INFO:SubProcess create_model() end ==================================
+2022-09-19 17:05:15,768:INFO:Creating metrics dataframe
+2022-09-19 17:05:15,775:INFO:Initializing Elastic Net
+2022-09-19 17:05:15,775:INFO:Total runtime is 0.18270667394002277 minutes
+2022-09-19 17:05:15,777:INFO:SubProcess create_model() called ==================================
+2022-09-19 17:05:15,777:INFO:Initializing create_model()
+2022-09-19 17:05:15,777:INFO:create_model(self=<pycaret.regression.oop.RegressionExperiment object at 0x7fbaa53650d0>, estimator=en, fold=TimeSeriesSplit(gap=0, max_train_size=None, n_splits=3, test_size=None), round=4, cross_validation=True, predict=True, fit_kwargs={}, groups=None, refit=False, probability_threshold=None, experiment_custom_tags=None, verbose=False, system=False, add_to_model_list=True, metrics=None, display=<pycaret.internal.display.display.CommonDisplay object at 0x7fb9a6d99880>, model_only=True, return_train_score=False, kwargs={})
+2022-09-19 17:05:15,777:INFO:Checking exceptions
+2022-09-19 17:05:15,779:INFO:Importing libraries
+2022-09-19 17:05:15,779:INFO:Copying training dataset
+2022-09-19 17:05:15,782:INFO:Defining folds
+2022-09-19 17:05:15,782:INFO:Declaring metric variables
+2022-09-19 17:05:15,785:INFO:Importing untrained model
+2022-09-19 17:05:15,787:INFO:Elastic Net Imported successfully
+2022-09-19 17:05:15,791:INFO:Starting cross validation
+2022-09-19 17:05:15,792:INFO:Cross validating with TimeSeriesSplit(gap=0, max_train_size=None, n_splits=3, test_size=None), n_jobs=-1
+2022-09-19 17:05:16,844:WARNING:/raid/templates/anaconda3/envs/rapids-22.08/lib/python3.9/site-packages/sklearn/utils/metaestimators.py:201: FutureWarning: if_delegate_has_method was deprecated in version 1.1 and will be removed in version 1.3. Use available_if instead.
+  warnings.warn(
+
+2022-09-19 17:05:16,858:WARNING:/raid/templates/anaconda3/envs/rapids-22.08/lib/python3.9/site-packages/sklearn/utils/metaestimators.py:201: FutureWarning: if_delegate_has_method was deprecated in version 1.1 and will be removed in version 1.3. Use available_if instead.
+  warnings.warn(
+
+2022-09-19 17:05:16,871:WARNING:/raid/templates/anaconda3/envs/rapids-22.08/lib/python3.9/site-packages/sklearn/utils/metaestimators.py:201: FutureWarning: if_delegate_has_method was deprecated in version 1.1 and will be removed in version 1.3. Use available_if instead.
+  warnings.warn(
+
+2022-09-19 17:05:16,971:INFO:Calculating mean and std
+2022-09-19 17:05:16,972:INFO:Creating metrics dataframe
+2022-09-19 17:05:16,975:INFO:Uploading results into container
+2022-09-19 17:05:16,976:INFO:Uploading model into container now
+2022-09-19 17:05:16,976:INFO:master_model_container: 4
+2022-09-19 17:05:16,976:INFO:display_container: 2
+2022-09-19 17:05:16,976:INFO:ElasticNet(random_state=905)
+2022-09-19 17:05:16,976:INFO:create_model() successfully completed......................................
+2022-09-19 17:05:17,417:INFO:SubProcess create_model() end ==================================
+2022-09-19 17:05:17,417:INFO:Creating metrics dataframe
+2022-09-19 17:05:17,424:INFO:Initializing Least Angle Regression
+2022-09-19 17:05:17,425:INFO:Total runtime is 0.21020152966181435 minutes
+2022-09-19 17:05:17,427:INFO:SubProcess create_model() called ==================================
+2022-09-19 17:05:17,427:INFO:Initializing create_model()
+2022-09-19 17:05:17,427:INFO:create_model(self=<pycaret.regression.oop.RegressionExperiment object at 0x7fbaa53650d0>, estimator=lar, fold=TimeSeriesSplit(gap=0, max_train_size=None, n_splits=3, test_size=None), round=4, cross_validation=True, predict=True, fit_kwargs={}, groups=None, refit=False, probability_threshold=None, experiment_custom_tags=None, verbose=False, system=False, add_to_model_list=True, metrics=None, display=<pycaret.internal.display.display.CommonDisplay object at 0x7fb9a6d99880>, model_only=True, return_train_score=False, kwargs={})
+2022-09-19 17:05:17,427:INFO:Checking exceptions
+2022-09-19 17:05:17,429:INFO:Importing libraries
+2022-09-19 17:05:17,429:INFO:Copying training dataset
+2022-09-19 17:05:17,432:INFO:Defining folds
+2022-09-19 17:05:17,432:INFO:Declaring metric variables
+2022-09-19 17:05:17,434:INFO:Importing untrained model
+2022-09-19 17:05:17,437:INFO:Least Angle Regression Imported successfully
+2022-09-19 17:05:17,441:INFO:Starting cross validation
+2022-09-19 17:05:17,441:INFO:Cross validating with TimeSeriesSplit(gap=0, max_train_size=None, n_splits=3, test_size=None), n_jobs=-1
+2022-09-19 17:05:18,503:WARNING:/raid/templates/anaconda3/envs/rapids-22.08/lib/python3.9/site-packages/sklearn/linear_model/_base.py:133: FutureWarning: The default of 'normalize' will be set to False in version 1.2 and deprecated in version 1.4.
+If you wish to scale the data, use Pipeline with a StandardScaler in a preprocessing stage. To reproduce the previous behavior:
+
+from sklearn.pipeline import make_pipeline
+
+model = make_pipeline(StandardScaler(with_mean=False), Lars())
+
+If you wish to pass a sample_weight parameter, you need to pass it as a fit parameter to each step of the pipeline as follows:
+
+kwargs = {s[0] + '__sample_weight': sample_weight for s in model.steps}
+model.fit(X, y, **kwargs)
+
+
+  warnings.warn(
+
+2022-09-19 17:05:18,504:WARNING:/raid/templates/anaconda3/envs/rapids-22.08/lib/python3.9/site-packages/sklearn/linear_model/_base.py:133: FutureWarning: The default of 'normalize' will be set to False in version 1.2 and deprecated in version 1.4.
+If you wish to scale the data, use Pipeline with a StandardScaler in a preprocessing stage. To reproduce the previous behavior:
+
+from sklearn.pipeline import make_pipeline
+
+model = make_pipeline(StandardScaler(with_mean=False), Lars())
+
+If you wish to pass a sample_weight parameter, you need to pass it as a fit parameter to each step of the pipeline as follows:
+
+kwargs = {s[0] + '__sample_weight': sample_weight for s in model.steps}
+model.fit(X, y, **kwargs)
+
+
+  warnings.warn(
+
+2022-09-19 17:05:18,504:WARNING:/raid/templates/anaconda3/envs/rapids-22.08/lib/python3.9/site-packages/sklearn/utils/metaestimators.py:201: FutureWarning: if_delegate_has_method was deprecated in version 1.1 and will be removed in version 1.3. Use available_if instead.
+  warnings.warn(
+
+2022-09-19 17:05:18,505:WARNING:/raid/templates/anaconda3/envs/rapids-22.08/lib/python3.9/site-packages/sklearn/utils/metaestimators.py:201: FutureWarning: if_delegate_has_method was deprecated in version 1.1 and will be removed in version 1.3. Use available_if instead.
+  warnings.warn(
+
+2022-09-19 17:05:18,512:WARNING:/raid/templates/anaconda3/envs/rapids-22.08/lib/python3.9/site-packages/sklearn/linear_model/_base.py:133: FutureWarning: The default of 'normalize' will be set to False in version 1.2 and deprecated in version 1.4.
+If you wish to scale the data, use Pipeline with a StandardScaler in a preprocessing stage. To reproduce the previous behavior:
+
+from sklearn.pipeline import make_pipeline
+
+model = make_pipeline(StandardScaler(with_mean=False), Lars())
+
+If you wish to pass a sample_weight parameter, you need to pass it as a fit parameter to each step of the pipeline as follows:
+
+kwargs = {s[0] + '__sample_weight': sample_weight for s in model.steps}
+model.fit(X, y, **kwargs)
+
+
+  warnings.warn(
+
+2022-09-19 17:05:18,513:WARNING:/raid/templates/anaconda3/envs/rapids-22.08/lib/python3.9/site-packages/sklearn/utils/metaestimators.py:201: FutureWarning: if_delegate_has_method was deprecated in version 1.1 and will be removed in version 1.3. Use available_if instead.
+  warnings.warn(
+
+2022-09-19 17:05:18,618:INFO:Calculating mean and std
+2022-09-19 17:05:18,620:INFO:Creating metrics dataframe
+2022-09-19 17:05:18,622:INFO:Uploading results into container
+2022-09-19 17:05:18,623:INFO:Uploading model into container now
+2022-09-19 17:05:18,623:INFO:master_model_container: 5
+2022-09-19 17:05:18,623:INFO:display_container: 2
+2022-09-19 17:05:18,624:INFO:Lars(random_state=905)
+2022-09-19 17:05:18,624:INFO:create_model() successfully completed......................................
+2022-09-19 17:05:19,069:INFO:SubProcess create_model() end ==================================
+2022-09-19 17:05:19,069:INFO:Creating metrics dataframe
+2022-09-19 17:05:19,077:INFO:Initializing Lasso Least Angle Regression
+2022-09-19 17:05:19,077:INFO:Total runtime is 0.23773816823959348 minutes
+2022-09-19 17:05:19,079:INFO:SubProcess create_model() called ==================================
+2022-09-19 17:05:19,079:INFO:Initializing create_model()
+2022-09-19 17:05:19,079:INFO:create_model(self=<pycaret.regression.oop.RegressionExperiment object at 0x7fbaa53650d0>, estimator=llar, fold=TimeSeriesSplit(gap=0, max_train_size=None, n_splits=3, test_size=None), round=4, cross_validation=True, predict=True, fit_kwargs={}, groups=None, refit=False, probability_threshold=None, experiment_custom_tags=None, verbose=False, system=False, add_to_model_list=True, metrics=None, display=<pycaret.internal.display.display.CommonDisplay object at 0x7fb9a6d99880>, model_only=True, return_train_score=False, kwargs={})
+2022-09-19 17:05:19,079:INFO:Checking exceptions
+2022-09-19 17:05:19,081:INFO:Importing libraries
+2022-09-19 17:05:19,081:INFO:Copying training dataset
+2022-09-19 17:05:19,084:INFO:Defining folds
+2022-09-19 17:05:19,084:INFO:Declaring metric variables
+2022-09-19 17:05:19,086:INFO:Importing untrained model
+2022-09-19 17:05:19,089:INFO:Lasso Least Angle Regression Imported successfully
+2022-09-19 17:05:19,093:INFO:Starting cross validation
+2022-09-19 17:05:19,094:INFO:Cross validating with TimeSeriesSplit(gap=0, max_train_size=None, n_splits=3, test_size=None), n_jobs=-1
+2022-09-19 17:05:20,147:WARNING:/raid/templates/anaconda3/envs/rapids-22.08/lib/python3.9/site-packages/sklearn/linear_model/_base.py:133: FutureWarning: The default of 'normalize' will be set to False in version 1.2 and deprecated in version 1.4.
+If you wish to scale the data, use Pipeline with a StandardScaler in a preprocessing stage. To reproduce the previous behavior:
+
+from sklearn.pipeline import make_pipeline
+
+model = make_pipeline(StandardScaler(with_mean=False), LassoLars())
+
+If you wish to pass a sample_weight parameter, you need to pass it as a fit parameter to each step of the pipeline as follows:
+
+kwargs = {s[0] + '__sample_weight': sample_weight for s in model.steps}
+model.fit(X, y, **kwargs)
+
+Set parameter alpha to: original_alpha * np.sqrt(n_samples). 
+  warnings.warn(
+
+2022-09-19 17:05:20,148:WARNING:/raid/templates/anaconda3/envs/rapids-22.08/lib/python3.9/site-packages/sklearn/utils/metaestimators.py:201: FutureWarning: if_delegate_has_method was deprecated in version 1.1 and will be removed in version 1.3. Use available_if instead.
+  warnings.warn(
+
+2022-09-19 17:05:20,167:WARNING:/raid/templates/anaconda3/envs/rapids-22.08/lib/python3.9/site-packages/sklearn/linear_model/_base.py:133: FutureWarning: The default of 'normalize' will be set to False in version 1.2 and deprecated in version 1.4.
+If you wish to scale the data, use Pipeline with a StandardScaler in a preprocessing stage. To reproduce the previous behavior:
+
+from sklearn.pipeline import make_pipeline
+
+model = make_pipeline(StandardScaler(with_mean=False), LassoLars())
+
+If you wish to pass a sample_weight parameter, you need to pass it as a fit parameter to each step of the pipeline as follows:
+
+kwargs = {s[0] + '__sample_weight': sample_weight for s in model.steps}
+model.fit(X, y, **kwargs)
+
+Set parameter alpha to: original_alpha * np.sqrt(n_samples). 
+  warnings.warn(
+
+2022-09-19 17:05:20,169:WARNING:/raid/templates/anaconda3/envs/rapids-22.08/lib/python3.9/site-packages/sklearn/utils/metaestimators.py:201: FutureWarning: if_delegate_has_method was deprecated in version 1.1 and will be removed in version 1.3. Use available_if instead.
+  warnings.warn(
+
+2022-09-19 17:05:20,200:WARNING:/raid/templates/anaconda3/envs/rapids-22.08/lib/python3.9/site-packages/sklearn/linear_model/_base.py:133: FutureWarning: The default of 'normalize' will be set to False in version 1.2 and deprecated in version 1.4.
+If you wish to scale the data, use Pipeline with a StandardScaler in a preprocessing stage. To reproduce the previous behavior:
+
+from sklearn.pipeline import make_pipeline
+
+model = make_pipeline(StandardScaler(with_mean=False), LassoLars())
+
+If you wish to pass a sample_weight parameter, you need to pass it as a fit parameter to each step of the pipeline as follows:
+
+kwargs = {s[0] + '__sample_weight': sample_weight for s in model.steps}
+model.fit(X, y, **kwargs)
+
+Set parameter alpha to: original_alpha * np.sqrt(n_samples). 
+  warnings.warn(
+
+2022-09-19 17:05:20,202:WARNING:/raid/templates/anaconda3/envs/rapids-22.08/lib/python3.9/site-packages/sklearn/utils/metaestimators.py:201: FutureWarning: if_delegate_has_method was deprecated in version 1.1 and will be removed in version 1.3. Use available_if instead.
+  warnings.warn(
+
+2022-09-19 17:05:20,309:INFO:Calculating mean and std
+2022-09-19 17:05:20,311:INFO:Creating metrics dataframe
+2022-09-19 17:05:20,314:INFO:Uploading results into container
+2022-09-19 17:05:20,314:INFO:Uploading model into container now
+2022-09-19 17:05:20,314:INFO:master_model_container: 6
+2022-09-19 17:05:20,314:INFO:display_container: 2
+2022-09-19 17:05:20,315:INFO:LassoLars(random_state=905)
+2022-09-19 17:05:20,315:INFO:create_model() successfully completed......................................
+2022-09-19 17:05:20,756:INFO:SubProcess create_model() end ==================================
+2022-09-19 17:05:20,756:INFO:Creating metrics dataframe
+2022-09-19 17:05:20,764:INFO:Initializing Orthogonal Matching Pursuit
+2022-09-19 17:05:20,764:INFO:Total runtime is 0.26585932572682697 minutes
+2022-09-19 17:05:20,766:INFO:SubProcess create_model() called ==================================
+2022-09-19 17:05:20,767:INFO:Initializing create_model()
+2022-09-19 17:05:20,767:INFO:create_model(self=<pycaret.regression.oop.RegressionExperiment object at 0x7fbaa53650d0>, estimator=omp, fold=TimeSeriesSplit(gap=0, max_train_size=None, n_splits=3, test_size=None), round=4, cross_validation=True, predict=True, fit_kwargs={}, groups=None, refit=False, probability_threshold=None, experiment_custom_tags=None, verbose=False, system=False, add_to_model_list=True, metrics=None, display=<pycaret.internal.display.display.CommonDisplay object at 0x7fb9a6d99880>, model_only=True, return_train_score=False, kwargs={})
+2022-09-19 17:05:20,767:INFO:Checking exceptions
+2022-09-19 17:05:20,768:INFO:Importing libraries
+2022-09-19 17:05:20,768:INFO:Copying training dataset
+2022-09-19 17:05:20,771:INFO:Defining folds
+2022-09-19 17:05:20,771:INFO:Declaring metric variables
+2022-09-19 17:05:20,774:INFO:Importing untrained model
+2022-09-19 17:05:20,776:INFO:Orthogonal Matching Pursuit Imported successfully
+2022-09-19 17:05:20,780:INFO:Starting cross validation
+2022-09-19 17:05:20,781:INFO:Cross validating with TimeSeriesSplit(gap=0, max_train_size=None, n_splits=3, test_size=None), n_jobs=-1
+2022-09-19 17:05:21,847:WARNING:/raid/templates/anaconda3/envs/rapids-22.08/lib/python3.9/site-packages/sklearn/linear_model/_base.py:133: FutureWarning: The default of 'normalize' will be set to False in version 1.2 and deprecated in version 1.4.
+If you wish to scale the data, use Pipeline with a StandardScaler in a preprocessing stage. To reproduce the previous behavior:
+
+from sklearn.pipeline import make_pipeline
+
+model = make_pipeline(StandardScaler(with_mean=False), OrthogonalMatchingPursuit())
+
+If you wish to pass a sample_weight parameter, you need to pass it as a fit parameter to each step of the pipeline as follows:
+
+kwargs = {s[0] + '__sample_weight': sample_weight for s in model.steps}
+model.fit(X, y, **kwargs)
+
+
+  warnings.warn(
+
+2022-09-19 17:05:21,849:WARNING:/raid/templates/anaconda3/envs/rapids-22.08/lib/python3.9/site-packages/sklearn/utils/metaestimators.py:201: FutureWarning: if_delegate_has_method was deprecated in version 1.1 and will be removed in version 1.3. Use available_if instead.
+  warnings.warn(
+
+2022-09-19 17:05:21,858:WARNING:/raid/templates/anaconda3/envs/rapids-22.08/lib/python3.9/site-packages/sklearn/linear_model/_base.py:133: FutureWarning: The default of 'normalize' will be set to False in version 1.2 and deprecated in version 1.4.
+If you wish to scale the data, use Pipeline with a StandardScaler in a preprocessing stage. To reproduce the previous behavior:
+
+from sklearn.pipeline import make_pipeline
+
+model = make_pipeline(StandardScaler(with_mean=False), OrthogonalMatchingPursuit())
+
+If you wish to pass a sample_weight parameter, you need to pass it as a fit parameter to each step of the pipeline as follows:
+
+kwargs = {s[0] + '__sample_weight': sample_weight for s in model.steps}
+model.fit(X, y, **kwargs)
+
+
+  warnings.warn(
+
+2022-09-19 17:05:21,860:WARNING:/raid/templates/anaconda3/envs/rapids-22.08/lib/python3.9/site-packages/sklearn/utils/metaestimators.py:201: FutureWarning: if_delegate_has_method was deprecated in version 1.1 and will be removed in version 1.3. Use available_if instead.
+  warnings.warn(
+
+2022-09-19 17:05:21,866:WARNING:/raid/templates/anaconda3/envs/rapids-22.08/lib/python3.9/site-packages/sklearn/linear_model/_base.py:133: FutureWarning: The default of 'normalize' will be set to False in version 1.2 and deprecated in version 1.4.
+If you wish to scale the data, use Pipeline with a StandardScaler in a preprocessing stage. To reproduce the previous behavior:
+
+from sklearn.pipeline import make_pipeline
+
+model = make_pipeline(StandardScaler(with_mean=False), OrthogonalMatchingPursuit())
+
+If you wish to pass a sample_weight parameter, you need to pass it as a fit parameter to each step of the pipeline as follows:
+
+kwargs = {s[0] + '__sample_weight': sample_weight for s in model.steps}
+model.fit(X, y, **kwargs)
+
+
+  warnings.warn(
+
+2022-09-19 17:05:21,868:WARNING:/raid/templates/anaconda3/envs/rapids-22.08/lib/python3.9/site-packages/sklearn/utils/metaestimators.py:201: FutureWarning: if_delegate_has_method was deprecated in version 1.1 and will be removed in version 1.3. Use available_if instead.
+  warnings.warn(
+
+2022-09-19 17:05:21,975:INFO:Calculating mean and std
+2022-09-19 17:05:21,977:INFO:Creating metrics dataframe
+2022-09-19 17:05:21,980:INFO:Uploading results into container
+2022-09-19 17:05:21,980:INFO:Uploading model into container now
+2022-09-19 17:05:21,980:INFO:master_model_container: 7
+2022-09-19 17:05:21,980:INFO:display_container: 2
+2022-09-19 17:05:21,980:INFO:OrthogonalMatchingPursuit()
+2022-09-19 17:05:21,980:INFO:create_model() successfully completed......................................
+2022-09-19 17:05:22,425:INFO:SubProcess create_model() end ==================================
+2022-09-19 17:05:22,425:INFO:Creating metrics dataframe
+2022-09-19 17:05:22,433:INFO:Initializing Bayesian Ridge
+2022-09-19 17:05:22,433:INFO:Total runtime is 0.2936796466509501 minutes
+2022-09-19 17:05:22,436:INFO:SubProcess create_model() called ==================================
+2022-09-19 17:05:22,436:INFO:Initializing create_model()
+2022-09-19 17:05:22,436:INFO:create_model(self=<pycaret.regression.oop.RegressionExperiment object at 0x7fbaa53650d0>, estimator=br, fold=TimeSeriesSplit(gap=0, max_train_size=None, n_splits=3, test_size=None), round=4, cross_validation=True, predict=True, fit_kwargs={}, groups=None, refit=False, probability_threshold=None, experiment_custom_tags=None, verbose=False, system=False, add_to_model_list=True, metrics=None, display=<pycaret.internal.display.display.CommonDisplay object at 0x7fb9a6d99880>, model_only=True, return_train_score=False, kwargs={})
+2022-09-19 17:05:22,436:INFO:Checking exceptions
+2022-09-19 17:05:22,437:INFO:Importing libraries
+2022-09-19 17:05:22,437:INFO:Copying training dataset
+2022-09-19 17:05:22,441:INFO:Defining folds
+2022-09-19 17:05:22,441:INFO:Declaring metric variables
+2022-09-19 17:05:22,443:INFO:Importing untrained model
+2022-09-19 17:05:22,445:INFO:Bayesian Ridge Imported successfully
+2022-09-19 17:05:22,450:INFO:Starting cross validation
+2022-09-19 17:05:22,450:INFO:Cross validating with TimeSeriesSplit(gap=0, max_train_size=None, n_splits=3, test_size=None), n_jobs=-1
+2022-09-19 17:05:23,519:WARNING:/raid/templates/anaconda3/envs/rapids-22.08/lib/python3.9/site-packages/sklearn/utils/metaestimators.py:201: FutureWarning: if_delegate_has_method was deprecated in version 1.1 and will be removed in version 1.3. Use available_if instead.
+  warnings.warn(
+
+2022-09-19 17:05:23,519:WARNING:/raid/templates/anaconda3/envs/rapids-22.08/lib/python3.9/site-packages/sklearn/utils/metaestimators.py:201: FutureWarning: if_delegate_has_method was deprecated in version 1.1 and will be removed in version 1.3. Use available_if instead.
+  warnings.warn(
+
+2022-09-19 17:05:23,545:WARNING:/raid/templates/anaconda3/envs/rapids-22.08/lib/python3.9/site-packages/sklearn/utils/metaestimators.py:201: FutureWarning: if_delegate_has_method was deprecated in version 1.1 and will be removed in version 1.3. Use available_if instead.
+  warnings.warn(
+
+2022-09-19 17:05:23,642:INFO:Calculating mean and std
+2022-09-19 17:05:23,644:INFO:Creating metrics dataframe
+2022-09-19 17:05:23,647:INFO:Uploading results into container
+2022-09-19 17:05:23,647:INFO:Uploading model into container now
+2022-09-19 17:05:23,648:INFO:master_model_container: 8
+2022-09-19 17:05:23,648:INFO:display_container: 2
+2022-09-19 17:05:23,648:INFO:BayesianRidge()
+2022-09-19 17:05:23,648:INFO:create_model() successfully completed......................................
+2022-09-19 17:05:24,096:INFO:SubProcess create_model() end ==================================
+2022-09-19 17:05:24,096:INFO:Creating metrics dataframe
+2022-09-19 17:05:24,105:INFO:Initializing Passive Aggressive Regressor
+2022-09-19 17:05:24,105:INFO:Total runtime is 0.3215432047843933 minutes
+2022-09-19 17:05:24,107:INFO:SubProcess create_model() called ==================================
+2022-09-19 17:05:24,108:INFO:Initializing create_model()
+2022-09-19 17:05:24,108:INFO:create_model(self=<pycaret.regression.oop.RegressionExperiment object at 0x7fbaa53650d0>, estimator=par, fold=TimeSeriesSplit(gap=0, max_train_size=None, n_splits=3, test_size=None), round=4, cross_validation=True, predict=True, fit_kwargs={}, groups=None, refit=False, probability_threshold=None, experiment_custom_tags=None, verbose=False, system=False, add_to_model_list=True, metrics=None, display=<pycaret.internal.display.display.CommonDisplay object at 0x7fb9a6d99880>, model_only=True, return_train_score=False, kwargs={})
+2022-09-19 17:05:24,108:INFO:Checking exceptions
+2022-09-19 17:05:24,109:INFO:Importing libraries
+2022-09-19 17:05:24,109:INFO:Copying training dataset
+2022-09-19 17:05:24,113:INFO:Defining folds
+2022-09-19 17:05:24,113:INFO:Declaring metric variables
+2022-09-19 17:05:24,115:INFO:Importing untrained model
+2022-09-19 17:05:24,117:INFO:Passive Aggressive Regressor Imported successfully
+2022-09-19 17:05:24,121:INFO:Starting cross validation
+2022-09-19 17:05:24,122:INFO:Cross validating with TimeSeriesSplit(gap=0, max_train_size=None, n_splits=3, test_size=None), n_jobs=-1
+2022-09-19 17:05:25,193:WARNING:/raid/templates/anaconda3/envs/rapids-22.08/lib/python3.9/site-packages/sklearn/utils/metaestimators.py:201: FutureWarning: if_delegate_has_method was deprecated in version 1.1 and will be removed in version 1.3. Use available_if instead.
+  warnings.warn(
+
+2022-09-19 17:05:25,214:WARNING:/raid/templates/anaconda3/envs/rapids-22.08/lib/python3.9/site-packages/sklearn/utils/metaestimators.py:201: FutureWarning: if_delegate_has_method was deprecated in version 1.1 and will be removed in version 1.3. Use available_if instead.
+  warnings.warn(
+
+2022-09-19 17:05:25,599:WARNING:/raid/templates/anaconda3/envs/rapids-22.08/lib/python3.9/site-packages/sklearn/utils/metaestimators.py:201: FutureWarning: if_delegate_has_method was deprecated in version 1.1 and will be removed in version 1.3. Use available_if instead.
+  warnings.warn(
+
+2022-09-19 17:05:25,705:INFO:Calculating mean and std
+2022-09-19 17:05:25,707:INFO:Creating metrics dataframe
+2022-09-19 17:05:25,709:INFO:Uploading results into container
+2022-09-19 17:05:25,710:INFO:Uploading model into container now
+2022-09-19 17:05:25,710:INFO:master_model_container: 9
+2022-09-19 17:05:25,710:INFO:display_container: 2
+2022-09-19 17:05:25,710:INFO:PassiveAggressiveRegressor(random_state=905)
+2022-09-19 17:05:25,710:INFO:create_model() successfully completed......................................
+2022-09-19 17:05:26,153:INFO:SubProcess create_model() end ==================================
+2022-09-19 17:05:26,153:INFO:Creating metrics dataframe
+2022-09-19 17:05:26,161:INFO:Initializing Huber Regressor
+2022-09-19 17:05:26,161:INFO:Total runtime is 0.355814254283905 minutes
+2022-09-19 17:05:26,164:INFO:SubProcess create_model() called ==================================
+2022-09-19 17:05:26,164:INFO:Initializing create_model()
+2022-09-19 17:05:26,164:INFO:create_model(self=<pycaret.regression.oop.RegressionExperiment object at 0x7fbaa53650d0>, estimator=huber, fold=TimeSeriesSplit(gap=0, max_train_size=None, n_splits=3, test_size=None), round=4, cross_validation=True, predict=True, fit_kwargs={}, groups=None, refit=False, probability_threshold=None, experiment_custom_tags=None, verbose=False, system=False, add_to_model_list=True, metrics=None, display=<pycaret.internal.display.display.CommonDisplay object at 0x7fb9a6d99880>, model_only=True, return_train_score=False, kwargs={})
+2022-09-19 17:05:26,164:INFO:Checking exceptions
+2022-09-19 17:05:26,165:INFO:Importing libraries
+2022-09-19 17:05:26,165:INFO:Copying training dataset
+2022-09-19 17:05:26,169:INFO:Defining folds
+2022-09-19 17:05:26,169:INFO:Declaring metric variables
+2022-09-19 17:05:26,171:INFO:Importing untrained model
+2022-09-19 17:05:26,173:INFO:Huber Regressor Imported successfully
+2022-09-19 17:05:26,177:INFO:Starting cross validation
+2022-09-19 17:05:26,178:INFO:Cross validating with TimeSeriesSplit(gap=0, max_train_size=None, n_splits=3, test_size=None), n_jobs=-1
+2022-09-19 17:05:27,274:WARNING:/raid/templates/anaconda3/envs/rapids-22.08/lib/python3.9/site-packages/sklearn/linear_model/_huber.py:335: ConvergenceWarning: lbfgs failed to converge (status=1):
+STOP: TOTAL NO. of ITERATIONS REACHED LIMIT.
+
+Increase the number of iterations (max_iter) or scale the data as shown in:
+    https://scikit-learn.org/stable/modules/preprocessing.html
+  self.n_iter_ = _check_optimize_result("lbfgs", opt_res, self.max_iter)
+
+2022-09-19 17:05:27,275:WARNING:/raid/templates/anaconda3/envs/rapids-22.08/lib/python3.9/site-packages/sklearn/utils/metaestimators.py:201: FutureWarning: if_delegate_has_method was deprecated in version 1.1 and will be removed in version 1.3. Use available_if instead.
+  warnings.warn(
+
+2022-09-19 17:05:27,311:WARNING:/raid/templates/anaconda3/envs/rapids-22.08/lib/python3.9/site-packages/sklearn/linear_model/_huber.py:335: ConvergenceWarning: lbfgs failed to converge (status=1):
+STOP: TOTAL NO. of ITERATIONS REACHED LIMIT.
+
+Increase the number of iterations (max_iter) or scale the data as shown in:
+    https://scikit-learn.org/stable/modules/preprocessing.html
+  self.n_iter_ = _check_optimize_result("lbfgs", opt_res, self.max_iter)
+
+2022-09-19 17:05:27,312:WARNING:/raid/templates/anaconda3/envs/rapids-22.08/lib/python3.9/site-packages/sklearn/utils/metaestimators.py:201: FutureWarning: if_delegate_has_method was deprecated in version 1.1 and will be removed in version 1.3. Use available_if instead.
+  warnings.warn(
+
+2022-09-19 17:05:27,346:WARNING:/raid/templates/anaconda3/envs/rapids-22.08/lib/python3.9/site-packages/sklearn/linear_model/_huber.py:335: ConvergenceWarning: lbfgs failed to converge (status=1):
+STOP: TOTAL NO. of ITERATIONS REACHED LIMIT.
+
+Increase the number of iterations (max_iter) or scale the data as shown in:
+    https://scikit-learn.org/stable/modules/preprocessing.html
+  self.n_iter_ = _check_optimize_result("lbfgs", opt_res, self.max_iter)
+
+2022-09-19 17:05:27,346:WARNING:/raid/templates/anaconda3/envs/rapids-22.08/lib/python3.9/site-packages/sklearn/utils/metaestimators.py:201: FutureWarning: if_delegate_has_method was deprecated in version 1.1 and will be removed in version 1.3. Use available_if instead.
+  warnings.warn(
+
+2022-09-19 17:05:27,453:INFO:Calculating mean and std
+2022-09-19 17:05:27,454:INFO:Creating metrics dataframe
+2022-09-19 17:05:27,457:INFO:Uploading results into container
+2022-09-19 17:05:27,458:INFO:Uploading model into container now
+2022-09-19 17:05:27,458:INFO:master_model_container: 10
+2022-09-19 17:05:27,458:INFO:display_container: 2
+2022-09-19 17:05:27,458:INFO:HuberRegressor()
+2022-09-19 17:05:27,458:INFO:create_model() successfully completed......................................
+2022-09-19 17:05:27,896:INFO:SubProcess create_model() end ==================================
+2022-09-19 17:05:27,896:INFO:Creating metrics dataframe
+2022-09-19 17:05:27,904:INFO:Initializing K Neighbors Regressor
+2022-09-19 17:05:27,904:INFO:Total runtime is 0.38486465613047277 minutes
+2022-09-19 17:05:27,907:INFO:SubProcess create_model() called ==================================
+2022-09-19 17:05:27,907:INFO:Initializing create_model()
+2022-09-19 17:05:27,907:INFO:create_model(self=<pycaret.regression.oop.RegressionExperiment object at 0x7fbaa53650d0>, estimator=knn, fold=TimeSeriesSplit(gap=0, max_train_size=None, n_splits=3, test_size=None), round=4, cross_validation=True, predict=True, fit_kwargs={}, groups=None, refit=False, probability_threshold=None, experiment_custom_tags=None, verbose=False, system=False, add_to_model_list=True, metrics=None, display=<pycaret.internal.display.display.CommonDisplay object at 0x7fb9a6d99880>, model_only=True, return_train_score=False, kwargs={})
+2022-09-19 17:05:27,907:INFO:Checking exceptions
+2022-09-19 17:05:27,908:INFO:Importing libraries
+2022-09-19 17:05:27,908:INFO:Copying training dataset
+2022-09-19 17:05:27,912:INFO:Defining folds
+2022-09-19 17:05:27,912:INFO:Declaring metric variables
+2022-09-19 17:05:27,914:INFO:Importing untrained model
+2022-09-19 17:05:27,916:INFO:K Neighbors Regressor Imported successfully
+2022-09-19 17:05:27,920:INFO:Starting cross validation
+2022-09-19 17:05:27,921:INFO:Cross validating with TimeSeriesSplit(gap=0, max_train_size=None, n_splits=3, test_size=None), n_jobs=-1
+2022-09-19 17:05:28,974:WARNING:/raid/templates/anaconda3/envs/rapids-22.08/lib/python3.9/site-packages/sklearn/utils/metaestimators.py:201: FutureWarning: if_delegate_has_method was deprecated in version 1.1 and will be removed in version 1.3. Use available_if instead.
+  warnings.warn(
+
+2022-09-19 17:05:28,996:WARNING:/raid/templates/anaconda3/envs/rapids-22.08/lib/python3.9/site-packages/sklearn/utils/metaestimators.py:201: FutureWarning: if_delegate_has_method was deprecated in version 1.1 and will be removed in version 1.3. Use available_if instead.
+  warnings.warn(
+
+2022-09-19 17:05:29,000:WARNING:/raid/templates/anaconda3/envs/rapids-22.08/lib/python3.9/site-packages/sklearn/utils/metaestimators.py:201: FutureWarning: if_delegate_has_method was deprecated in version 1.1 and will be removed in version 1.3. Use available_if instead.
+  warnings.warn(
+
+2022-09-19 17:05:29,177:INFO:Calculating mean and std
+2022-09-19 17:05:29,178:INFO:Creating metrics dataframe
+2022-09-19 17:05:29,181:INFO:Uploading results into container
+2022-09-19 17:05:29,182:INFO:Uploading model into container now
+2022-09-19 17:05:29,182:INFO:master_model_container: 11
+2022-09-19 17:05:29,182:INFO:display_container: 2
+2022-09-19 17:05:29,182:INFO:KNeighborsRegressor(n_jobs=-1)
+2022-09-19 17:05:29,182:INFO:create_model() successfully completed......................................
+2022-09-19 17:05:29,632:INFO:SubProcess create_model() end ==================================
+2022-09-19 17:05:29,632:INFO:Creating metrics dataframe
+2022-09-19 17:05:29,641:INFO:Initializing Decision Tree Regressor
+2022-09-19 17:05:29,641:INFO:Total runtime is 0.41380368868509926 minutes
+2022-09-19 17:05:29,643:INFO:SubProcess create_model() called ==================================
+2022-09-19 17:05:29,643:INFO:Initializing create_model()
+2022-09-19 17:05:29,643:INFO:create_model(self=<pycaret.regression.oop.RegressionExperiment object at 0x7fbaa53650d0>, estimator=dt, fold=TimeSeriesSplit(gap=0, max_train_size=None, n_splits=3, test_size=None), round=4, cross_validation=True, predict=True, fit_kwargs={}, groups=None, refit=False, probability_threshold=None, experiment_custom_tags=None, verbose=False, system=False, add_to_model_list=True, metrics=None, display=<pycaret.internal.display.display.CommonDisplay object at 0x7fb9a6d99880>, model_only=True, return_train_score=False, kwargs={})
+2022-09-19 17:05:29,643:INFO:Checking exceptions
+2022-09-19 17:05:29,645:INFO:Importing libraries
+2022-09-19 17:05:29,645:INFO:Copying training dataset
+2022-09-19 17:05:29,648:INFO:Defining folds
+2022-09-19 17:05:29,648:INFO:Declaring metric variables
+2022-09-19 17:05:29,650:INFO:Importing untrained model
+2022-09-19 17:05:29,653:INFO:Decision Tree Regressor Imported successfully
+2022-09-19 17:05:29,657:INFO:Starting cross validation
+2022-09-19 17:05:29,657:INFO:Cross validating with TimeSeriesSplit(gap=0, max_train_size=None, n_splits=3, test_size=None), n_jobs=-1
+2022-09-19 17:05:30,728:WARNING:/raid/templates/anaconda3/envs/rapids-22.08/lib/python3.9/site-packages/sklearn/utils/metaestimators.py:201: FutureWarning: if_delegate_has_method was deprecated in version 1.1 and will be removed in version 1.3. Use available_if instead.
+  warnings.warn(
+
+2022-09-19 17:05:30,733:WARNING:/raid/templates/anaconda3/envs/rapids-22.08/lib/python3.9/site-packages/sklearn/utils/metaestimators.py:201: FutureWarning: if_delegate_has_method was deprecated in version 1.1 and will be removed in version 1.3. Use available_if instead.
+  warnings.warn(
+
+2022-09-19 17:05:30,760:WARNING:/raid/templates/anaconda3/envs/rapids-22.08/lib/python3.9/site-packages/sklearn/utils/metaestimators.py:201: FutureWarning: if_delegate_has_method was deprecated in version 1.1 and will be removed in version 1.3. Use available_if instead.
+  warnings.warn(
+
+2022-09-19 17:05:30,867:INFO:Calculating mean and std
+2022-09-19 17:05:30,869:INFO:Creating metrics dataframe
+2022-09-19 17:05:30,871:INFO:Uploading results into container
+2022-09-19 17:05:30,872:INFO:Uploading model into container now
+2022-09-19 17:05:30,872:INFO:master_model_container: 12
+2022-09-19 17:05:30,872:INFO:display_container: 2
+2022-09-19 17:05:30,872:INFO:DecisionTreeRegressor(random_state=905)
+2022-09-19 17:05:30,872:INFO:create_model() successfully completed......................................
+2022-09-19 17:05:31,309:INFO:SubProcess create_model() end ==================================
+2022-09-19 17:05:31,309:INFO:Creating metrics dataframe
+2022-09-19 17:05:31,318:INFO:Initializing Random Forest Regressor
+2022-09-19 17:05:31,318:INFO:Total runtime is 0.44176193475723263 minutes
+2022-09-19 17:05:31,320:INFO:SubProcess create_model() called ==================================
+2022-09-19 17:05:31,321:INFO:Initializing create_model()
+2022-09-19 17:05:31,321:INFO:create_model(self=<pycaret.regression.oop.RegressionExperiment object at 0x7fbaa53650d0>, estimator=rf, fold=TimeSeriesSplit(gap=0, max_train_size=None, n_splits=3, test_size=None), round=4, cross_validation=True, predict=True, fit_kwargs={}, groups=None, refit=False, probability_threshold=None, experiment_custom_tags=None, verbose=False, system=False, add_to_model_list=True, metrics=None, display=<pycaret.internal.display.display.CommonDisplay object at 0x7fb9a6d99880>, model_only=True, return_train_score=False, kwargs={})
+2022-09-19 17:05:31,321:INFO:Checking exceptions
+2022-09-19 17:05:31,322:INFO:Importing libraries
+2022-09-19 17:05:31,322:INFO:Copying training dataset
+2022-09-19 17:05:31,325:INFO:Defining folds
+2022-09-19 17:05:31,326:INFO:Declaring metric variables
+2022-09-19 17:05:31,328:INFO:Importing untrained model
+2022-09-19 17:05:31,330:INFO:Random Forest Regressor Imported successfully
+2022-09-19 17:05:31,334:INFO:Starting cross validation
+2022-09-19 17:05:31,335:INFO:Cross validating with TimeSeriesSplit(gap=0, max_train_size=None, n_splits=3, test_size=None), n_jobs=-1
+2022-09-19 17:05:32,577:WARNING:/raid/templates/anaconda3/envs/rapids-22.08/lib/python3.9/site-packages/sklearn/utils/metaestimators.py:201: FutureWarning: if_delegate_has_method was deprecated in version 1.1 and will be removed in version 1.3. Use available_if instead.
+  warnings.warn(
+
+2022-09-19 17:05:32,603:WARNING:/raid/templates/anaconda3/envs/rapids-22.08/lib/python3.9/site-packages/sklearn/utils/metaestimators.py:201: FutureWarning: if_delegate_has_method was deprecated in version 1.1 and will be removed in version 1.3. Use available_if instead.
+  warnings.warn(
+
+2022-09-19 17:05:32,610:WARNING:/raid/templates/anaconda3/envs/rapids-22.08/lib/python3.9/site-packages/sklearn/utils/metaestimators.py:201: FutureWarning: if_delegate_has_method was deprecated in version 1.1 and will be removed in version 1.3. Use available_if instead.
+  warnings.warn(
+
+2022-09-19 17:05:32,755:INFO:Calculating mean and std
+2022-09-19 17:05:32,756:INFO:Creating metrics dataframe
+2022-09-19 17:05:32,759:INFO:Uploading results into container
+2022-09-19 17:05:32,759:INFO:Uploading model into container now
+2022-09-19 17:05:32,760:INFO:master_model_container: 13
+2022-09-19 17:05:32,760:INFO:display_container: 2
+2022-09-19 17:05:32,760:INFO:RandomForestRegressor(n_jobs=-1, random_state=905)
+2022-09-19 17:05:32,760:INFO:create_model() successfully completed......................................
+2022-09-19 17:05:33,200:INFO:SubProcess create_model() end ==================================
+2022-09-19 17:05:33,200:INFO:Creating metrics dataframe
+2022-09-19 17:05:33,209:INFO:Initializing Extra Trees Regressor
+2022-09-19 17:05:33,209:INFO:Total runtime is 0.47327605485916135 minutes
+2022-09-19 17:05:33,211:INFO:SubProcess create_model() called ==================================
+2022-09-19 17:05:33,212:INFO:Initializing create_model()
+2022-09-19 17:05:33,212:INFO:create_model(self=<pycaret.regression.oop.RegressionExperiment object at 0x7fbaa53650d0>, estimator=et, fold=TimeSeriesSplit(gap=0, max_train_size=None, n_splits=3, test_size=None), round=4, cross_validation=True, predict=True, fit_kwargs={}, groups=None, refit=False, probability_threshold=None, experiment_custom_tags=None, verbose=False, system=False, add_to_model_list=True, metrics=None, display=<pycaret.internal.display.display.CommonDisplay object at 0x7fb9a6d99880>, model_only=True, return_train_score=False, kwargs={})
+2022-09-19 17:05:33,212:INFO:Checking exceptions
+2022-09-19 17:05:33,213:INFO:Importing libraries
+2022-09-19 17:05:33,213:INFO:Copying training dataset
+2022-09-19 17:05:33,216:INFO:Defining folds
+2022-09-19 17:05:33,216:INFO:Declaring metric variables
+2022-09-19 17:05:33,219:INFO:Importing untrained model
+2022-09-19 17:05:33,221:INFO:Extra Trees Regressor Imported successfully
+2022-09-19 17:05:33,225:INFO:Starting cross validation
+2022-09-19 17:05:33,226:INFO:Cross validating with TimeSeriesSplit(gap=0, max_train_size=None, n_splits=3, test_size=None), n_jobs=-1
+2022-09-19 17:05:34,423:WARNING:/raid/templates/anaconda3/envs/rapids-22.08/lib/python3.9/site-packages/sklearn/utils/metaestimators.py:201: FutureWarning: if_delegate_has_method was deprecated in version 1.1 and will be removed in version 1.3. Use available_if instead.
+  warnings.warn(
+
+2022-09-19 17:05:34,440:WARNING:/raid/templates/anaconda3/envs/rapids-22.08/lib/python3.9/site-packages/sklearn/utils/metaestimators.py:201: FutureWarning: if_delegate_has_method was deprecated in version 1.1 and will be removed in version 1.3. Use available_if instead.
+  warnings.warn(
+
+2022-09-19 17:05:34,508:WARNING:/raid/templates/anaconda3/envs/rapids-22.08/lib/python3.9/site-packages/sklearn/utils/metaestimators.py:201: FutureWarning: if_delegate_has_method was deprecated in version 1.1 and will be removed in version 1.3. Use available_if instead.
+  warnings.warn(
+
+2022-09-19 17:05:34,656:INFO:Calculating mean and std
+2022-09-19 17:05:34,657:INFO:Creating metrics dataframe
+2022-09-19 17:05:34,660:INFO:Uploading results into container
+2022-09-19 17:05:34,660:INFO:Uploading model into container now
+2022-09-19 17:05:34,660:INFO:master_model_container: 14
+2022-09-19 17:05:34,661:INFO:display_container: 2
+2022-09-19 17:05:34,661:INFO:ExtraTreesRegressor(n_jobs=-1, random_state=905)
+2022-09-19 17:05:34,661:INFO:create_model() successfully completed......................................
+2022-09-19 17:05:35,098:INFO:SubProcess create_model() end ==================================
+2022-09-19 17:05:35,098:INFO:Creating metrics dataframe
+2022-09-19 17:05:35,107:INFO:Initializing AdaBoost Regressor
+2022-09-19 17:05:35,107:INFO:Total runtime is 0.504907735188802 minutes
+2022-09-19 17:05:35,109:INFO:SubProcess create_model() called ==================================
+2022-09-19 17:05:35,109:INFO:Initializing create_model()
+2022-09-19 17:05:35,109:INFO:create_model(self=<pycaret.regression.oop.RegressionExperiment object at 0x7fbaa53650d0>, estimator=ada, fold=TimeSeriesSplit(gap=0, max_train_size=None, n_splits=3, test_size=None), round=4, cross_validation=True, predict=True, fit_kwargs={}, groups=None, refit=False, probability_threshold=None, experiment_custom_tags=None, verbose=False, system=False, add_to_model_list=True, metrics=None, display=<pycaret.internal.display.display.CommonDisplay object at 0x7fb9a6d99880>, model_only=True, return_train_score=False, kwargs={})
+2022-09-19 17:05:35,109:INFO:Checking exceptions
+2022-09-19 17:05:35,111:INFO:Importing libraries
+2022-09-19 17:05:35,111:INFO:Copying training dataset
+2022-09-19 17:05:35,114:INFO:Defining folds
+2022-09-19 17:05:35,114:INFO:Declaring metric variables
+2022-09-19 17:05:35,117:INFO:Importing untrained model
+2022-09-19 17:05:35,119:INFO:AdaBoost Regressor Imported successfully
+2022-09-19 17:05:35,123:INFO:Starting cross validation
+2022-09-19 17:05:35,124:INFO:Cross validating with TimeSeriesSplit(gap=0, max_train_size=None, n_splits=3, test_size=None), n_jobs=-1
+2022-09-19 17:05:36,241:WARNING:/raid/templates/anaconda3/envs/rapids-22.08/lib/python3.9/site-packages/sklearn/utils/metaestimators.py:201: FutureWarning: if_delegate_has_method was deprecated in version 1.1 and will be removed in version 1.3. Use available_if instead.
+  warnings.warn(
+
+2022-09-19 17:05:36,354:WARNING:/raid/templates/anaconda3/envs/rapids-22.08/lib/python3.9/site-packages/sklearn/utils/metaestimators.py:201: FutureWarning: if_delegate_has_method was deprecated in version 1.1 and will be removed in version 1.3. Use available_if instead.
+  warnings.warn(
+
+2022-09-19 17:05:36,431:WARNING:/raid/templates/anaconda3/envs/rapids-22.08/lib/python3.9/site-packages/sklearn/utils/metaestimators.py:201: FutureWarning: if_delegate_has_method was deprecated in version 1.1 and will be removed in version 1.3. Use available_if instead.
+  warnings.warn(
+
+2022-09-19 17:05:36,542:INFO:Calculating mean and std
+2022-09-19 17:05:36,543:INFO:Creating metrics dataframe
+2022-09-19 17:05:36,546:INFO:Uploading results into container
+2022-09-19 17:05:36,546:INFO:Uploading model into container now
+2022-09-19 17:05:36,546:INFO:master_model_container: 15
+2022-09-19 17:05:36,546:INFO:display_container: 2
+2022-09-19 17:05:36,547:INFO:AdaBoostRegressor(random_state=905)
+2022-09-19 17:05:36,547:INFO:create_model() successfully completed......................................
+2022-09-19 17:05:37,020:INFO:SubProcess create_model() end ==================================
+2022-09-19 17:05:37,021:INFO:Creating metrics dataframe
+2022-09-19 17:05:37,031:INFO:Initializing Gradient Boosting Regressor
+2022-09-19 17:05:37,031:INFO:Total runtime is 0.5369783600171407 minutes
+2022-09-19 17:05:37,034:INFO:SubProcess create_model() called ==================================
+2022-09-19 17:05:37,034:INFO:Initializing create_model()
+2022-09-19 17:05:37,034:INFO:create_model(self=<pycaret.regression.oop.RegressionExperiment object at 0x7fbaa53650d0>, estimator=gbr, fold=TimeSeriesSplit(gap=0, max_train_size=None, n_splits=3, test_size=None), round=4, cross_validation=True, predict=True, fit_kwargs={}, groups=None, refit=False, probability_threshold=None, experiment_custom_tags=None, verbose=False, system=False, add_to_model_list=True, metrics=None, display=<pycaret.internal.display.display.CommonDisplay object at 0x7fb9a6d99880>, model_only=True, return_train_score=False, kwargs={})
+2022-09-19 17:05:37,034:INFO:Checking exceptions
+2022-09-19 17:05:37,036:INFO:Importing libraries
+2022-09-19 17:05:37,036:INFO:Copying training dataset
+2022-09-19 17:05:37,039:INFO:Defining folds
+2022-09-19 17:05:37,039:INFO:Declaring metric variables
+2022-09-19 17:05:37,041:INFO:Importing untrained model
+2022-09-19 17:05:37,043:INFO:Gradient Boosting Regressor Imported successfully
+2022-09-19 17:05:37,048:INFO:Starting cross validation
+2022-09-19 17:05:37,048:INFO:Cross validating with TimeSeriesSplit(gap=0, max_train_size=None, n_splits=3, test_size=None), n_jobs=-1
+2022-09-19 17:05:38,356:WARNING:/raid/templates/anaconda3/envs/rapids-22.08/lib/python3.9/site-packages/sklearn/utils/metaestimators.py:201: FutureWarning: if_delegate_has_method was deprecated in version 1.1 and will be removed in version 1.3. Use available_if instead.
+  warnings.warn(
+
+2022-09-19 17:05:38,616:WARNING:/raid/templates/anaconda3/envs/rapids-22.08/lib/python3.9/site-packages/sklearn/utils/metaestimators.py:201: FutureWarning: if_delegate_has_method was deprecated in version 1.1 and will be removed in version 1.3. Use available_if instead.
+  warnings.warn(
+
+2022-09-19 17:05:38,918:WARNING:/raid/templates/anaconda3/envs/rapids-22.08/lib/python3.9/site-packages/sklearn/utils/metaestimators.py:201: FutureWarning: if_delegate_has_method was deprecated in version 1.1 and will be removed in version 1.3. Use available_if instead.
+  warnings.warn(
+
+2022-09-19 17:05:39,030:INFO:Calculating mean and std
+2022-09-19 17:05:39,032:INFO:Creating metrics dataframe
+2022-09-19 17:05:39,034:INFO:Uploading results into container
+2022-09-19 17:05:39,035:INFO:Uploading model into container now
+2022-09-19 17:05:39,035:INFO:master_model_container: 16
+2022-09-19 17:05:39,035:INFO:display_container: 2
+2022-09-19 17:05:39,036:INFO:GradientBoostingRegressor(random_state=905)
+2022-09-19 17:05:39,036:INFO:create_model() successfully completed......................................
+2022-09-19 17:05:39,487:INFO:SubProcess create_model() end ==================================
+2022-09-19 17:05:39,487:INFO:Creating metrics dataframe
+2022-09-19 17:05:39,497:INFO:Initializing Extreme Gradient Boosting
+2022-09-19 17:05:39,497:INFO:Total runtime is 0.5780742526054382 minutes
+2022-09-19 17:05:39,499:INFO:SubProcess create_model() called ==================================
+2022-09-19 17:05:39,500:INFO:Initializing create_model()
+2022-09-19 17:05:39,500:INFO:create_model(self=<pycaret.regression.oop.RegressionExperiment object at 0x7fbaa53650d0>, estimator=xgboost, fold=TimeSeriesSplit(gap=0, max_train_size=None, n_splits=3, test_size=None), round=4, cross_validation=True, predict=True, fit_kwargs={}, groups=None, refit=False, probability_threshold=None, experiment_custom_tags=None, verbose=False, system=False, add_to_model_list=True, metrics=None, display=<pycaret.internal.display.display.CommonDisplay object at 0x7fb9a6d99880>, model_only=True, return_train_score=False, kwargs={})
+2022-09-19 17:05:39,500:INFO:Checking exceptions
+2022-09-19 17:05:39,501:INFO:Importing libraries
+2022-09-19 17:05:39,501:INFO:Copying training dataset
+2022-09-19 17:05:39,505:INFO:Defining folds
+2022-09-19 17:05:39,505:INFO:Declaring metric variables
+2022-09-19 17:05:39,507:INFO:Importing untrained model
+2022-09-19 17:05:39,510:INFO:Extreme Gradient Boosting Imported successfully
+2022-09-19 17:05:39,514:INFO:Starting cross validation
+2022-09-19 17:05:39,515:INFO:Cross validating with TimeSeriesSplit(gap=0, max_train_size=None, n_splits=3, test_size=None), n_jobs=-1
+2022-09-19 17:05:46,107:WARNING:/raid/templates/anaconda3/envs/rapids-22.08/lib/python3.9/site-packages/sklearn/utils/metaestimators.py:201: FutureWarning: if_delegate_has_method was deprecated in version 1.1 and will be removed in version 1.3. Use available_if instead.
+  warnings.warn(
+
+2022-09-19 17:05:46,192:WARNING:/raid/templates/anaconda3/envs/rapids-22.08/lib/python3.9/site-packages/sklearn/utils/metaestimators.py:201: FutureWarning: if_delegate_has_method was deprecated in version 1.1 and will be removed in version 1.3. Use available_if instead.
+  warnings.warn(
+
+2022-09-19 17:05:46,365:WARNING:/raid/templates/anaconda3/envs/rapids-22.08/lib/python3.9/site-packages/sklearn/utils/metaestimators.py:201: FutureWarning: if_delegate_has_method was deprecated in version 1.1 and will be removed in version 1.3. Use available_if instead.
+  warnings.warn(
+
+2022-09-19 17:05:46,481:INFO:Calculating mean and std
+2022-09-19 17:05:46,483:INFO:Creating metrics dataframe
+2022-09-19 17:05:46,485:INFO:Uploading results into container
+2022-09-19 17:05:46,486:INFO:Uploading model into container now
+2022-09-19 17:05:46,486:INFO:master_model_container: 17
+2022-09-19 17:05:46,486:INFO:display_container: 2
+2022-09-19 17:05:46,487:INFO:XGBRegressor(base_score=None, booster='gbtree', callbacks=None,
+             colsample_bylevel=None, colsample_bynode=None,
+             colsample_bytree=None, early_stopping_rounds=None,
+             enable_categorical=False, eval_metric=None, gamma=None,
+             gpu_id=None, grow_policy=None, importance_type=None,
+             interaction_constraints=None, learning_rate=None, max_bin=None,
+             max_cat_to_onehot=None, max_delta_step=None, max_depth=None,
+             max_leaves=None, min_child_weight=None, missing=nan,
+             monotone_constraints=None, n_estimators=100, n_jobs=-1,
+             num_parallel_tree=None, predictor=None, random_state=905,
+             reg_alpha=None, reg_lambda=None, ...)
+2022-09-19 17:05:46,487:INFO:create_model() successfully completed......................................
+2022-09-19 17:05:46,920:INFO:SubProcess create_model() end ==================================
+2022-09-19 17:05:46,920:INFO:Creating metrics dataframe
+2022-09-19 17:05:46,930:INFO:Initializing Light Gradient Boosting Machine
+2022-09-19 17:05:46,930:INFO:Total runtime is 0.7019557396570841 minutes
+2022-09-19 17:05:46,932:INFO:SubProcess create_model() called ==================================
+2022-09-19 17:05:46,932:INFO:Initializing create_model()
+2022-09-19 17:05:46,932:INFO:create_model(self=<pycaret.regression.oop.RegressionExperiment object at 0x7fbaa53650d0>, estimator=lightgbm, fold=TimeSeriesSplit(gap=0, max_train_size=None, n_splits=3, test_size=None), round=4, cross_validation=True, predict=True, fit_kwargs={}, groups=None, refit=False, probability_threshold=None, experiment_custom_tags=None, verbose=False, system=False, add_to_model_list=True, metrics=None, display=<pycaret.internal.display.display.CommonDisplay object at 0x7fb9a6d99880>, model_only=True, return_train_score=False, kwargs={})
+2022-09-19 17:05:46,932:INFO:Checking exceptions
+2022-09-19 17:05:46,934:INFO:Importing libraries
+2022-09-19 17:05:46,934:INFO:Copying training dataset
+2022-09-19 17:05:46,937:INFO:Defining folds
+2022-09-19 17:05:46,937:INFO:Declaring metric variables
+2022-09-19 17:05:46,940:INFO:Importing untrained model
+2022-09-19 17:05:46,942:INFO:Light Gradient Boosting Machine Imported successfully
+2022-09-19 17:05:46,946:INFO:Starting cross validation
+2022-09-19 17:05:46,947:INFO:Cross validating with TimeSeriesSplit(gap=0, max_train_size=None, n_splits=3, test_size=None), n_jobs=-1
+2022-09-19 17:05:48,519:WARNING:/raid/templates/anaconda3/envs/rapids-22.08/lib/python3.9/site-packages/sklearn/utils/metaestimators.py:201: FutureWarning: if_delegate_has_method was deprecated in version 1.1 and will be removed in version 1.3. Use available_if instead.
+  warnings.warn(
+
+2022-09-19 17:05:48,540:WARNING:/raid/templates/anaconda3/envs/rapids-22.08/lib/python3.9/site-packages/sklearn/utils/metaestimators.py:201: FutureWarning: if_delegate_has_method was deprecated in version 1.1 and will be removed in version 1.3. Use available_if instead.
+  warnings.warn(
+
+2022-09-19 17:05:48,596:WARNING:/raid/templates/anaconda3/envs/rapids-22.08/lib/python3.9/site-packages/sklearn/utils/metaestimators.py:201: FutureWarning: if_delegate_has_method was deprecated in version 1.1 and will be removed in version 1.3. Use available_if instead.
+  warnings.warn(
+
+2022-09-19 17:05:48,721:INFO:Calculating mean and std
+2022-09-19 17:05:48,722:INFO:Creating metrics dataframe
+2022-09-19 17:05:48,725:INFO:Uploading results into container
+2022-09-19 17:05:48,725:INFO:Uploading model into container now
+2022-09-19 17:05:48,725:INFO:master_model_container: 18
+2022-09-19 17:05:48,726:INFO:display_container: 2
+2022-09-19 17:05:48,726:INFO:LGBMRegressor(random_state=905)
+2022-09-19 17:05:48,726:INFO:create_model() successfully completed......................................
+2022-09-19 17:05:49,159:INFO:SubProcess create_model() end ==================================
+2022-09-19 17:05:49,159:INFO:Creating metrics dataframe
+2022-09-19 17:05:49,169:INFO:Initializing Dummy Regressor
+2022-09-19 17:05:49,169:INFO:Total runtime is 0.7392685731252034 minutes
+2022-09-19 17:05:49,171:INFO:SubProcess create_model() called ==================================
+2022-09-19 17:05:49,171:INFO:Initializing create_model()
+2022-09-19 17:05:49,171:INFO:create_model(self=<pycaret.regression.oop.RegressionExperiment object at 0x7fbaa53650d0>, estimator=dummy, fold=TimeSeriesSplit(gap=0, max_train_size=None, n_splits=3, test_size=None), round=4, cross_validation=True, predict=True, fit_kwargs={}, groups=None, refit=False, probability_threshold=None, experiment_custom_tags=None, verbose=False, system=False, add_to_model_list=True, metrics=None, display=<pycaret.internal.display.display.CommonDisplay object at 0x7fb9a6d99880>, model_only=True, return_train_score=False, kwargs={})
+2022-09-19 17:05:49,171:INFO:Checking exceptions
+2022-09-19 17:05:49,173:INFO:Importing libraries
+2022-09-19 17:05:49,173:INFO:Copying training dataset
+2022-09-19 17:05:49,176:INFO:Defining folds
+2022-09-19 17:05:49,176:INFO:Declaring metric variables
+2022-09-19 17:05:49,178:INFO:Importing untrained model
+2022-09-19 17:05:49,180:INFO:Dummy Regressor Imported successfully
+2022-09-19 17:05:49,184:INFO:Starting cross validation
+2022-09-19 17:05:49,185:INFO:Cross validating with TimeSeriesSplit(gap=0, max_train_size=None, n_splits=3, test_size=None), n_jobs=-1
+2022-09-19 17:05:50,271:WARNING:/raid/templates/anaconda3/envs/rapids-22.08/lib/python3.9/site-packages/sklearn/utils/metaestimators.py:201: FutureWarning: if_delegate_has_method was deprecated in version 1.1 and will be removed in version 1.3. Use available_if instead.
+  warnings.warn(
+
+2022-09-19 17:05:50,296:WARNING:/raid/templates/anaconda3/envs/rapids-22.08/lib/python3.9/site-packages/sklearn/utils/metaestimators.py:201: FutureWarning: if_delegate_has_method was deprecated in version 1.1 and will be removed in version 1.3. Use available_if instead.
+  warnings.warn(
+
+2022-09-19 17:05:50,318:WARNING:/raid/templates/anaconda3/envs/rapids-22.08/lib/python3.9/site-packages/sklearn/utils/metaestimators.py:201: FutureWarning: if_delegate_has_method was deprecated in version 1.1 and will be removed in version 1.3. Use available_if instead.
+  warnings.warn(
+
+2022-09-19 17:05:50,424:INFO:Calculating mean and std
+2022-09-19 17:05:50,425:INFO:Creating metrics dataframe
+2022-09-19 17:05:50,428:INFO:Uploading results into container
+2022-09-19 17:05:50,428:INFO:Uploading model into container now
+2022-09-19 17:05:50,429:INFO:master_model_container: 19
+2022-09-19 17:05:50,429:INFO:display_container: 2
+2022-09-19 17:05:50,429:INFO:DummyRegressor()
+2022-09-19 17:05:50,429:INFO:create_model() successfully completed......................................
+2022-09-19 17:05:50,860:INFO:SubProcess create_model() end ==================================
+2022-09-19 17:05:50,860:INFO:Creating metrics dataframe
+2022-09-19 17:05:50,876:INFO:Initializing create_model()
+2022-09-19 17:05:50,876:INFO:create_model(self=<pycaret.regression.oop.RegressionExperiment object at 0x7fbaa53650d0>, estimator=LinearRegression(n_jobs=-1), fold=TimeSeriesSplit(gap=0, max_train_size=None, n_splits=3, test_size=None), round=4, cross_validation=False, predict=False, fit_kwargs={}, groups=None, refit=True, probability_threshold=None, experiment_custom_tags=None, verbose=False, system=False, add_to_model_list=True, metrics=None, display=None, model_only=True, return_train_score=False, kwargs={})
+2022-09-19 17:05:50,876:INFO:Checking exceptions
+2022-09-19 17:05:50,879:INFO:Importing libraries
+2022-09-19 17:05:50,879:INFO:Copying training dataset
+2022-09-19 17:05:50,881:INFO:Defining folds
+2022-09-19 17:05:50,881:INFO:Declaring metric variables
+2022-09-19 17:05:50,881:INFO:Importing untrained model
+2022-09-19 17:05:50,881:INFO:Declaring custom model
+2022-09-19 17:05:50,882:INFO:Linear Regression Imported successfully
+2022-09-19 17:05:50,882:INFO:Cross validation set to False
+2022-09-19 17:05:50,882:INFO:Fitting Model
+2022-09-19 17:05:51,358:INFO:LinearRegression(n_jobs=-1)
+2022-09-19 17:05:51,358:INFO:create_model() successfully completed......................................
+2022-09-19 17:05:51,840:INFO:master_model_container: 19
+2022-09-19 17:05:51,840:INFO:display_container: 2
+2022-09-19 17:05:51,840:INFO:LinearRegression(n_jobs=-1)
+2022-09-19 17:05:51,840:INFO:compare_models() successfully completed......................................
+2022-09-19 17:06:05,788:INFO:Initializing predict_model()
+2022-09-19 17:06:05,788:INFO:predict_model(self=<pycaret.regression.oop.RegressionExperiment object at 0x7fbaa53650d0>, estimator=LinearRegression(n_jobs=-1), probability_threshold=None, encoded_labels=False, raw_score=False, drift_report=False, round=4, verbose=True, ml_usecase=None, preprocess=True, replace_labels_in_column=<function _SupervisedExperiment.predict_model.<locals>.replace_labels_in_column at 0x7fb4ec892940>)
+2022-09-19 17:06:05,788:INFO:Checking exceptions
+2022-09-19 17:06:05,788:INFO:Preloading libraries
+2022-09-19 17:06:05,790:INFO:Set up data.
+2022-09-19 17:14:37,075:INFO:PyCaret RegressionExperiment
+2022-09-19 17:14:37,075:INFO:Logging name: reg-default-name
+2022-09-19 17:14:37,075:INFO:ML Usecase: MLUsecase.REGRESSION
+2022-09-19 17:14:37,075:INFO:version 3.0.0.rc3
+2022-09-19 17:14:37,075:INFO:Initializing setup()
+2022-09-19 17:14:37,075:INFO:self.USI: bffb
+2022-09-19 17:14:37,075:INFO:self.variable_keys: {'transform_target_method_param', 'fold_shuffle_param', 'data', 'fold_groups_param', 'html_param', 'pipeline', 'X_test', 'exp_id', 'transform_target_param', 'memory', 'gpu_param', 'y_test', '_gpu_n_jobs_param', 'display_container', 'variable_keys', 'X_train', 'target_param', '_ml_usecase', '_all_models', 'exp_name_log', 'n_jobs_param', 'y', '_all_metrics', '_all_models_internal', 'USI', 'idx', 'X', '_available_plots', 'master_model_container', 'y_train', 'seed', 'logging_param', 'log_plots_param', 'fold_generator'}
+2022-09-19 17:14:37,075:INFO:Checking environment
+2022-09-19 17:14:37,075:INFO:python_version: 3.9.13
+2022-09-19 17:14:37,075:INFO:python_build: ('main', 'May 27 2022 16:56:21')
+2022-09-19 17:14:37,075:INFO:machine: x86_64
+2022-09-19 17:14:37,075:INFO:platform: Linux-5.4.0-42-generic-x86_64-with-glibc2.27
+2022-09-19 17:14:37,076:INFO:Memory: svmem(total=1082007138304, available=895643209728, percent=17.2, used=179064901632, free=238289231872, active=289593233408, inactive=514299801600, buffers=15504744448, cached=649148260352, shared=1823645696, slab=32664469504)
+2022-09-19 17:14:37,081:INFO:Physical Core: 128
+2022-09-19 17:14:37,081:INFO:Logical Core: 256
+2022-09-19 17:14:37,081:INFO:Checking libraries
+2022-09-19 17:14:37,081:INFO:System:
+2022-09-19 17:14:37,081:INFO:    python: 3.9.13 | packaged by conda-forge | (main, May 27 2022, 16:56:21)  [GCC 10.3.0]
+2022-09-19 17:14:37,081:INFO:executable: /raid/templates/anaconda3/envs/rapids-22.08/bin/python
+2022-09-19 17:14:37,081:INFO:   machine: Linux-5.4.0-42-generic-x86_64-with-glibc2.27
+2022-09-19 17:14:37,081:INFO:PyCaret required dependencies:
+2022-09-19 17:14:37,081:INFO:                 pip: 22.2.2
+2022-09-19 17:14:37,081:INFO:          setuptools: 60.10.0
+2022-09-19 17:14:37,082:INFO:             pycaret: 3.0.0.rc3
+2022-09-19 17:14:37,082:INFO:             IPython: 8.4.0
+2022-09-19 17:14:37,082:INFO:          ipywidgets: 8.0.1
+2022-09-19 17:14:37,082:INFO:                tqdm: 4.64.0
+2022-09-19 17:14:37,082:INFO:               numpy: 1.21.6
+2022-09-19 17:14:37,082:INFO:              pandas: 1.4.3
+2022-09-19 17:14:37,082:INFO:              jinja2: 3.1.2
+2022-09-19 17:14:37,082:INFO:               scipy: 1.8.1
+2022-09-19 17:14:37,082:INFO:              joblib: 1.1.0
+2022-09-19 17:14:37,082:INFO:             sklearn: 1.1.2
+2022-09-19 17:14:37,082:INFO:                pyod: Installed but version unavailable
+2022-09-19 17:14:37,082:INFO:            imblearn: 0.9.1
+2022-09-19 17:14:37,082:INFO:   category_encoders: 2.5.0
+2022-09-19 17:14:37,082:INFO:            lightgbm: 3.3.2
+2022-09-19 17:14:37,082:INFO:               numba: 0.55.2
+2022-09-19 17:14:37,082:INFO:            requests: 2.28.1
+2022-09-19 17:14:37,082:INFO:          matplotlib: 3.5.3
+2022-09-19 17:14:37,082:INFO:          scikitplot: 0.3.7
+2022-09-19 17:14:37,082:INFO:         yellowbrick: 1.5
+2022-09-19 17:14:37,082:INFO:              plotly: 5.10.0
+2022-09-19 17:14:37,082:INFO:             kaleido: 0.2.1
+2022-09-19 17:14:37,082:INFO:         statsmodels: 0.13.2
+2022-09-19 17:14:37,082:INFO:              sktime: 0.11.4
+2022-09-19 17:14:37,082:INFO:               tbats: Installed but version unavailable
+2022-09-19 17:14:37,082:INFO:            pmdarima: 2.0.0
+2022-09-19 17:14:37,082:INFO:              psutil: 5.9.1
+2022-09-19 17:14:37,082:INFO:None
+2022-09-19 17:14:37,082:INFO:Set up data.
+2022-09-19 17:14:37,086:INFO:Set up train/test split.
+2022-09-19 17:14:37,086:INFO:Set up data.
+2022-09-19 17:16:36,232:INFO:PyCaret RegressionExperiment
+2022-09-19 17:16:36,233:INFO:Logging name: reg-default-name
+2022-09-19 17:16:36,233:INFO:ML Usecase: MLUsecase.REGRESSION
+2022-09-19 17:16:36,233:INFO:version 3.0.0.rc3
+2022-09-19 17:16:36,233:INFO:Initializing setup()
+2022-09-19 17:16:36,233:INFO:self.USI: e435
+2022-09-19 17:16:36,233:INFO:self.variable_keys: {'transform_target_method_param', 'fold_shuffle_param', 'data', 'fold_groups_param', 'html_param', 'pipeline', 'X_test', 'exp_id', 'transform_target_param', 'memory', 'gpu_param', 'y_test', '_gpu_n_jobs_param', 'display_container', 'variable_keys', 'X_train', 'target_param', '_ml_usecase', '_all_models', 'exp_name_log', 'n_jobs_param', 'y', '_all_metrics', '_all_models_internal', 'USI', 'idx', 'X', '_available_plots', 'master_model_container', 'y_train', 'seed', 'logging_param', 'log_plots_param', 'fold_generator'}
+2022-09-19 17:16:36,233:INFO:Checking environment
+2022-09-19 17:16:36,233:INFO:python_version: 3.9.13
+2022-09-19 17:16:36,233:INFO:python_build: ('main', 'May 27 2022 16:56:21')
+2022-09-19 17:16:36,233:INFO:machine: x86_64
+2022-09-19 17:16:36,233:INFO:platform: Linux-5.4.0-42-generic-x86_64-with-glibc2.27
+2022-09-19 17:16:36,233:INFO:Memory: svmem(total=1082007138304, available=895615275008, percent=17.2, used=179094732800, free=238441234432, active=289640427520, inactive=514138083328, buffers=15504809984, cached=648966361088, shared=1823645696, slab=32653107200)
+2022-09-19 17:16:36,238:INFO:Physical Core: 128
+2022-09-19 17:16:36,238:INFO:Logical Core: 256
+2022-09-19 17:16:36,238:INFO:Checking libraries
+2022-09-19 17:16:36,238:INFO:System:
+2022-09-19 17:16:36,238:INFO:    python: 3.9.13 | packaged by conda-forge | (main, May 27 2022, 16:56:21)  [GCC 10.3.0]
+2022-09-19 17:16:36,238:INFO:executable: /raid/templates/anaconda3/envs/rapids-22.08/bin/python
+2022-09-19 17:16:36,238:INFO:   machine: Linux-5.4.0-42-generic-x86_64-with-glibc2.27
+2022-09-19 17:16:36,238:INFO:PyCaret required dependencies:
+2022-09-19 17:16:36,239:INFO:                 pip: 22.2.2
+2022-09-19 17:16:36,239:INFO:          setuptools: 60.10.0
+2022-09-19 17:16:36,239:INFO:             pycaret: 3.0.0.rc3
+2022-09-19 17:16:36,239:INFO:             IPython: 8.4.0
+2022-09-19 17:16:36,239:INFO:          ipywidgets: 8.0.1
+2022-09-19 17:16:36,239:INFO:                tqdm: 4.64.0
+2022-09-19 17:16:36,239:INFO:               numpy: 1.21.6
+2022-09-19 17:16:36,239:INFO:              pandas: 1.4.3
+2022-09-19 17:16:36,239:INFO:              jinja2: 3.1.2
+2022-09-19 17:16:36,239:INFO:               scipy: 1.8.1
+2022-09-19 17:16:36,239:INFO:              joblib: 1.1.0
+2022-09-19 17:16:36,239:INFO:             sklearn: 1.1.2
+2022-09-19 17:16:36,239:INFO:                pyod: Installed but version unavailable
+2022-09-19 17:16:36,239:INFO:            imblearn: 0.9.1
+2022-09-19 17:16:36,239:INFO:   category_encoders: 2.5.0
+2022-09-19 17:16:36,239:INFO:            lightgbm: 3.3.2
+2022-09-19 17:16:36,239:INFO:               numba: 0.55.2
+2022-09-19 17:16:36,239:INFO:            requests: 2.28.1
+2022-09-19 17:16:36,239:INFO:          matplotlib: 3.5.3
+2022-09-19 17:16:36,239:INFO:          scikitplot: 0.3.7
+2022-09-19 17:16:36,239:INFO:         yellowbrick: 1.5
+2022-09-19 17:16:36,239:INFO:              plotly: 5.10.0
+2022-09-19 17:16:36,239:INFO:             kaleido: 0.2.1
+2022-09-19 17:16:36,239:INFO:         statsmodels: 0.13.2
+2022-09-19 17:16:36,239:INFO:              sktime: 0.11.4
+2022-09-19 17:16:36,239:INFO:               tbats: Installed but version unavailable
+2022-09-19 17:16:36,239:INFO:            pmdarima: 2.0.0
+2022-09-19 17:16:36,239:INFO:              psutil: 5.9.1
+2022-09-19 17:16:36,239:INFO:None
+2022-09-19 17:16:36,239:INFO:Set up data.
+2022-09-19 17:16:36,243:INFO:Set up train/test split.
+2022-09-19 17:16:36,243:INFO:Set up data.
