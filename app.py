@@ -45,7 +45,7 @@ app.layout = html.Div([
     ),
     dcc.Interval(
         id='interval-component',
-        interval=1000
+        interval=500
     )
 ])
 
@@ -68,10 +68,10 @@ def update_metrics(n):
 def update_figure(n):
 
     dfa = dfi[['vol']].copy()
-    dfa['record'] = dfi['vol'][:n*100]
+    dfa['record'] = dfi['vol'][:n*10]
 
     fig = px.line(dfa)
-    fig.add_vline(x=n*100, line_dash='dash')
+    fig.add_vline(x=n*10, line_dash='dash')
     fig.update_layout(transition_duration=500)
     # fig.update_layout()
 
