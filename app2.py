@@ -1,8 +1,11 @@
 from dash import Dash, dcc, html, Input, Output
+import plotly.graph_objects as go
+
 import plotly.express as px
 import numpy as np
 import os
 import pandas as pd
+import json
 
 dfi = pd.read_csv('https://raw.githubusercontent.com/plotly/datasets/master/gapminderDataFiveYear.csv')
 
@@ -31,37 +34,97 @@ for file in file_list:
     print(f'Stage : {stage} loaded.')
     break
 dfi = df_list[0]['data']
+dfa = dfi[['vol']].copy()
+dfa['record'] = dfi['vol'][:1]
+
+fig = px.line(dfa)
+fig.add_vline(x=0, line_dash='dash')
+fig.update_layout(transition_duration=499, 
+xaxis=dict(
+    rangeslider=dict(visible=True) 
+)) 
+
 
 app = Dash(__name__)
 
 app.layout = html.Div([
-    dcc.Graph(id='graph-with-slider'),
-    dcc.Slider(
-        0,
-        len(df_list[0]['data']),
-        step=None,
-        value=0,
-        id='year-slider'
-    ),
+    # dcc.Graph(id='graph-with-slider'),
+    dcc.Graph(id='graph-with-slider', figure=fig),
+    # dcc.Slider(
+    #     0,
+    #     len(df_list[0]['data']),
+    #     step=None,
+    #     value=0,
+    #     id='year-slider'
+    # ),
     dcc.Interval(
         id='interval-component',
         interval=500
-    )
+    ),
+    html.Div(id='my-output')
 ])
 
+rg = None
+@app.callback(
+    Output(component_id='my-output', component_property='children'),
+    Input(component_id='graph-with-slider', component_property='relayoutData')
+)
+def displayx(layoutData):
+    rg = layoutData
+    return json.dumps(layoutData, indent=2)
 
 @app.callback(
-    Output('graph-with-slider', 'figure'),
-    Input('year-slider', 'value'),
+    # Output(component_id='my-output', component_property='children'),
+    Output(component_id='graph-with-slider', component_property='figure'),
+    Input(component_id='my-output', component_property='children'),
+    Input(component_id='graph-with-slider', component_property='clickData')
 )
-def update_on_slider(val):
+def display_click_data(range, clickData):
+    print(clickData)
+    print('rg', range)
+    rg = json.loads(range)
+
+    if clickData is None:
+        val = 1
+    else:
+        val = clickData['points'][0]['x']
+    
     dfa = dfi[['vol']].copy()
     dfa['record'] = dfi['vol'][:val]
 
     fig = px.line(dfa)
     fig.add_vline(x=val, line_dash='dash')
-    fig.update_layout(transition_duration=500) 
+    if rg is None or "xaxis.autorange" in rg or "autosize" in rg:
+        fig.update_layout(transition_duration=500, 
+                #xaxis=dict(rangeslider=dict(visible=True)),
+    ) 
+        pass
+    else:
+        print('rg in draw', rg)
+        fig.update_layout(transition_duration=500, 
+                # xaxis=dict(rangeslider=dict(visible=True)),
+                xaxis_range=[rg['xaxis.range[0]'],rg['xaxis.range[1]']]) 
+
     return fig
+    # return json.dumps(clickData, indent=2)
+
+# @app.callback(
+#     Output('graph-with-slider', 'figure'),
+#     Input('year-slider', 'value'),
+# )
+# def update_on_slider(val):
+#     dfa = dfi[['vol']].copy()
+#     dfa['record'] = dfi['vol'][:val]
+
+#     fig = px.line(dfa)
+#     fig.add_vline(x=val, line_dash='dash')
+#     fig.update_layout(transition_duration=500, 
+#     xaxis=dict(
+#         rangeslider=dict(visible=True) 
+
+#     )) 
+
+#     return fig
 
 # @app.callback(
 #     Output('year-slider', 'value'),
