@@ -1,3 +1,6 @@
+from ast import arg
+from re import S
+from time import sleep
 from dash import Dash, dcc, html, Input, Output
 import plotly.graph_objects as go
 
@@ -7,6 +10,8 @@ import os
 import pandas as pd
 import json
 from dash.dash_table import DataTable 
+from queue import Queue
+from flask_caching import Cache
 
 dfi = pd.read_csv('https://raw.githubusercontent.com/plotly/datasets/master/gapminderDataFiveYear.csv')
 
@@ -20,30 +25,20 @@ def add_features(df):
     df.drop(['ds'], axis=1, inplace=True)
     return df
 
-df_list = []
-file_list = os.listdir('./data')
-for file in file_list:
-    df = pd.read_csv(f'./data/{file}', encoding='euc-kr')
-    stage = file.split('_')[0]
-    for i in range(1, 57):
-        # _sc => stage_channel
-        df_sc = df[['시간', f'ch{i} 전압', f'ch{i} 전류', f'ch{i} 용량', f'ch{i} PV']]
-        df_sc = df_sc.rename(columns={'시간':'ds', f'ch{i} 전압': 'vol', f'ch{i} 전류': 'curr', f'ch{i} 용량': 'q_val',  f'ch{i} PV': 'pv'})
-        df_sc.drop(['pv'], axis=1, inplace=True)
-        df_sc = add_features(df_sc)
-        df_list.append({'stage': stage, 'ch': i, 'data': df_sc})
-    print(f'Stage : {stage} loaded.')
-    break
-dfi = df_list[0]['data']
+
+df_all = pd.read_csv('all_st_ch.csv')
+print('data loaded')
+dfi = df_all[(df_all['stage'] == 'T01730') & (df_all['channel'] == 1)]
 dfa = dfi[['vol']].copy()
 dfa['record'] = dfi['vol'][:1]
 
 fig = px.line(dfa)
 fig.add_vline(x=0, line_dash='dash')
-fig.update_layout(transition_duration=499, 
-xaxis=dict(
-    rangeslider=dict(visible=True) 
-)) 
+fig.update_layout(transition_duration=500, 
+# xaxis=dict(
+#     rangeslider=dict(visible=True) 
+# )
+) 
 
 def generate_table(dataframe, index, max_rows=10):
     return html.Table([
@@ -57,9 +52,28 @@ def generate_table(dataframe, index, max_rows=10):
         ])
     ])
 
+df_per_stage = df_all[(df_all['stage'] == 'T01730') & (df_all['channel'] == 1)]
+
+
+fig2 = px.line(x=df_per_stage['series'], y=df_per_stage['vol'])
+
+
 
 target_columns = ['series', 'q_val', 'curr', 'vol']
 app = Dash(__name__)
+
+cache = Cache(app.server, config={
+    # 'CACHE_TYPE': 'redis',
+    # Note that filesystem cache doesn't work on systems with ephemeral
+    # filesystems like Heroku.
+    'CACHE_TYPE': 'filesystem',
+    'CACHE_DIR': 'cache-directory',
+
+    # should be equal to maximum number of users on the app at a single time
+    # higher numbers will store more data in the filesystem / redis cache
+    'CACHE_THRESHOLD': 200
+})
+
 
 app.layout = html.Div([
     html.Div([
@@ -91,8 +105,54 @@ app.layout = html.Div([
         id='interval-component',
         interval=500
     ),
-    html.Div(id='my-output')
+
+    html.Div([
+        dcc.Graph(id='x1', figure=fig2)
+    ]),
+    html.Div(id='my-output'),
+    html.Div(id='my-output2'),
+    html.Div([
+        html.Button('Request', id='req', n_clicks=0),
+    ]),
+    html.Div([
+        html.Button('Request #2', id='req2', n_clicks=0),
+    ]),
+    html.Div(id='c1'),
+    html.Div(id='c2'),
+    html.Div(id='c3'),
+    dcc.Store(id='signal')
+
 ])
+
+@app.callback(
+    Output('signal', 'data'),
+    Input('req2', 'n_clicks')
+)
+def put_and_alarm(value):
+    return value
+
+@app.callback(
+    Output('c1', 'children'),
+    Input('signal', 'data')
+)
+def notified_and_render(value):
+    return value
+
+@app.callback(
+    Output('c2', 'children'),
+    Input('signal', 'data')
+)
+def notified_and_render2(value):
+    return value
+
+@app.callback(
+    Output('my-output2', 'children'),
+    Input('req', 'n_clicks')
+)
+def request_load(n_clicks):
+    print(n_clicks)
+    stages['1']['1'].put('data from button')
+    pass
 
 rg = None
 @app.callback(
@@ -112,7 +172,6 @@ def displayx(layoutData):
 )
 def display_click_data(range, clickData):
     print(clickData)
-    print('rg', range)
     rg = json.loads(range)
 
     if clickData is None:
@@ -131,7 +190,6 @@ def display_click_data(range, clickData):
     ) 
         pass
     else:
-        print('rg in draw', rg)
         fig.update_layout(transition_duration=500, 
                 # xaxis=dict(rangeslider=dict(visible=True)),
                 xaxis_range=[rg['xaxis.range[0]'],rg['xaxis.range[1]']]) 
@@ -183,6 +241,104 @@ def display_click_data(range, clickData):
 
 #     return fig
 
+from threading import Thread
+
+_sentinel = object()
+
+def producer(out_q):
+    print('thread started')
+    while True:
+        sleep(1)
+        out_q.put('xx')
+
+def comsumer(in_q):
+    while True:
+        data = in_q.get()
+        print(data)
+        sleep(3)
+        in_q.task_done()
+
+
+# stage states
+IN_CHARGE = 1
+NOOP = 2
+class Channel(object):
+    voltage = 0
+    current = 0
+    state = []
+    def __init__(self, channel_id) -> None:
+        self.channel_id = channel_id
+        self.vol = 0
+        self.curr = 0
+        self.pv = 0
+        self.elapsed = '0000:00:00'
+        self.q_val = 0
+
+    def put(self):
+        pass
+
+    def get_vol(self):
+        pass
+
+    def get_expected(self):
+        pass
+
+   
+class Stage(object):
+
+    num_thermal = 12
+    num_channels = 56
+    num_lanes = 6
+
+    def __init__(self, parent_lane, stage_id) -> None:
+        self.lane_id = parent_lane
+        self.stage_id = stage_id
+        self.state = NOOP
+        self.channels = [Channel(i) for i in range(1, 57)] # 1~56
+        self.temperatures = [np.nan for i in range(13)] # 1~12
+
+        self.queue = Queue()
+
+    def get_state(self):
+        return self.state
+    
+    def task(self):
+        while True:
+            data = self.queue.get()
+            print(f'Reporting {self.lane_id},{self.stage_id} : {self.state}, {data}')
+        
+    def put(self, data):
+        self.queue.put(data)
+
+
+
+
+
+stages = {}
 
 if __name__ == '__main__':
+
+    # q = Queue()
+    # t1 = Thread(target=producer, args=(q,))
+    # t2 = Thread(target=comsumer, args=(q,))
+    # t1.start()
+    # t2.start()
+
+    for lane_id in range(1, 7):
+        stages[str(lane_id)] = {}
+        for stage_id in range(1, 49):
+            s = Stage(lane_id, stage_id)
+            stages[str(lane_id)][str(stage_id)] = s
+            t = Thread(target=s.task)
+            t.start()
+            
+    for lane_id in stages.keys():
+        for stage_id in stages[lane_id].keys():
+            s = stages[lane_id][stage_id]
+            s.put(f'hello {lane_id}, {stage_id}')
+
+
+
+ 
     app.run_server(debug=True)
+

@@ -20,30 +20,20 @@ def add_features(df):
     df.drop(['ds'], axis=1, inplace=True)
     return df
 
-df_list = []
-file_list = os.listdir('./data')
-for file in file_list:
-    df = pd.read_csv(f'./data/{file}', encoding='euc-kr')
-    stage = file.split('_')[0]
-    for i in range(1, 57):
-        # _sc => stage_channel
-        df_sc = df[['시간', f'ch{i} 전압', f'ch{i} 전류', f'ch{i} 용량', f'ch{i} PV']]
-        df_sc = df_sc.rename(columns={'시간':'ds', f'ch{i} 전압': 'vol', f'ch{i} 전류': 'curr', f'ch{i} 용량': 'q_val',  f'ch{i} PV': 'pv'})
-        df_sc.drop(['pv'], axis=1, inplace=True)
-        df_sc = add_features(df_sc)
-        df_list.append({'stage': stage, 'ch': i, 'data': df_sc})
-    print(f'Stage : {stage} loaded.')
-    break
-dfi = df_list[0]['data']
+
+df_all = pd.read_csv('all_st_ch.csv')
+print('data loaded')
+dfi = df_all[(df_all['stage'] == 'T01730') & (df_all['channel'] == 1)]
 dfa = dfi[['vol']].copy()
 dfa['record'] = dfi['vol'][:1]
 
 fig = px.line(dfa)
 fig.add_vline(x=0, line_dash='dash')
-fig.update_layout(transition_duration=499, 
-xaxis=dict(
-    rangeslider=dict(visible=True) 
-)) 
+fig.update_layout(transition_duration=500, 
+# xaxis=dict(
+#     rangeslider=dict(visible=True) 
+# )
+) 
 
 def generate_table(dataframe, index, max_rows=10):
     return html.Table([
@@ -56,6 +46,12 @@ def generate_table(dataframe, index, max_rows=10):
             ]) for i in range(index, index+max_rows)
         ])
     ])
+
+df_per_stage = df_all[(df_all['stage'] == 'T01730') & (df_all['channel'] == 1)]
+
+
+fig2 = px.line(x=df_per_stage['series'], y=df_per_stage['vol'])
+
 
 
 target_columns = ['series', 'q_val', 'curr', 'vol']
@@ -91,6 +87,10 @@ app.layout = html.Div([
         id='interval-component',
         interval=500
     ),
+
+    html.Div([
+        dcc.Graph(id='x1', figure=fig2)
+    ]),
     html.Div(id='my-output')
 ])
 
@@ -112,7 +112,6 @@ def displayx(layoutData):
 )
 def display_click_data(range, clickData):
     print(clickData)
-    print('rg', range)
     rg = json.loads(range)
 
     if clickData is None:
@@ -131,7 +130,6 @@ def display_click_data(range, clickData):
     ) 
         pass
     else:
-        print('rg in draw', rg)
         fig.update_layout(transition_duration=500, 
                 # xaxis=dict(rangeslider=dict(visible=True)),
                 xaxis_range=[rg['xaxis.range[0]'],rg['xaxis.range[1]']]) 
@@ -186,3 +184,5 @@ def display_click_data(range, clickData):
 
 if __name__ == '__main__':
     app.run_server(debug=True)
+
+    print('next run.')
