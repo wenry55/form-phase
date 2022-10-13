@@ -32,6 +32,7 @@ def show_channel(n_clicks):
     stage = stages['1']['1']
     stage_df = stage.data
     channel_df = stage_df.query("channel == 3")
+    stage.current_step = 1000
     current_df = channel_df.iloc[0:stage.current_step]
     print('step', stage.current_step, current_df)
     # fig = go.Figure()
@@ -40,18 +41,21 @@ def show_channel(n_clicks):
     pred = reg.predict(channel_df[FEATURES])
 
     fig = make_subplots(specs=[[{"secondary_y": True}]])
-    fig.add_trace(go.Scatter(x=channel_df['series'], y=channel_df['vol'], ),
+    fig.add_trace(go.Scatter(x=channel_df['series'], y=channel_df['vol'], name='Previous' ),
                   secondary_y=False)
-    fig.add_trace(go.Scatter(x=channel_df['series'], y=pred))
-    fig.add_trace(go.Scatter(x=channel_df['series'], y=channel_df['curr']),
+    fig.add_trace(go.Scatter(x=channel_df['series'], y=pred, name='Expected'))
+    fig.add_trace(go.Scatter(x=channel_df['series'], y=channel_df['curr'], name='Current'),
                   secondary_y=True)
 
-    fig.add_trace(go.Scatter(x=current_df['series'], y=current_df['vol']), secondary_y=False )
+    fig.add_trace(go.Scatter(x=current_df['series'], y=current_df['vol'], 
+        mode='lines',
+        line=dict(color='firebrick', width=3),
+        name='In progress'), secondary_y=False )
     fig.add_trace(go.Scatter(x=[stage.current_step], y=[current_df.iloc[-1]['vol']], mode='markers', 
-        name='Current',
+        name='Last step',
         marker=dict(
-            color='Red',
-            size=5
+            color='red',
+            size=7
 
     )), secondary_y=False)
     fig.update_layout(transition_duration=500)

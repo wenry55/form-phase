@@ -3,6 +3,7 @@ import dash
 from dash import html, dcc, html, Input, Output, State, callback
 from formation import *
 import plotly.express as px
+import plotly.graph_objects as go
 from random import randint
 
 dash.register_page(__name__, path='/')
@@ -28,7 +29,31 @@ layout = html.Div(children=[
         options=["gold", "silver", "bronze"],
         value=["gold", "silver"],
     ),    
+
+
 ])
+
+def discrete_colorscale(bvals, colors):
+    """
+    bvals - list of values bounding intervals/ranges of interest
+    colors - list of rgb or hex colorcodes for values in [bvals[k], bvals[k+1]],0<=k < len(bvals)-1
+    returns the plotly  discrete colorscale
+    """
+    if len(bvals) != len(colors)+1:
+        raise ValueError('len(boundary values) should be equal to  len(colors)+1')
+    bvals = sorted(bvals)     
+    nvals = [(v-bvals[0])/(bvals[-1]-bvals[0]) for v in bvals]  #normalized values
+    
+    dcolorscale = [] #discrete colorscale
+    for k in range(len(colors)):
+        dcolorscale.extend([[nvals[k], colors[k]], [nvals[k+1], colors[k]]])
+    return dcolorscale    
+
+bvals = [0,1000, 8000, 13000, 15000, 20000,20001]
+colors = ['#777777', '#09ffff', '#19d3f3', '#e763fa' , '#ab63fa', '#ff0000']
+dcolorsc = discrete_colorscale(bvals, colors)
+tickvals = [np.mean(bvals[k:k+2]) for k in range(len(bvals)-1)] #position with respect to bvals where ticktext is displayed
+ticktext = [f'<{bvals[1]}'] + [f'{bvals[k]}-{bvals[k+1]}' for k in range(1, len(bvals)-2)]+[f'>{bvals[-2]}']
 
 @callback(
     Output('h1', 'figure'), 
@@ -38,10 +63,25 @@ def draw_heatmap(cols):
 
     data = [[randint(0, 18000) for i in range(48)] for j in range(6)]
     df = pd.DataFrame(data)
-    fig = px.imshow(df, aspect="auto", text_auto=True,
-    x = [str(i) for i in range(1,49)],
-    y = ['Lane 1', 'Lane 2', 'Lane 3', 'Lane 4', 'Lane 5', 'Lane 6']
-    )
+
+    z = [[randint(1,20000) for i in range(1, 49)] for j in range(6)]
+    z[-2][10] = 20001
+    fig = go.Figure(data=go.Heatmap(
+        z = z,
+        x = [str(i) for i in range(1,49)],
+        y = [f'Lane {i} ' for i in range(6, 0, -1)],
+        # aspect="auto",
+        # text_auto=True,
+        ygap=10,
+        xgap=1,
+        colorscale = dcolorsc, 
+        colorbar = dict(thickness=25, tickvals=tickvals, ticktext=ticktext)
+    ))
+
+    # fig = px.imshow(df, aspect="auto", text_auto=True, ygap=10,
+    # x = [str(i) for i in range(1,49)],
+    # y = ['Lane 1', 'Lane 2', 'Lane 3', 'Lane 4', 'Lane 5', 'Lane 6']
+    # )
     return fig
 
 @callback(Output('div1', 'children'), Input('pb', 'n_clicks'))
