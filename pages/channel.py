@@ -7,7 +7,7 @@ import plotly.graph_objects as go
 from plotly.subplots import make_subplots
 import xgboost as xgb
 
-dash.register_page(__name__)
+# dash.register_page(__name__)
 
 
 def layout(stage_id=None, channel_id=None, **others):

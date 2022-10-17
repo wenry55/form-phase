@@ -1,3 +1,4 @@
+from random import randint
 from tkinter import W
 from matplotlib import is_url
 import numpy as np
@@ -23,7 +24,11 @@ class DataLoader():
 
     def get(self, lane_id, stage_id):
         stage = int(lane_id * 48) * int(stage_id) % 4
-        return stage_data[stage]
+        if lane_id == '6' and stage_id == '48':
+            print('faulty loaded at 6, 48')
+            return pd.read_parquet('./faulty.gzip')
+        else:
+            return stage_data[stage]
 
     def get_same_channels(self, channel_no):
         df_channels = df_all.query('channel == @channel_no')
@@ -95,8 +100,8 @@ class Stage(object):
     def progressor(self):
         while self.is_running:
             time.sleep(1)
-            self.current_step += 1
-            print('current step : ', self.current_step)
+            self.current_step += 10
+            # print('current step : ', self.current_step, self.lane_id, self.stage_id)
 
 
     def start(self, from_step):
@@ -106,8 +111,8 @@ class Stage(object):
 
         self.is_running = True
         self.current_step = from_step
-        t = Thread(target=self.progressor)
-        t.start()
+        progress = Thread(target=self.progressor)
+        progress.start()
 
 
 
@@ -118,8 +123,12 @@ for lane_id in range(1, 7):
     for stage_id in range(1, 49):
         s = Stage(dataloader, str(lane_id), str(stage_id))
         stages[str(lane_id)][str(stage_id)] = s
-        t = Thread(target=s.task)
-        t.start()
+        # t = Thread(target=s.task)
+        # t.start()
+        
+        s.start(randint(1, 20000))
+
+
 print('Stages are loaded')
 #for lane_id in stages.keys():
 #    for stage_id in stages[lane_id].keys():
@@ -127,4 +136,4 @@ print('Stages are loaded')
 #        s.put(f'hello {lane_id}, {stage_id}')
 
 df_tempers = pd.read_parquet('all_temperature.gzip')
-print(df_tempers)
+# print(df_tempers)

@@ -3,7 +3,7 @@ from dash import html, dcc, Output, Input, callback
 from formation import *
 import plotly.express as px
 
-dash.register_page(__name__)
+# dash.register_page(__name__)
 
 
 def layout(stage_id=None, channel_id=None, **others):
