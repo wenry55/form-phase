@@ -32,7 +32,9 @@ def layout(stage_id=None, channel_id=None, **others):
 
         html.Div(id='div_start'),
         html.Div(id='div_start2'),
-        dcc.Interval(id='update_interval', interval=5000)
+        dcc.Interval(id='update_interval', interval=5000),
+        dcc.Location(id='location')
+
     ])
 
 # @callback(
@@ -80,14 +82,15 @@ def layout(stage_id=None, channel_id=None, **others):
     # Output('p-1', 'figure'), 
     Input('play', 'n_clicks'),
     Input('chks', 'value'),
-    Input('update_interval', 'n_intervals')
+    Input('update_interval', 'n_intervals'),
+    Input('location', 'search')
 
     
     )
-def dotest(n_clicks, value, interval):
-    print(value)
-    lane_id = '1'
-    stage_id = '1'
+def dotest(n_clicks, value, interval, search):
+    print(value, search)
+    lane_id = search.split('&')[0].split('=')[1]
+    stage_id = search.split('&')[1].split('=')[1]
     s = stages[lane_id][stage_id]
     s.put(f'hello {lane_id}, {stage_id}')
     # print(s.data)

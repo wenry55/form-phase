@@ -94,29 +94,33 @@ def draw_heatmap(n_interval):
     fig = go.FigureWidget([go_heatmap])
     return fig
 
-@callback(Output('div2', 'children'), Input('h1', 'clickData'))
+@callback(
+    Output('location', 'href'), 
+    Input('h1', 'clickData')
+    )
 def display_click(clickData):
     # stage_index = clickData.points[0].x
     # lane_index = clickData.points[0].y
 
     if clickData is not None:
-        print('click=>', clickData, clickData['points'][0]['x'], clickData['points'][0]['y'])
+        # print('click=>', clickData, clickData['points'][0]['x'], clickData['points'][0]['y'])
         stage_id = clickData['points'][0]['x']
-        lane_id = clickData['points'][0]['y']
+        lane_id = clickData['points'][0]['y'].replace('Lane', '').strip()
+        print(int(stage_id), int(lane_id.replace('Lane', '').strip()))
+        return f'/stage?lane_id={lane_id}&stage_id={stage_id}'
 
-    return json.dumps(clickData, indent=2)
 
 
-@callback(
-    Output('location', 'pathname'),
-    Input('div2', 'children')
-)
-def change_url(params):
+# @callback(
+#     Output('location', 'pathname'),
+#     Input('div2', 'children')
+# )
+# def change_url(params):
 
-    # print(params)
-    if params != 'null':
-        return '/stage'
-    pass
+#     # print(params)
+#     if params != 'null':
+#         return '/stage'
+#     pass
     
 # @callback(
 #     Output('none', 'children'),
