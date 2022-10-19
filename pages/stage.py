@@ -8,19 +8,37 @@ import plotly.express as px
 import plotly.graph_objects as go
 import xgboost as xgb
 from plotly.subplots import make_subplots
+from flask import request
 
 dash.register_page(__name__)
 
+selected_channels = []
+
+@callback(
+    Output('chks', 'value'),
+    Input('location', 'search')
+)
+def change_selected(search):
+    print('search=>', f"xx{search}yy")
+    if search != '':
+        lane_id = search.split('&')[0].split('=')[1]
+        stage_id = search.split('&')[1].split('=')[1]
+        print('searching lane, stage', lane_id, stage_id)
+        if lane_id == '6' and stage_id == '48':
+            return ['29']
+        else:
+            return []
 
 def layout(stage_id=None, channel_id=None, **others):
     
     channels = [str(i) for i in range(1, 57)]
 
     return html.Div(
+
         style={'height':'100vh'},
         children=[
             html.Div(children=[
-            html.Label('Checkboxes'),
+            html.Label('Channels'),
             dcc.Checklist(channels, [], inline=True, id='chks')
             ]),
         html.Button('start', id='start', n_clicks=0),
@@ -33,8 +51,9 @@ def layout(stage_id=None, channel_id=None, **others):
         html.Div(id='div_start'),
         html.Div(id='div_start2'),
         dcc.Interval(id='update_interval', interval=5000),
-        dcc.Location(id='location')
+        dcc.Location(id='location'),
 
+        html.Div(id='none', style={'display':'none'})
     ])
 
 # @callback(
@@ -106,7 +125,11 @@ def dotest(n_clicks, value, interval, search):
     #     fig = px.add_scatter(x='series', y='vol')
 
     # d = s.data.query('channel < 3')
-    d = s.data
+    
+    # c for predicted line
+    c = s.data
+    d = stages['1']['1'].data
+
     # fig = px.line(d, x='series', y='vol', color='channel')
     # fig.update_layout(transition_duration=500,
     #                   xaxis=dict(
@@ -122,6 +145,12 @@ def dotest(n_clicks, value, interval, search):
     vol_min_y = d[['series', 'vol']].groupby('series').min()['vol'].tolist()
     curr_max_y = d[['series', 'curr']].groupby('series').max()['curr'].tolist()
     curr_min_y = d[['series', 'curr']].groupby('series').min()['curr'].tolist()
+
+
+    x_steps = c['series'].tolist()
+    y_vol = c['vol'].tolist()
+    y_curr = c['curr'].tolist()
+
 
 
    # f2 = px.line(df_t, x='series', y='temperature', color='index')
@@ -180,7 +209,7 @@ def dotest(n_clicks, value, interval, search):
     ), secondary_y=True)
 
     for channel_num in value:
-        channel_data = d.query(f'channel == {int(channel_num)}')
+        channel_data = c.query(f'channel == {int(channel_num)}')
         channel_vol = channel_data['vol'].tolist()
         channel_curr = channel_data['curr'].tolist()
         channel_series = channel_data['series'].tolist()

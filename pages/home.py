@@ -24,7 +24,6 @@ layout = html.Div(children=[
         dcc.Graph(id='h1'),
     ]),
 
-
     dcc.Location(id='location'),
     dcc.Interval(id='stage_interval', interval=5000),
     html.Div(id='none')
@@ -46,7 +45,7 @@ def discrete_colorscale(bvals, colors):
         dcolorscale.extend([[nvals[k], colors[k]], [nvals[k+1], colors[k]]])
     return dcolorscale    
 
-bvals = [0,1000, 8000, 13000, 15000, 20000,20001]
+bvals = [0,1000, 8000, 13000, 15000, 18000,18001]
 colors = ['#777777', '#09ffff', '#19d3f3', '#e763fa' , '#ab63fa', '#ff0000']
 dcolorsc = discrete_colorscale(bvals, colors)
 tickvals = [np.mean(bvals[k:k+2]) for k in range(len(bvals)-1)] #position with respect to bvals where ticktext is displayed
@@ -66,11 +65,15 @@ def draw_heatmap(n_interval):
     #z = [[randint(1,20000) for i in range(1, 49)] for j in range(6)]
     # z[-2][10] = 20001
     z = []
-    for lane_id in range(1, 7):
+    for lane_id in range(6, 0, -1):
         stage_list = []
         for stage_id in range(1, 49):
             s = stages[str(lane_id)][str(stage_id)] 
-            stage_list.append(s.current_step)
+            step = s.current_step
+            if lane_id == 6 and stage_id == 48:
+                step = 20001
+            stage_list.append(step)
+
         z.append(stage_list)
 
     go_heatmap =go.Heatmap(

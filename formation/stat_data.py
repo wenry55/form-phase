@@ -79,6 +79,7 @@ class Stage(object):
         self.data = dataloader.get(lane_id, stage_id)
         self.is_running = False
         self.current_step = 0
+        self.current_stat = 0 # 0 for normal, 1 for yellow, 2 for red
         
 
     def get_state(self):
@@ -100,6 +101,8 @@ class Stage(object):
     def progressor(self):
         while self.is_running:
             time.sleep(1)
+            if self.current_step > 17000:
+                self.current_step = 0
             self.current_step += 10
             # print('current step : ', self.current_step, self.lane_id, self.stage_id)
 
@@ -113,6 +116,13 @@ class Stage(object):
         self.current_step = from_step
         progress = Thread(target=self.progressor)
         progress.start()
+
+    def get_channel_status(self):
+        if lane_id == 6 and stage_id == 48:
+            print('it')
+            return ['29']
+        else:
+            return []
 
 
 
