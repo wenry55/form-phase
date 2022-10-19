@@ -215,24 +215,65 @@ def dotest(n_clicks, value, interval, search):
         channel_series = channel_data['series'].tolist()
     
         f2.add_trace(go.Scatter(
-            x = channel_series,
-            y = channel_vol,
+            x = channel_series[:s.current_step],
+            y = channel_vol[:s.current_step],
             # line_color='rgba(170,176,200,0.5)',
             showlegend=True,
             name=f'Voltage {channel_num}'
         ), secondary_y=False)
 
         f2.add_trace(go.Scatter(
-            x = channel_series,
-            y = channel_curr,
+            x = channel_series[:s.current_step],
+            y = channel_vol[:s.current_step],
+            # line_color='rgba(170,176,200,0.5)',
+            showlegend=True,
+            name=f'Voltage(now) {channel_num}',
+        ), secondary_y=False)
+
+        f2.add_trace(go.Scatter(
+            x = channel_series[s.current_step:s.current_step+1],
+            y = channel_vol[s.current_step:s.current_step+1],
+            # line_color='rgba(170,176,200,0.5)',
+            showlegend=True,
+            name=f'Voltage(now) {channel_num}',
+            mode='markers',
+            marker=dict(size=7)
+        ), secondary_y=False)
+
+
+
+        f2.add_trace(go.Scatter(
+            x = channel_series[:s.current_step],
+            y = channel_curr[:s.current_step],
             # line_color='rgba(170,176,200,0.5)',
             showlegend=True,
             name=f'Current {channel_num} '
         ), secondary_y=True)
 
+        f2.add_trace(go.Scatter(
+            x = channel_series[:s.current_step],
+            y = channel_curr[:s.current_step],
+            # line_color='rgba(170,176,200,0.5)',
+            showlegend=True,
+            name=f'Current(now) {channel_num}',
+        ), secondary_y=True)
+
+
+        f2.add_trace(go.Scatter(
+            x = channel_series[s.current_step:s.current_step+1],
+            y = channel_curr[s.current_step:s.current_step+1],
+            # line_color='rgba(170,176,200,0.5)',
+            showlegend=True,
+            name=f'Current(now) {channel_num}',
+            mode='markers',
+            marker=dict(size=7)
+        ), secondary_y=True)
+
+
+
     
 
-    f2.add_vline(x=s.current_step, line_dash='dash', line_color='green', line_width=3)
+    # f2.add_vline(x=s.current_step, line_dash='dash', line_color='green', line_width=3)
 
 
     f2.update_layout(height=600)

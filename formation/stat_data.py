@@ -114,6 +114,10 @@ class Stage(object):
 
         self.is_running = True
         self.current_step = from_step
+
+        if self.lane_id == '6' and self.stage_id == '48':
+            self.current_step = 6800
+        
         progress = Thread(target=self.progressor)
         progress.start()
 
