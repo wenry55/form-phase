@@ -25,6 +25,9 @@ def change_selected(search):
         stage_id = search.split('&')[1].split('=')[1]
         print('searching lane, stage', lane_id, stage_id)
         if lane_id == '6' and stage_id == '48':
+            stages['6']['48'].current_step = 6850
+
+
             return ['29']
         else:
             return []
